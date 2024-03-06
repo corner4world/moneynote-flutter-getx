@@ -1,4 +1,10 @@
 {
+  "common": {
+    "confirmDialogTitle": "确认此操作吗？",
+    "ok": "确认",
+    "cancel": "取消",
+    "netError": "网络错误，请稍后重试"
+  },
   "menu": {
     "account": "账户",
     "flow": "账单",
@@ -14,5 +20,8 @@
     "apiPlaceholder": "后台地址",
     "apiErrorText": "请输入后台地址",
     "login": "登录"
+  },
+  "my": {
+    "logout": "退出登录"
   }
 }

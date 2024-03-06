@@ -17,6 +17,13 @@ class AuthController extends BaseController {
     update();
   }
 
+  void onLoggedOut() async {
+    await Token.delete();
+    status = AuthStatus.unauthenticated;
+    initState = const { };
+    update();
+  }
+
   void onAppStarted() async {
     final String token = await Token.get();
     final String apiUrl = await ApiUrl.get();

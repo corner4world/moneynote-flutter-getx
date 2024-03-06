@@ -13,7 +13,7 @@ class SubmitBtn extends StatelessWidget {
     return GetBuilder<LoginController>(builder: (controller) {
       return ElevatedButton(
           onPressed: controller.valid && !controller.submissionStatus.isInProgress ? () { controller.login(); } : null,
-          child: Get.find<LoginController>().submissionStatus.isInProgress ?
+          child: controller.submissionStatus.isInProgress ?
           const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
             strokeWidth: 1.5,

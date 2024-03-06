@@ -1,18 +1,27 @@
 {
+  "common": {
+    "confirmDialogTitle": "Are you sure?",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "netError": "Network Error, Try later on."
+  },
   "menu": {
-    "account": "账户",
-    "flow": "账单",
-    "newFlow": "记账",
-    "chart": "图表",
-    "my": "我的"
+    "account": "Account",
+    "flow": "Flow",
+    "newFlow": "New",
+    "chart": "Chart",
+    "my": "My"
   },
   "user": {
-    "usernamePlaceholder": "用户名",
-    "usernameErrorText": "请输入用户名",
-    "passwordPlaceholder": "密码",
-    "passwordErrorText": "请输入密码",
-    "apiPlaceholder": "后台地址",
-    "apiErrorText": "请输入后台地址",
-    "login": "登录"
+    "usernamePlaceholder": "Username",
+    "usernameErrorText": "Please enter username",
+    "passwordPlaceholder": "Password",
+    "passwordErrorText": "Please enter password",
+    "apiPlaceholder": "Api Address",
+    "apiErrorText": "Please enter api address",
+    "login": "Login"
+  },
+  "my": {
+    "logout": "Logout Current User"
   }
 }

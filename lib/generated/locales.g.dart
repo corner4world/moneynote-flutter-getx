@@ -11,6 +11,10 @@ class AppTranslation {
 
 class LocaleKeys {
   LocaleKeys._();
+  static const common_confirmDialogTitle = 'common_confirmDialogTitle';
+  static const common_ok = 'common_ok';
+  static const common_cancel = 'common_cancel';
+  static const common_netError = 'common_netError';
   static const menu_account = 'menu_account';
   static const menu_flow = 'menu_flow';
   static const menu_newFlow = 'menu_newFlow';
@@ -23,24 +27,34 @@ class LocaleKeys {
   static const user_apiPlaceholder = 'user_apiPlaceholder';
   static const user_apiErrorText = 'user_apiErrorText';
   static const user_login = 'user_login';
+  static const my_logout = 'my_logout';
 }
 
 class Locales {
   static const en_US = {
-    'menu_account': '账户',
-    'menu_flow': '账单',
-    'menu_newFlow': '记账',
-    'menu_chart': '图表',
-    'menu_my': '我的',
-    'user_usernamePlaceholder': '用户名',
-    'user_usernameErrorText': '请输入用户名',
-    'user_passwordPlaceholder': '密码',
-    'user_passwordErrorText': '请输入密码',
-    'user_apiPlaceholder': '后台地址',
-    'user_apiErrorText': '请输入后台地址',
-    'user_login': '登录',
+    'common_confirmDialogTitle': 'Are you sure?',
+    'common_ok': 'OK',
+    'common_cancel': 'Cancel',
+    'common_netError': 'Network Error, Try later on.',
+    'menu_account': 'Account',
+    'menu_flow': 'Flow',
+    'menu_newFlow': 'New',
+    'menu_chart': 'Chart',
+    'menu_my': 'My',
+    'user_usernamePlaceholder': 'Username',
+    'user_usernameErrorText': 'Please enter username',
+    'user_passwordPlaceholder': 'Password',
+    'user_passwordErrorText': 'Please enter password',
+    'user_apiPlaceholder': 'Api Address',
+    'user_apiErrorText': 'Please enter api address',
+    'user_login': 'Login',
+    'my_logout': 'Logout Current User',
   };
   static const zh_CN = {
+    'common_confirmDialogTitle': '确认此操作吗？',
+    'common_ok': '确认',
+    'common_cancel': '取消',
+    'common_netError': '网络错误，请稍后重试',
     'menu_account': '账户',
     'menu_flow': '账单',
     'menu_newFlow': '记账',
@@ -53,5 +67,6 @@ class Locales {
     'user_apiPlaceholder': '后台地址',
     'user_apiErrorText': '请输入后台地址',
     'user_login': '登录',
+    'my_logout': '退出登录',
   };
 }

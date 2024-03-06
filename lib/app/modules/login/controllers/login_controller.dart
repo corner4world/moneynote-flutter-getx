@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/login/controllers/auth_controller.dart';
+import '/app/core/utils/ApiUrl.dart';
+import '/app/modules/login/controllers/auth_controller.dart';
 import '../data/login_repository.dart';
 import '/app/core/commons/form/not_empty_formz.dart';
 import '/app/core/base/base_controller.dart';
@@ -46,11 +47,15 @@ class LoginController extends BaseController {
     if (valid) {
       try {
         submissionStatus = FormzSubmissionStatus.inProgress;
+        update();
         String token = await LoginRepository.logIn(username: usernameFormz.value, password: passwordFormz.value);
         authController.onLoggedIn(token);
         submissionStatus = FormzSubmissionStatus.success;
+        update();
+        await ApiUrl.save(apiFormz.value);
       } catch (_) {
         submissionStatus = FormzSubmissionStatus.failure;
+        update();
       }
     }
   }

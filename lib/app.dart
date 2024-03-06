@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
+import 'theme.dart';
 import '/app/core/values/app_values.dart';
 import '/app/routes/app_pages.dart';
 
@@ -14,8 +15,12 @@ class App extends StatelessWidget {
       title: AppValues.appName,
       translationsKeys: AppTranslation.translations,
       // locale: Get.deviceLocale,
-      locale: const Locale('zh', 'CN'),
+      // locale: const Locale('zh', 'CN'),
+      locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.light,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     );

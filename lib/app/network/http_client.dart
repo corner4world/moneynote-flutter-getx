@@ -1,5 +1,7 @@
+import 'package:get/get.dart' as getx;
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:moneynote/generated/locales.g.dart';
 import '/app/core/utils/token.dart';
 import '/app/core/values/app_values.dart';
 import '/app/core/utils/message.dart';
@@ -15,12 +17,13 @@ class HttpClient {
 
   late Dio _dio;
   init() {
+
     BaseOptions baseOptions = BaseOptions(
       // baseUrl: 'http://192.168.2.4:9092/api/v1/',
       baseUrl: '${AppValues.apiUrl}/api/v1/',
       contentType: 'application/json',
       headers: {
-        'Accept-Language': 'zh-CN'
+        'Accept-Language': getx.Get.locale.toString().replaceAll("_", "-")
       },
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
@@ -70,6 +73,7 @@ class TokenInterceptor extends Interceptor {
 
 // 全局错误处理
 class ExceptionInterceptor extends Interceptor {
+
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
     if (response.data['showType'] == 4) {
@@ -80,9 +84,10 @@ class ExceptionInterceptor extends Interceptor {
     }
     super.onResponse(response, handler);
   }
+
   @override
   void onError(DioError e, handler) {
-    String errorMsg = e.response?.data['message'] ?? '网络错误，请稍后重试';
+    String errorMsg = e.response?.data['message'] ?? LocaleKeys.common_netError.tr;
     print(e);
     Message.error(errorMsg);
     super.onError(e, handler);
