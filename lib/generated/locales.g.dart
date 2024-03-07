@@ -27,6 +27,7 @@ class LocaleKeys {
   static const user_apiPlaceholder = 'user_apiPlaceholder';
   static const user_apiErrorText = 'user_apiErrorText';
   static const user_login = 'user_login';
+  static const my_currentVersion = 'my_currentVersion';
   static const my_logout = 'my_logout';
 }
 
@@ -48,6 +49,7 @@ class Locales {
     'user_apiPlaceholder': 'Api Address',
     'user_apiErrorText': 'Please enter api address',
     'user_login': 'Login',
+    'my_currentVersion': 'Current Version: ',
     'my_logout': 'Logout Current User',
   };
   static const zh_CN = {
@@ -67,6 +69,7 @@ class Locales {
     'user_apiPlaceholder': '后台地址',
     'user_apiErrorText': '请输入后台地址',
     'user_login': '登录',
+    'my_currentVersion': '当前版本号: ',
     'my_logout': '退出登录',
   };
 }

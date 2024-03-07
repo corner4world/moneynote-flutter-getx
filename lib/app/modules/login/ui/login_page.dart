@@ -28,6 +28,8 @@ class LoginPage extends StatelessWidget {
                   )
               ),
               const LoginForm(),
+              const SizedBox(height: 40),
+              Text(AppValues.version, style: Theme.of(context).textTheme.bodySmall)
             ],
           ),
         ),

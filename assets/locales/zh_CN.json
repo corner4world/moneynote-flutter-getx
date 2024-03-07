@@ -22,6 +22,7 @@
     "login": "登录"
   },
   "my": {
+    "currentVersion": "当前版本号: ",
     "logout": "退出登录"
   }
 }

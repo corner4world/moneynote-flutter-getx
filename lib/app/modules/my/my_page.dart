@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/values/app_values.dart';
 import 'package:moneynote/generated/locales.g.dart';
 
 import '../../core/components/dialog_confirm.dart';
@@ -30,9 +31,9 @@ class MyPage extends StatelessWidget {
               //     trailing: Text(initState['book']['name'])
               // ),
               const Divider(),
-              const ListTile(
-                  title: Text('当前版本号：'),
-                  trailing: Text('1.0.27')
+              ListTile(
+                  title: Text(LocaleKeys.my_currentVersion.tr),
+                  trailing: const Text(AppValues.version)
               ),
               const Divider(),
               Container(
