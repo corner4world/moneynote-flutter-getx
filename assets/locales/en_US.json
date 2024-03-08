@@ -21,6 +21,12 @@
     "apiErrorText": "Please enter api address",
     "login": "Login"
   },
+  "account": {
+    "checking": "Current",
+    "credit": "Credit",
+    "asset": "Asset",
+    "debt": "Debt"
+  },
   "my": {
     "currentVersion": "Current Version: ",
     "logout": "Logout Current User"

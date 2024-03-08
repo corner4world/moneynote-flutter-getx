@@ -27,6 +27,10 @@ class LocaleKeys {
   static const user_apiPlaceholder = 'user_apiPlaceholder';
   static const user_apiErrorText = 'user_apiErrorText';
   static const user_login = 'user_login';
+  static const account_checking = 'account_checking';
+  static const account_credit = 'account_credit';
+  static const account_asset = 'account_asset';
+  static const account_debt = 'account_debt';
   static const my_currentVersion = 'my_currentVersion';
   static const my_logout = 'my_logout';
 }
@@ -49,6 +53,10 @@ class Locales {
     'user_apiPlaceholder': 'Api Address',
     'user_apiErrorText': 'Please enter api address',
     'user_login': 'Login',
+    'account_checking': 'Current',
+    'account_credit': 'Credit',
+    'account_asset': 'Asset',
+    'account_debt': 'Debt',
     'my_currentVersion': 'Current Version: ',
     'my_logout': 'Logout Current User',
   };
@@ -69,6 +77,10 @@ class Locales {
     'user_apiPlaceholder': '后台地址',
     'user_apiErrorText': '请输入后台地址',
     'user_login': '登录',
+    'account_checking': '活期',
+    'account_credit': '信用',
+    'account_asset': '资产',
+    'account_debt': '贷款',
     'my_currentVersion': '当前版本号: ',
     'my_logout': '退出登录',
   };

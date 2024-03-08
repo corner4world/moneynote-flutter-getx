@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import '/app/core/utils/ApiUrl.dart';
+import '/app/core/utils/api_url.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
 import '../data/login_repository.dart';
 import '/app/core/commons/form/not_empty_formz.dart';

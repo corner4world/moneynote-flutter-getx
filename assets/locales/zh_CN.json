@@ -21,6 +21,12 @@
     "apiErrorText": "请输入后台地址",
     "login": "登录"
   },
+  "account": {
+    "checking": "活期",
+    "credit": "信用",
+    "asset": "资产",
+    "debt": "贷款"
+  },
   "my": {
     "currentVersion": "当前版本号: ",
     "logout": "退出登录"

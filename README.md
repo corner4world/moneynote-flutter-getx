@@ -1,6 +1,6 @@
 # moneynote
 
-Money Note Flutter project.
+MoneyNote Flutter project.
 
 ## Getting Started
 

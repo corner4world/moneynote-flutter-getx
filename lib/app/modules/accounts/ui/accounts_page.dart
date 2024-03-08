@@ -1,10 +1,149 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:moneynote/app/core/base/enums.dart';
+import 'package:moneynote/app/core/components/pages/empty_page.dart';
+import 'package:moneynote/app/core/values/app_text_styles.dart';
+import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
+import 'package:moneynote/generated/locales.g.dart';
 
-class AccountsPage extends StatelessWidget {
+import '../../../core/components/pages/error_page.dart';
+import '../../../core/components/pages/loading_page.dart';
+import '../../../core/utils/utils.dart';
+
+class AccountsPage extends StatefulWidget {
+
+  const AccountsPage({super.key});
+
+  @override
+  State<AccountsPage> createState() => _AccountsPageState();
+
+}
+
+class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMixin {
+
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+    tabController.addListener(() {
+      if(!tabController.indexIsChanging) {
+        Get.find<AccountsController>().queryChanged({
+          'type': accountTabIndexToType(tabController.index)
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Text('AccountsPage');
+    return Scaffold(
+        appBar: AppBar(
+            leading: IconButton(
+                onPressed: () {
+                  Get.find<AccountsController>().reload();
+                },
+                icon: const Icon(Icons.refresh)
+            ),
+            centerTitle: true,
+            title: TabBar(
+              controller: tabController,
+              labelPadding: const EdgeInsets.all(0),
+              tabs: [
+                Tab(child: Text(LocaleKeys.account_checking.tr, style: AppTextStyle.accountTab)),
+                Tab(child: Text(LocaleKeys.account_credit.tr, style: AppTextStyle.accountTab)),
+                Tab(child: Text(LocaleKeys.account_asset.tr, style: AppTextStyle.accountTab)),
+                Tab(child: Text(LocaleKeys.account_debt.tr, style: AppTextStyle.accountTab)),
+              ],
+            ),
+            actions: [
+              IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () {
+                    // fullDialog(context, AccountFormPage(action: 1, type: accountTabIndexToType(tabController.index)));
+                  }
+              )
+            ]
+        ),
+        body: GestureDetector(
+          // https://flutterassets.com/flutter-gestures-detection/
+          onHorizontalDragEnd: (details) {
+            if (details.velocity.pixelsPerSecond.dx > 0) {
+              if (tabController.index > 0) {
+                tabController.animateTo(tabController.index - 1);
+              }
+            } else if (details.velocity.pixelsPerSecond.dx < 0) {
+              if (tabController.index < 3) {
+                tabController.animateTo(tabController.index + 1);
+              }
+            }
+          },
+          child: GetBuilder<AccountsController>(builder: (controller) {
+            LoadDataStatus status = controller.status;
+            switch (status) {
+              case LoadDataStatus.progress:
+              case LoadDataStatus.initial:
+                return const LoadingPage();
+              case LoadDataStatus.success:
+                return SmartRefresher(
+                  enablePullDown: false,
+                  enablePullUp: true,
+                  controller: controller.refreshController,
+                  child: buildContent(context, controller.items),
+                  onLoading: () async {
+                    Get.find<AccountsController>().loadMore();
+                  },
+                );
+              case LoadDataStatus.empty:
+                return const EmptyPage();
+              case LoadDataStatus.failure:
+                return const ErrorPage();
+            }
+          }),
+        )
+    );
+  }
+
+  Widget buildContent(BuildContext context, List<Map<String, dynamic>> items) {
+    final theme = Theme.of(context);
+    return ListView.separated(
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        Map<String, dynamic> item = items.elementAt(index);
+        return ListTile(
+          dense: true,
+          title: Text(item['name'], style: theme.textTheme.bodyLarge),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(item['balance'].toStringAsFixed(2), style: AppTextStyle.accountBalance),
+              const Icon(Icons.keyboard_arrow_right)
+            ],
+          ),
+          onTap: () {
+            // Navigator.of(context).push(
+            //   MaterialPageRoute(
+            //     builder: (context) => AccountDetailPage(id: item['id']),
+            //   ),
+            // );
+          },
+          onLongPress: () {
+            // fullDialog(context, AccountAdjustPage(action: 1, currentRow: item));
+          },
+        );
+      },
+      separatorBuilder: (context, index) {
+        return const Divider();
+      },
+    );
   }
 
 }

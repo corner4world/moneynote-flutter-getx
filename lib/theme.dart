@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
-  primaryColor: Colors.red,
+  // primaryColor: Colors.deepPurple,
   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
 );
 

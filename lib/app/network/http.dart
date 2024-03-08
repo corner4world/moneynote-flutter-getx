@@ -10,4 +10,8 @@ class Http {
     return (await HttpClient().post(uri, data: data));
   }
 
+  static Future<Map<String, dynamic>> patch(String uri, {data}) async {
+    return (await HttpClient().patch(uri, data: data));
+  }
+
 }

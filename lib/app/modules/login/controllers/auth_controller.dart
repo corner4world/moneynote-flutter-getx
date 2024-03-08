@@ -1,6 +1,5 @@
-import 'package:moneynote/app/core/utils/ApiUrl.dart';
-import 'package:moneynote/app/modules/login/data/login_repository.dart';
-
+import '/app/core/utils/api_url.dart';
+import '/app/modules/login/data/login_repository.dart';
 import '/app/core/utils/token.dart';
 import '/app/core/base/base_controller.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
 import 'package:moneynote/app/modules/my/my_page.dart';
 import '/app/core/values/app_text_styles.dart';
 import '/app/core/components/lazy_indexed_stack.dart';
@@ -12,7 +13,7 @@ class IndexPage extends StatefulWidget {
 
   const IndexPage({
     super.key,
-    this.initialIndex = 1,
+    this.initialIndex = 0,
   });
 
   @override
@@ -62,7 +63,8 @@ class _IndexPageState extends State<IndexPage> {
           itemBuilder: (c, i) {
             switch (i) {
               case 0:
-                return AccountsPage();
+                Get.put(AccountsController());
+                return const AccountsPage();
               case 1:
                 return AccountsPage();
               case 2:
