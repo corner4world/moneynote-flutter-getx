@@ -31,8 +31,15 @@ class LocaleKeys {
   static const account_credit = 'account_credit';
   static const account_asset = 'account_asset';
   static const account_debt = 'account_debt';
+  static const my_currentTheme = 'my_currentTheme';
+  static const my_currentLang = 'my_currentLang';
   static const my_currentVersion = 'my_currentVersion';
   static const my_logout = 'my_logout';
+  static const theme_default = 'theme_default';
+  static const theme_purple = 'theme_purple';
+  static const theme_red = 'theme_red';
+  static const theme_green = 'theme_green';
+  static const theme_dark = 'theme_dark';
 }
 
 class Locales {
@@ -57,8 +64,15 @@ class Locales {
     'account_credit': 'Credit',
     'account_asset': 'Asset',
     'account_debt': 'Debt',
+    'my_currentTheme': 'Current Theme: ',
+    'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
     'my_logout': 'Logout Current User',
+    'theme_default': 'Default',
+    'theme_purple': 'Purple',
+    'theme_red': 'Red',
+    'theme_green': 'Green',
+    'theme_dark': 'Dark',
   };
   static const zh_CN = {
     'common_confirmDialogTitle': '确认此操作吗？',
@@ -81,7 +95,14 @@ class Locales {
     'account_credit': '信用',
     'account_asset': '资产',
     'account_debt': '贷款',
-    'my_currentVersion': '当前版本号: ',
+    'my_currentTheme': '当前主题: ',
+    'my_currentLang': '当前语言: ',
+    'my_currentVersion': '当前版本: ',
     'my_logout': '退出登录',
+    'theme_default': '默认',
+    'theme_purple': '紫色',
+    'theme_red': '红色',
+    'theme_green': '绿色',
+    'theme_dark': '暗黑',
   };
 }

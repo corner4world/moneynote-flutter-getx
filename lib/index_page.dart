@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
+import 'package:moneynote/app/modules/my/controllers/language_controller.dart';
+import 'package:moneynote/app/modules/my/controllers/theme_controller.dart';
 import 'package:moneynote/app/modules/my/my_page.dart';
 import '/app/core/values/app_text_styles.dart';
 import '/app/core/components/lazy_indexed_stack.dart';

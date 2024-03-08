@@ -28,7 +28,16 @@
     "debt": "贷款"
   },
   "my": {
-    "currentVersion": "当前版本号: ",
+    "currentTheme": "当前主题: ",
+    "currentLang": "当前语言: ",
+    "currentVersion": "当前版本: ",
     "logout": "退出登录"
+  },
+  "theme": {
+    "default": "默认",
+    "purple": "紫色",
+    "red": "红色",
+    "green": "绿色",
+    "dark": "暗黑"
   }
 }

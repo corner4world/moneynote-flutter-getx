@@ -28,7 +28,16 @@
     "debt": "Debt"
   },
   "my": {
+    "currentTheme": "Current Theme: ",
+    "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
     "logout": "Logout Current User"
+  },
+  "theme": {
+    "default": "Default",
+    "purple": "Purple",
+    "red": "Red",
+    "green": "Green",
+    "dark": "Dark"
   }
 }
