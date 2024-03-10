@@ -18,6 +18,7 @@ class LocaleKeys {
   static const common_no = 'common_no';
   static const common_netError = 'common_netError';
   static const common_copy = 'common_copy';
+  static const common_delete = 'common_delete';
   static const common_operationSuccess = 'common_operationSuccess';
   static const menu_account = 'menu_account';
   static const menu_flow = 'menu_flow';
@@ -80,6 +81,7 @@ class Locales {
     'common_no': 'No',
     'common_netError': 'Network Error, Try later on.',
     'common_copy': 'Copy',
+    'common_delete': 'Delete',
     'common_operationSuccess': 'Operation successful',
     'menu_account': 'Account',
     'menu_flow': 'Flow',
@@ -135,6 +137,7 @@ class Locales {
     'common_no': '否',
     'common_netError': '网络错误，请稍后重试',
     'common_copy': '复制',
+    'common_delete': '删除',
     'common_operationSuccess': '操作成功',
     'menu_account': '账户',
     'menu_flow': '账单',

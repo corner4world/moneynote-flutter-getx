@@ -7,6 +7,7 @@
     "no": "否",
     "netError": "网络错误，请稍后重试",
     "copy": "复制",
+    "delete": "删除",
     "operationSuccess": "操作成功"
   },
   "menu": {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../../../core/components/dialog_confirm.dart';
 import '/app/core/components/detail_item.dart';
 import '/app/core/components/pages/content_page.dart';
 import '/app/modules/accounts/controllers/account_detail_controller.dart';
@@ -87,6 +88,20 @@ class AccountDetailPage extends StatelessWidget {
                   ) :
                   DetailItem(label: LocaleKeys.account_detailLabelNo.tr, value: controller.item['no']),
                   DetailItem(label: LocaleKeys.account_detailLabelNotes.tr, value: controller.item['notes'], crossAlign: CrossAxisAlignment.start),
+                  SizedBox(
+                    width: double.infinity,
+                    child: DialogConfirm(
+                        child: AbsorbPointer(
+                          child: ElevatedButton(
+                            onPressed: controller.deleteStatus == LoadDataStatus.progress ? null : () { },
+                            child: Text(LocaleKeys.common_delete.tr),
+                          ),
+                        ),
+                        onConfirm: () {
+                          Get.find<AccountDetailController>().delete();
+                        }
+                    ),
+                  )
                 ],
               )
             );

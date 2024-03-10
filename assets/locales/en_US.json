@@ -7,6 +7,7 @@
     "no": "No",
     "netError": "Network Error, Try later on.",
     "copy": "Copy",
+    "delete": "Delete",
     "operationSuccess": "Operation successful"
   },
   "menu": {
