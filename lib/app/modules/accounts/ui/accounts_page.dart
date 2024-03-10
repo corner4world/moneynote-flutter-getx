@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/accounts/ui/account_detail_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:moneynote/app/core/base/enums.dart';
-import 'package:moneynote/app/core/components/pages/empty_page.dart';
-import 'package:moneynote/app/core/values/app_text_styles.dart';
-import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
-import 'package:moneynote/generated/locales.g.dart';
-
-import '../../../core/components/pages/error_page.dart';
-import '../../../core/components/pages/loading_page.dart';
-import '../../../core/utils/utils.dart';
+import '../controllers/account_detail_controller.dart';
+import '/app/core/base/enums.dart';
+import '/app/core/components/pages/empty_page.dart';
+import '/app/core/values/app_text_styles.dart';
+import '/app/modules/accounts/controllers/accounts_controller.dart';
+import '/generated/locales.g.dart';
+import '/app/core/components/pages/error_page.dart';
+import '/app/core/components/pages/loading_page.dart';
+import '/app/core/utils/utils.dart';
 
 class AccountsPage extends StatefulWidget {
 
@@ -133,7 +134,9 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
             //   MaterialPageRoute(
             //     builder: (context) => AccountDetailPage(id: item['id']),
             //   ),
-            // );
+            // );1
+            Get.put(AccountDetailController(item['id']));
+            Get.to(const AccountDetailPage())?.then((value) => Get.delete<AccountDetailController>());
           },
           onLongPress: () {
             // fullDialog(context, AccountAdjustPage(action: 1, currentRow: item));

@@ -40,6 +40,7 @@ class LoginController extends BaseController {
   void apiChanged(String api) {
     apiFormz = NotEmptyFormz.dirty(value: api);
     valid = Formz.validate([usernameFormz, passwordFormz, apiFormz]);
+    AppValues.apiUrl = apiFormz.value;
     update();
   }
 

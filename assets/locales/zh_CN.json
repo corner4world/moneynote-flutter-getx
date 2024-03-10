@@ -3,7 +3,11 @@
     "confirmDialogTitle": "确认此操作吗？",
     "ok": "确认",
     "cancel": "取消",
-    "netError": "网络错误，请稍后重试"
+    "yes": "是",
+    "no": "否",
+    "netError": "网络错误，请稍后重试",
+    "copy": "复制",
+    "operationSuccess": "操作成功"
   },
   "menu": {
     "account": "账户",
@@ -25,7 +29,28 @@
     "checking": "活期",
     "credit": "信用",
     "asset": "资产",
-    "debt": "贷款"
+    "debt": "贷款",
+    "detailTitle": "账户详情",
+    "detailLabelTypeName": "账户类型",
+    "detailLabelName": "账户名称",
+    "detailLabelBalance": "账户余额",
+    "detailAdjust": "余额调整",
+    "detailLabelCurrency": "账户币种",
+    "detailLabelConvert": "折合",
+    "detailLabelCurrencyRate": "当前汇率",
+    "detailLabelCreditLimit": "信用额度",
+    "detailLabelRemainLimit": "剩余额度",
+    "detailLabelBillDay": "账单日",
+    "detailLabelPayDay": "还款日",
+    "detailLabelApr": "年化利率(%)",
+    "detailLabelInclude": "是否计入净资产",
+    "detailLabelCanExpense": "是否可支出",
+    "detailLabelCanIncome": "是否可收入",
+    "detailLabelCanTransferTo": "是否可转入",
+    "detailLabelCanTransferFrom": "是否可转出",
+    "detailLabelNo": "卡号",
+    "detailLabelNotes": "备注"
+
   },
   "my": {
     "currentTheme": "当前主题: ",

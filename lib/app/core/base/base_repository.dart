@@ -16,4 +16,8 @@ class BaseRepository {
     return (await Http.patch('$prefix/$id/toggle'))['success'];
   }
 
+  static Future<Map<String, dynamic>> get(String prefix, int id) async {
+    return (await Http.get('$prefix/$id'))['data'];
+  }
+
 }

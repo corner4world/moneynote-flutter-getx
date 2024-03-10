@@ -45,4 +45,8 @@ class AuthController extends BaseController {
     onAppStarted();
   }
 
+  String groupCurrency() {
+    return initState['group']['defaultCurrencyCode'];
+  }
+
 }

@@ -3,7 +3,11 @@
     "confirmDialogTitle": "Are you sure?",
     "ok": "OK",
     "cancel": "Cancel",
-    "netError": "Network Error, Try later on."
+    "yes": "Yes",
+    "no": "No",
+    "netError": "Network Error, Try later on.",
+    "copy": "Copy",
+    "operationSuccess": "Operation successful"
   },
   "menu": {
     "account": "Account",
@@ -25,7 +29,27 @@
     "checking": "Current",
     "credit": "Credit",
     "asset": "Asset",
-    "debt": "Debt"
+    "debt": "Debt",
+    "detailTitle": "Account Details",
+    "detailLabelTypeName": "Account Type",
+    "detailLabelName": "Account Name",
+    "detailLabelBalance": "Account Balance",
+    "detailAdjust": "Adjust Balance",
+    "detailLabelCurrency": "Account Currency",
+    "detailLabelConvert": "Convert To ",
+    "detailLabelCurrencyRate": "Currency Rate",
+    "detailLabelCreditLimit": "Credit Limit",
+    "detailLabelRemainLimit": "Remain Limit",
+    "detailLabelBillDay": "Bill Day",
+    "detailLabelPayDay": "Pay Day",
+    "detailLabelApr": "Apr(%)",
+    "detailLabelInclude": "Report Include",
+    "detailLabelCanExpense": "Can Expense",
+    "detailLabelCanIncome": "Can Income",
+    "detailLabelCanTransferTo": "Can Transfer In",
+    "detailLabelCanTransferFrom": "Can Transfer Out",
+    "detailLabelNo": "No",
+    "detailLabelNotes": "Notes"
   },
   "my": {
     "currentTheme": "Current Theme: ",

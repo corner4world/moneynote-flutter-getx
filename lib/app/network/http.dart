@@ -14,4 +14,8 @@ class Http {
     return (await HttpClient().patch(uri, data: data));
   }
 
+  static void init() {
+    HttpClient().init();
+  }
+
 }
