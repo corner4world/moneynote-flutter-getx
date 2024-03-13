@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../theme.dart';
 
 abstract class AppTextStyle {
 
@@ -21,6 +20,36 @@ abstract class AppTextStyle {
   static const accountBalance = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
+  );
+
+  static const formLabelStyle = TextStyle(
+    fontSize: 14,
+  );
+
+  static const formReadOnlyLabelStyle = TextStyle(
+    fontSize: 14,
+    color: Colors.grey
+  );
+
+  static const formValueStyle = TextStyle(
+    fontSize: 14,
+  );
+
+  static const formReadOnlyValueStyle = TextStyle(
+      fontSize: 14,
+      color: Colors.grey
+  );
+
+  static const InputDecoration inputDecoration = InputDecoration(
+    enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(width: 1, color: Colors.black)
+    ),
+    disabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(width: 1, color: Colors.grey)
+    ),
+    focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(width: 1, color: Colors.blue)
+    ),
   );
 
 }

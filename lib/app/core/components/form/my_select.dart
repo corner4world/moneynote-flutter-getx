@@ -30,6 +30,7 @@ class MySelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
       onTap: () {
         if (onFocus != null) {
           onFocus!.call();

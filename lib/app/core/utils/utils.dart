@@ -1,5 +1,6 @@
+import 'package:intl/intl.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
 
 String accountTabIndexToType(int index) {
   switch (index) {
@@ -28,4 +29,40 @@ bool isNullEmpty(dynamic o) {
     return o == null || o.length == 0;
   }
   return o == null || "" == o;
+}
+
+String removeDecimalZero(num? n) {
+  if (n == null) return '';
+  RegExp regex = RegExp(r'([.]*0)(?!.*\d)');
+  return n.toString().replaceAll(regex, "");
+}
+
+String dateFormatStr1() {
+  String locale = Get.locale?.toString() ?? '';
+  if (locale == 'en_US') {
+    return 'MM/dd/yyyy HH:mm';
+  } else if (locale == 'zh_CN') {
+    return 'yyyy-MM-dd HH:mm';
+  }
+  return 'MM/dd/yyyy HH:mm';
+}
+
+String dateFormatStr2() {
+  String locale = Get.locale?.toString() ?? '';
+  if (locale == 'en_US') {
+    return 'MM/dd/yyyy';
+  } else if (locale == 'zh_CN') {
+    return 'yyyy-MM-dd';
+  }
+  return 'MM/dd/yyyy';
+}
+
+String dateTimeFormat(int? timestamp) {
+  if (timestamp == null) return '';
+  return DateFormat(dateFormatStr1()).format(DateTime.fromMillisecondsSinceEpoch(timestamp));
+}
+
+String dateFormat(int? timestamp) {
+  if (timestamp == null) return '';
+  return DateFormat(dateFormatStr2()).format(DateTime.fromMillisecondsSinceEpoch(timestamp));
 }

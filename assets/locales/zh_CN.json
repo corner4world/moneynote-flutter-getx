@@ -66,6 +66,10 @@
     "selectPlaceholder1": "选择一个或多个",
     "selectPlaceholder2": "选择一个"
   },
+  "flow": {
+    "labelTitle": "标题",
+    "labelCreateTime": "时间"
+  },
   "theme": {
     "default": "默认",
     "purple": "紫色",

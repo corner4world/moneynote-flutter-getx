@@ -69,6 +69,8 @@ class LocaleKeys {
   static const book_whichBook = 'book_whichBook';
   static const form_selectPlaceholder1 = 'form_selectPlaceholder1';
   static const form_selectPlaceholder2 = 'form_selectPlaceholder2';
+  static const flow_labelTitle = 'flow_labelTitle';
+  static const flow_labelCreateTime = 'flow_labelCreateTime';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -131,6 +133,8 @@ class Locales {
     'book_whichBook': 'Which Book',
     'form_selectPlaceholder1': 'Choose One or More',
     'form_selectPlaceholder2': 'Choose Only One',
+    'flow_labelTitle': 'Title',
+    'flow_labelCreateTime': 'Create Time',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -191,6 +195,8 @@ class Locales {
     'book_whichBook': '所属账本',
     'form_selectPlaceholder1': '选择一个或多个',
     'form_selectPlaceholder2': '选择一个',
+    'flow_labelTitle': '标题',
+    'flow_labelCreateTime': '时间',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

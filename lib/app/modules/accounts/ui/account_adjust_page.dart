@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/components/form/my_form_date.dart';
+import 'package:moneynote/app/core/components/form/my_form_text.dart';
 import 'package:moneynote/app/core/components/form/my_select.dart';
 import 'package:moneynote/app/modules/accounts/controllers/account_adjust_controller.dart';
 import 'package:moneynote/generated/locales.g.dart';
@@ -42,6 +44,23 @@ class AccountAdjustPage extends StatelessWidget {
                   Get.back();
                 },
               ));
+            },
+          ),
+          MyFormText(
+            label: LocaleKeys.flow_labelTitle.tr,
+            value: controller.form['title'],
+            onChange: (value) {
+              controller.form['title'] = value;
+              controller.update();
+            },
+          ),
+          MyFormDate(
+            label: LocaleKeys.flow_labelCreateTime.tr,
+            value: controller.form['createTime'],
+            required: true,
+            onChange: (value) {
+              controller.form['createTime'] = value;
+              controller.update();
             },
           )
         ]

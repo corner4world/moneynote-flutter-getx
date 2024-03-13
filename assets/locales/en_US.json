@@ -66,6 +66,10 @@
     "selectPlaceholder1": "Choose One or More",
     "selectPlaceholder2": "Choose Only One"
   },
+  "flow": {
+    "labelTitle": "Title",
+    "labelCreateTime": "Create Time"
+  },
   "theme": {
     "default": "Default",
     "purple": "Purple",
