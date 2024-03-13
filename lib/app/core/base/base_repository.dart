@@ -20,7 +20,9 @@ class BaseRepository {
     return (await Http.get('$prefix/$id'))['data'];
   }
 
-
-
+  static Future<List<Map<String, dynamic>>> queryAll(String prefix, {Map<String, dynamic>? params}) async {
+    List<dynamic> data = (await Http.get('$prefix/all', params: params))['data'];
+    return List<Map<String, dynamic>>.from(data);
+  }
 
 }

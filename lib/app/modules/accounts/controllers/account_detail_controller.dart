@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
-
-import '../../../core/base/base_repository.dart';
-import '../../../core/base/enums.dart';
+import '/app/modules/accounts/controllers/accounts_controller.dart';
+import '/app/core/base/base_repository.dart';
+import '/app/core/base/enums.dart';
 import '/app/core/base/base_controller.dart';
 
 class AccountDetailController extends BaseController {

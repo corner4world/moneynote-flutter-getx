@@ -50,13 +50,21 @@
     "detailLabelCanTransferTo": "Can Transfer In",
     "detailLabelCanTransferFrom": "Can Transfer Out",
     "detailLabelNo": "No",
-    "detailLabelNotes": "Notes"
+    "detailLabelNotes": "Notes",
+    "adjustPageTitle": "Adjust Account Balance"
   },
   "my": {
     "currentTheme": "Current Theme: ",
     "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
     "logout": "Logout Current User"
+  },
+  "book": {
+    "whichBook": "Which Book"
+  },
+  "form": {
+    "selectPlaceholder1": "Choose One or More",
+    "selectPlaceholder2": "Choose Only One"
   },
   "theme": {
     "default": "Default",

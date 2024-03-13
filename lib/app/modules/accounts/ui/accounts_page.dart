@@ -134,9 +134,9 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
             //   MaterialPageRoute(
             //     builder: (context) => AccountDetailPage(id: item['id']),
             //   ),
-            // );1
+            // );
             Get.put(AccountDetailController(item['id']));
-            Get.to(const AccountDetailPage())?.then((value) => Get.delete<AccountDetailController>());
+            Get.to(() => const AccountDetailPage())?.then((value) => Get.delete<AccountDetailController>());
           },
           onLongPress: () {
             // fullDialog(context, AccountAdjustPage(action: 1, currentRow: item));

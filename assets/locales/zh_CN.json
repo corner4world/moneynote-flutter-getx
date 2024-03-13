@@ -50,14 +50,21 @@
     "detailLabelCanTransferTo": "是否可转入",
     "detailLabelCanTransferFrom": "是否可转出",
     "detailLabelNo": "卡号",
-    "detailLabelNotes": "备注"
-
+    "detailLabelNotes": "备注",
+    "adjustPageTitle": "调整账户余额"
   },
   "my": {
     "currentTheme": "当前主题: ",
     "currentLang": "当前语言: ",
     "currentVersion": "当前版本: ",
     "logout": "退出登录"
+  },
+  "book": {
+    "whichBook": "所属账本"
+  },
+  "form": {
+    "selectPlaceholder1": "选择一个或多个",
+    "selectPlaceholder2": "选择一个"
   },
   "theme": {
     "default": "默认",

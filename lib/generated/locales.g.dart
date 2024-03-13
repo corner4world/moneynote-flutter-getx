@@ -61,10 +61,14 @@ class LocaleKeys {
       'account_detailLabelCanTransferFrom';
   static const account_detailLabelNo = 'account_detailLabelNo';
   static const account_detailLabelNotes = 'account_detailLabelNotes';
+  static const account_adjustPageTitle = 'account_adjustPageTitle';
   static const my_currentTheme = 'my_currentTheme';
   static const my_currentLang = 'my_currentLang';
   static const my_currentVersion = 'my_currentVersion';
   static const my_logout = 'my_logout';
+  static const book_whichBook = 'book_whichBook';
+  static const form_selectPlaceholder1 = 'form_selectPlaceholder1';
+  static const form_selectPlaceholder2 = 'form_selectPlaceholder2';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -119,10 +123,14 @@ class Locales {
     'account_detailLabelCanTransferFrom': 'Can Transfer Out',
     'account_detailLabelNo': 'No',
     'account_detailLabelNotes': 'Notes',
+    'account_adjustPageTitle': 'Adjust Account Balance',
     'my_currentTheme': 'Current Theme: ',
     'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
     'my_logout': 'Logout Current User',
+    'book_whichBook': 'Which Book',
+    'form_selectPlaceholder1': 'Choose One or More',
+    'form_selectPlaceholder2': 'Choose Only One',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -175,10 +183,14 @@ class Locales {
     'account_detailLabelCanTransferFrom': '是否可转出',
     'account_detailLabelNo': '卡号',
     'account_detailLabelNotes': '备注',
+    'account_adjustPageTitle': '调整账户余额',
     'my_currentTheme': '当前主题: ',
     'my_currentLang': '当前语言: ',
     'my_currentVersion': '当前版本: ',
     'my_logout': '退出登录',
+    'book_whichBook': '所属账本',
+    'form_selectPlaceholder1': '选择一个或多个',
+    'form_selectPlaceholder2': '选择一个',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

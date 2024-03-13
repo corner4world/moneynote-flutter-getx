@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+import 'package:moneynote/generated/locales.g.dart';
+
 String accountTabIndexToType(int index) {
   switch (index) {
     case 0:
@@ -14,8 +17,15 @@ String accountTabIndexToType(int index) {
 
 String boolToString(bool val) {
   if (val) {
-    return '是';
+    return LocaleKeys.common_yes.tr;
   } else {
-    return '否';
+    return LocaleKeys.common_no.tr;
   }
+}
+
+bool isNullEmpty(dynamic o) {
+  if (o is Map<String, dynamic> || o is List<dynamic>) {
+    return o == null || o.length == 0;
+  }
+  return o == null || "" == o;
 }
