@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../controllers/account_form_controller.dart';
 import '/app/modules/accounts/controllers/account_adjust_controller.dart';
 import '/app/core/components/dialog_confirm.dart';
 import '/app/core/components/detail_item.dart';
@@ -14,6 +15,7 @@ import '/app/core/components/pages/loading_page.dart';
 import '/app/core/utils/message.dart';
 import '/app/core/utils/utils.dart';
 import 'account_adjust_page.dart';
+import 'account_form_page.dart';
 
 class AccountDetailPage extends StatelessWidget {
 
@@ -90,6 +92,19 @@ class AccountDetailPage extends StatelessWidget {
                   ) :
                   DetailItem(label: LocaleKeys.account_detailLabelNo.tr, value: controller.item['no']),
                   DetailItem(label: LocaleKeys.common_notes.tr, value: controller.item['notes'], crossAlign: CrossAxisAlignment.start),
+                  const SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.put(AccountFormController(controller.item['type'], 2, controller.item));
+                        Get.to(() => const AccountFormPage(), fullscreenDialog: true)?.then(
+                          (value) => Get.delete<AccountFormController>()
+                        );
+                      },
+                      child: Text(LocaleKeys.common_edit.tr),
+                    ),
+                  ),
                   SizedBox(
                     width: double.infinity,
                     child: DialogConfirm(

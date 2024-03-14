@@ -19,6 +19,7 @@ class LocaleKeys {
   static const common_netError = 'common_netError';
   static const common_copy = 'common_copy';
   static const common_delete = 'common_delete';
+  static const common_edit = 'common_edit';
   static const common_operationSuccess = 'common_operationSuccess';
   static const common_notes = 'common_notes';
   static const common_submit = 'common_submit';
@@ -63,6 +64,8 @@ class LocaleKeys {
       'account_detailLabelCanTransferFrom';
   static const account_detailLabelNo = 'account_detailLabelNo';
   static const account_adjustPageTitle = 'account_adjustPageTitle';
+  static const account_new = 'account_new';
+  static const account_edit = 'account_edit';
   static const my_currentTheme = 'my_currentTheme';
   static const my_currentLang = 'my_currentLang';
   static const my_currentVersion = 'my_currentVersion';
@@ -92,6 +95,7 @@ class Locales {
     'common_netError': 'Network Error, Try later on.',
     'common_copy': 'Copy',
     'common_delete': 'Delete',
+    'common_edit': 'Edit',
     'common_operationSuccess': 'Operation successful',
     'common_notes': 'Notes',
     'common_submit': 'Submit',
@@ -131,6 +135,8 @@ class Locales {
     'account_detailLabelCanTransferFrom': 'Can Transfer Out',
     'account_detailLabelNo': 'No',
     'account_adjustPageTitle': 'Adjust Account Balance',
+    'account_new': 'New Account',
+    'account_edit': 'Edit Account',
     'my_currentTheme': 'Current Theme: ',
     'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
@@ -158,6 +164,7 @@ class Locales {
     'common_netError': '网络错误，请稍后重试',
     'common_copy': '复制',
     'common_delete': '删除',
+    'common_edit': '编辑',
     'common_operationSuccess': '操作成功',
     'common_notes': '备注',
     'common_submit': '提交',
@@ -197,6 +204,8 @@ class Locales {
     'account_detailLabelCanTransferFrom': '是否可转出',
     'account_detailLabelNo': '卡号',
     'account_adjustPageTitle': '调整账户余额',
+    'account_new': '新增账户',
+    'account_edit': '编辑账户',
     'my_currentTheme': '当前主题: ',
     'my_currentLang': '当前语言: ',
     'my_currentVersion': '当前版本: ',

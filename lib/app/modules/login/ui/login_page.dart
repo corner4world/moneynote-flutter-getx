@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/components/bottomsheet_container.dart';
 import './widgets/login_form.dart';
 import '/app/core/values/app_values.dart';
 import '/app/core/values/app_text_styles.dart';
@@ -42,38 +43,31 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   String locale = Get.locale?.toString() ?? '';
                   Get.bottomSheet(
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).cardColor,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                        ),
-                      ),
+                    BottomSheetContainer(
                       child: Wrap(
                         children: [
-                          ListTile(
-                            title: const Text("🇺🇸 English"),
-                            onTap: () {
-                              Get.updateLocale(const Locale('en', 'US'));
-                              if(Get.isBottomSheetOpen ?? false){
-                                Get.back();
-                              }
-                            },
-                            selected: locale == 'en_US',
-                          ),
-                          ListTile(
-                            title: const Text("🇨🇳 简体中文"),
-                            onTap: () {
-                              Get.updateLocale(const Locale('zh', 'CN'));
-                              if(Get.isBottomSheetOpen ?? false){
-                                Get.back();
-                              }
-                            },
-                            selected: locale == 'zh_CN',
-                          )
-                        ],
-                      ),
+                            ListTile(
+                              title: const Text("🇺🇸 English"),
+                              onTap: () {
+                                Get.updateLocale(const Locale('en', 'US'));
+                                if(Get.isBottomSheetOpen ?? false){
+                                  Get.back();
+                                }
+                              },
+                              selected: locale == 'en_US',
+                            ),
+                            ListTile(
+                              title: const Text("🇨🇳 简体中文"),
+                              onTap: () {
+                                Get.updateLocale(const Locale('zh', 'CN'));
+                                if(Get.isBottomSheetOpen ?? false){
+                                  Get.back();
+                                }
+                              },
+                              selected: locale == 'zh_CN',
+                            )
+                          ],
+                      )
                     )
                   );
                 },

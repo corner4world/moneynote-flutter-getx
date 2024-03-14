@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/components/bottomsheet_container.dart';
 import 'package:moneynote/app/core/utils/language.dart';
 import 'package:moneynote/app/core/values/app_values.dart';
 import 'package:moneynote/app/modules/my/controllers/language_controller.dart';
@@ -40,92 +41,73 @@ class MyPage extends StatelessWidget {
                 }),
                 onTap: () {
                   Get.bottomSheet(
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          ),
-                        ),
-                        child: GetBuilder<ThemeController>(builder: (controller) {
-                          return Wrap(
-                            children: controller.themes.map((e) =>
-                              ListTile(
-                                title: Text(e['label']),
-                                onTap: () {
-                                  Get.find<ThemeController>().changeTheme(e['name'], e['theme']);
-                                },
-                                selected: e['selected'],
-                              )
-                            ).toList(),
-                          );
-                        }),
-                      )
+                    BottomSheetContainer(child: GetBuilder<ThemeController>(builder: (controller) {
+                      return Wrap(
+                        children: controller.themes.map((e) =>
+                            ListTile(
+                              title: Text(e['label']),
+                              onTap: () {
+                                Get.find<ThemeController>().changeTheme(e['name'], e['theme']);
+                              },
+                              selected: e['selected'],
+                            )
+                        ).toList(),
+                      );
+                    }))
                   );
                 },
               ),
               const Divider(),
               ListTile(
-                  title: Text(LocaleKeys.my_currentLang.tr),
-                  trailing: Builder(builder: (BuildContext context) {
-                    String locale = Get.locale?.toString() ?? '';
-                    if (locale == 'en_US') {
-                      return const Text("🇺🇸 English");
-                    } else if (locale == 'zh_CN') {
-                      return const Text("🇨🇳 简体中文");
-                    }
-                    return const Text("Not Found");
-                  }),
-                  onTap: () {
-                    String locale = Get.locale?.toString() ?? '';
-                    Get.bottomSheet(
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                          ),
-                          child: GetBuilder<LanguageController>(builder: (controller) {
-                            return Wrap(
-                              children: controller.languages.map((e) =>
-                                  ListTile(
-                                    title: Text(e['label']),
-                                    onTap: () {
-                                      Get.find<LanguageController>().changeLang(e['name'], e['locale']);
-                                    },
-                                    selected: e['selected'],
-                                  )
-                              ).toList(),
-                            );
-                          }),
-                        )
-                    );
-                  },
+                title: Text(LocaleKeys.my_currentLang.tr),
+                trailing: Builder(builder: (BuildContext context) {
+                  String locale = Get.locale?.toString() ?? '';
+                  if (locale == 'en_US') {
+                    return const Text("🇺🇸 English");
+                  } else if (locale == 'zh_CN') {
+                    return const Text("🇨🇳 简体中文");
+                  }
+                  return const Text("Not Found");
+                }),
+                onTap: () {
+                  Get.bottomSheet(
+                    BottomSheetContainer(child: GetBuilder<LanguageController>(builder: (controller) {
+                      return Wrap(
+                        children: controller.languages.map((e) =>
+                          ListTile(
+                            title: Text(e['label']),
+                            onTap: () {
+                              Get.find<LanguageController>().changeLang(e['name'], e['locale']);
+                            },
+                            selected: e['selected'],
+                          )
+                        ).toList(),
+                      );
+                    }))
+                  );
+                },
               ),
               const Divider(),
               ListTile(
-                  title: Text(LocaleKeys.my_currentVersion.tr),
-                  trailing: const Text(AppValues.version)
+                title: Text(LocaleKeys.my_currentVersion.tr),
+                trailing: const Text(AppValues.version)
               ),
               const Divider(),
               Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: DialogConfirm(
-                      child: AbsorbPointer(
-                        child: ElevatedButton(
-                          onPressed: () { },
-                          child: Text(LocaleKeys.my_logout.tr),
-                        ),
-                      ),
-                      onConfirm: () {
-                        // BlocProvider.of<AuthBloc>(context).add(LoggedOut());
-                        Get.find<AuthController>().onLoggedOut();
-                      }
-                  )
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: DialogConfirm(
+                  child: AbsorbPointer(
+                    child: ElevatedButton(
+                      onPressed: () { },
+                      child: Text(LocaleKeys.my_logout.tr),
+                    ),
+                  ),
+                  onConfirm: () {
+                    // BlocProvider.of<AuthBloc>(context).add(LoggedOut());
+                    Get.find<AuthController>().onLoggedOut();
+                  }
+                )
               ),
               const SizedBox(height: 30),
             ],

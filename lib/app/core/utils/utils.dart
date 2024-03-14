@@ -16,6 +16,20 @@ String accountTabIndexToType(int index) {
   throw Exception('tab index error');
 }
 
+String accountTypeToName(String type) {
+  switch (type) {
+    case 'CHECKING':
+      return LocaleKeys.account_checking.tr;
+    case 'CREDIT':
+      return LocaleKeys.account_credit.tr;
+    case 'ASSET':
+      return LocaleKeys.account_asset.tr;
+    case 'DEBT':
+      return LocaleKeys.account_debt.tr;
+  }
+  throw Exception('tab index error');
+}
+
 String boolToString(bool val) {
   if (val) {
     return LocaleKeys.common_yes.tr;

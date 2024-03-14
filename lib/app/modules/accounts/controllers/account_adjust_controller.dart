@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:formz/formz.dart';
 import 'package:moneynote/app/modules/accounts/controllers/account_detail_controller.dart';
+import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
 
 import '../../../core/commons/form/not_empty_formz.dart';
 import '../../../core/commons/form/not_empty_num_formz.dart';
@@ -59,7 +60,9 @@ class AccountAdjustController extends BaseController {
         if (result) {
           submissionStatus = FormzSubmissionStatus.success;
           Get.back();
+          // 更新成功要刷新列表页和详情页
           Get.find<AccountDetailController>().load();
+          Get.find<AccountsController>().reload();
         } else {
           submissionStatus = FormzSubmissionStatus.failure;
         }

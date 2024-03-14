@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/components/form/my_form_date.dart';
-import 'package:moneynote/app/core/components/form/my_form_text.dart';
-import 'package:moneynote/app/core/components/form/my_select.dart';
-import 'package:moneynote/app/modules/accounts/controllers/account_adjust_controller.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/app/core/components/form/my_form_date.dart';
+import '/app/core/components/form/my_form_text.dart';
+import '/app/core/components/form/my_select.dart';
+import '/app/modules/accounts/controllers/account_adjust_controller.dart';
+import '/generated/locales.g.dart';
 
-import '../../../core/commons/form/not_empty_num_formz.dart';
-import '../../../core/components/my_form_page.dart';
+import '/app/core/commons/form/not_empty_num_formz.dart';
+import '/app/core/components/my_form_page.dart';
 import '../../common/book_select/book_option.dart';
 import '../../common/book_select/book_select_controller.dart';
 

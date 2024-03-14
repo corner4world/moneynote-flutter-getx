@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/accounts/controllers/account_form_controller.dart';
 import 'package:moneynote/app/modules/accounts/ui/account_detail_page.dart';
+import 'package:moneynote/app/modules/accounts/ui/account_form_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../controllers/account_detail_controller.dart';
 import '/app/core/base/enums.dart';
@@ -70,6 +72,10 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
                   icon: const Icon(Icons.add),
                   onPressed: () {
                     // fullDialog(context, AccountFormPage(action: 1, type: accountTabIndexToType(tabController.index)));
+                    Get.put(AccountFormController(accountTabIndexToType(tabController.index), 1, {}));
+                    Get.to(() => const AccountFormPage(), fullscreenDialog: true)?.then(
+                      (value) => Get.delete<AccountFormController>()
+                    );
                   }
               )
             ]
@@ -130,11 +136,6 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
             ],
           ),
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => AccountDetailPage(id: item['id']),
-            //   ),
-            // );
             Get.put(AccountDetailController(item['id']));
             Get.to(() => const AccountDetailPage())?.then((value) => Get.delete<AccountDetailController>());
           },

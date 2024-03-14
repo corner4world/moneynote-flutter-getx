@@ -8,6 +8,7 @@
     "netError": "Network Error, Try later on.",
     "copy": "Copy",
     "delete": "Delete",
+    "edit": "Edit",
     "operationSuccess": "Operation successful",
     "notes": "Notes",
     "submit": "Submit"
@@ -52,7 +53,9 @@
     "detailLabelCanTransferTo": "Can Transfer In",
     "detailLabelCanTransferFrom": "Can Transfer Out",
     "detailLabelNo": "No",
-    "adjustPageTitle": "Adjust Account Balance"
+    "adjustPageTitle": "Adjust Account Balance",
+    "new": "New Account",
+    "edit": "Edit Account"
   },
   "my": {
     "currentTheme": "Current Theme: ",
