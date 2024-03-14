@@ -40,6 +40,8 @@ abstract class AppTextStyle {
       color: Colors.grey
   );
 
+  static const optionStyle = TextStyle(color: Colors.white, fontSize: 18);
+
   static const InputDecoration inputDecoration = InputDecoration(
     enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(width: 1, color: Colors.black)
