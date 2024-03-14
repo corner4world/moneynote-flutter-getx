@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:moneynote/app/core/components/bottomsheet_container.dart';
 import 'package:moneynote/app/core/components/form/my_select.dart';
 import 'package:moneynote/app/core/utils/utils.dart';
+import 'package:moneynote/app/modules/common/currency_select/currency_option.dart';
+import '../../common/currency_select/currency_select_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/my_form_page.dart';
 import '../controllers/account_form_controller.dart';
@@ -62,6 +64,27 @@ class AccountFormPage extends StatelessWidget {
                   )
                 );
               }
+            ),
+            MySelect(
+              label: LocaleKeys.account_detailLabelCurrency.tr,
+              required: true,
+              value: {
+                'value': controller.currency,
+                'label': controller.currency
+              },
+              onFocus: () {
+                Get.find<CurrencySelectController>().load();
+                Get.to(() => CurrencyOption(
+                  value: {
+                    'value': controller.currency,
+                    'label': controller.currency
+                  },
+                  onSelect: (value) {
+                    // Get.find<AccountAdjustController>().bookChanged(value);
+                    Get.back();
+                  },
+                ));
+              },
             ),
             const SizedBox(height: 70),
             SizedBox(

@@ -34,18 +34,26 @@ class MyOption extends StatelessWidget {
           case LoadDataStatus.initial:
             return const LoadingPage();
           case LoadDataStatus.success:
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Wrap(
-                spacing: 10,
-                children:
-                options.map((e) => ChoiceChip(
-                  label: Text(e['label']),
-                  selected: value['value'] == e['value'],
-                  onSelected: (bool selected) {
-                    onSelect.call(e);
-                  },
-                )).toList(),
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Wrap(
+                  spacing: 10,
+                  children:
+                  options.map((e) => ChoiceChip(
+                    label: Text(
+                      e['label'],
+                    ),
+                    selected: value?['value'] == e['value'],
+                    onSelected: (bool selected) {
+                      onSelect.call(e);
+                    },
+                    selectedColor: Theme.of(context).colorScheme.primary,
+                    labelStyle: TextStyle(
+                      color: value?['value'] == e['value'] ? Colors.white : Colors.black,
+                    ),
+                  )).toList(),
+                ),
               ),
             );
           case LoadDataStatus.empty:

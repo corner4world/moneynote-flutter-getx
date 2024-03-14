@@ -2,7 +2,7 @@ import '/app/core/base/base_controller.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/base/enums.dart';
 
-class BookSelectController extends BaseController {
+class CurrencySelectController extends BaseController {
 
   LoadDataStatus status = LoadDataStatus.initial;
   List<dynamic> options = [];
@@ -12,7 +12,7 @@ class BookSelectController extends BaseController {
       status = LoadDataStatus.progress;
       options = [];
       update();
-      options = await BaseRepository.queryAll('books');
+      options = await BaseRepository.queryAll('currencies');
       status = LoadDataStatus.success;
       update();
     } catch (_) {
