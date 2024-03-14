@@ -1,11 +1,8 @@
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import '../../../core/commons/form/not_empty_formz.dart';
-import '../../../core/commons/form/not_empty_num_formz.dart';
+import '/app/core/commons/form/not_empty_formz.dart';
+import '/app/core/commons/form/not_empty_num_formz.dart';
 import '../../login/controllers/auth_controller.dart';
-import '/app/modules/accounts/controllers/accounts_controller.dart';
-import '/app/core/base/base_repository.dart';
-import '/app/core/base/enums.dart';
 import '/app/core/base/base_controller.dart';
 
 class AccountFormController extends BaseController {
@@ -22,12 +19,10 @@ class AccountFormController extends BaseController {
 
   AccountFormController(this.type, this.action, this.currentRow);
 
-  dynamic currency;
-
   @override
   void onInit() {
     super.onInit();
-    currency = Get.find<AuthController>().initState['group']['defaultCurrencyCode'];
+    form['currencyCode'] = Get.find<AuthController>().initState['group']['defaultCurrencyCode'];
   }
 
   void submit() async {
@@ -35,7 +30,6 @@ class AccountFormController extends BaseController {
   }
 
   void changeCurrency(dynamic value) {
-    currency = value;
     form['currencyCode'] = value;
     update();
     Get.back();

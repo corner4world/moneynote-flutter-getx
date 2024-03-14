@@ -69,15 +69,15 @@ class AccountFormPage extends StatelessWidget {
               label: LocaleKeys.account_detailLabelCurrency.tr,
               required: true,
               value: {
-                'value': controller.currency,
-                'label': controller.currency
+                'value': controller.form['currencyCode'],
+                'label': controller.form['currencyCode']
               },
               onFocus: () {
                 Get.find<CurrencySelectController>().load();
                 Get.to(() => CurrencyOption(
                   value: {
-                    'value': controller.currency,
-                    'label': controller.currency
+                    'value': controller.form['currencyCode'],
+                    'label': controller.form['currencyCode']
                   },
                   onSelect: (value) {
                     Get.find<AccountFormController>().changeCurrency(value['value']);
