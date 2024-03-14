@@ -80,8 +80,7 @@ class AccountFormPage extends StatelessWidget {
                     'label': controller.currency
                   },
                   onSelect: (value) {
-                    // Get.find<AccountAdjustController>().bookChanged(value);
-                    Get.back();
+                    Get.find<AccountFormController>().changeCurrency(value['value']);
                   },
                 ));
               },

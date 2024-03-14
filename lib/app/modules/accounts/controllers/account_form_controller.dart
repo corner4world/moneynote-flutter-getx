@@ -34,8 +34,15 @@ class AccountFormController extends BaseController {
 
   }
 
-  void changeType(String type) {
-    type = type;
+  void changeCurrency(dynamic value) {
+    currency = value;
+    form['currencyCode'] = value;
+    update();
+    Get.back();
+  }
+
+  void changeType(String value) {
+    type = value;
     update();
     if(Get.isBottomSheetOpen ?? false){
       Get.back();

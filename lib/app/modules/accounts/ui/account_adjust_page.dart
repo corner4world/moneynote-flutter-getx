@@ -40,7 +40,6 @@ class AccountAdjustPage extends StatelessWidget {
                 value: controller.book,
                 onSelect: (value) {
                   Get.find<AccountAdjustController>().bookChanged(value);
-                  Get.back();
                 },
               ));
             },

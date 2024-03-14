@@ -41,6 +41,7 @@ class AccountAdjustController extends BaseController {
     book = value;
     form['bookId'] = value['value'];
     update();
+    Get.back();
   }
 
   void submit() async {
