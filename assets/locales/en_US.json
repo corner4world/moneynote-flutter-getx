@@ -8,7 +8,9 @@
     "netError": "Network Error, Try later on.",
     "copy": "Copy",
     "delete": "Delete",
-    "operationSuccess": "Operation successful"
+    "operationSuccess": "Operation successful",
+    "notes": "Notes",
+    "submit": "Submit"
   },
   "menu": {
     "account": "Account",
@@ -50,7 +52,6 @@
     "detailLabelCanTransferTo": "Can Transfer In",
     "detailLabelCanTransferFrom": "Can Transfer Out",
     "detailLabelNo": "No",
-    "detailLabelNotes": "Notes",
     "adjustPageTitle": "Adjust Account Balance"
   },
   "my": {
@@ -67,8 +68,9 @@
     "selectPlaceholder2": "Choose Only One"
   },
   "flow": {
-    "labelTitle": "Title",
-    "labelCreateTime": "Create Time"
+    "title": "Title",
+    "createTime": "Create Time",
+    "currentBalance": "Current Balance"
   },
   "theme": {
     "default": "Default",
@@ -76,5 +78,9 @@
     "red": "Red",
     "green": "Green",
     "dark": "Dark"
+  },
+  "error": {
+    "empty": "It is required",
+    "format": "Format error"
   }
 }

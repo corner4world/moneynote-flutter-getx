@@ -89,7 +89,7 @@ class AccountDetailPage extends StatelessWidget {
                     space: false
                   ) :
                   DetailItem(label: LocaleKeys.account_detailLabelNo.tr, value: controller.item['no']),
-                  DetailItem(label: LocaleKeys.account_detailLabelNotes.tr, value: controller.item['notes'], crossAlign: CrossAxisAlignment.start),
+                  DetailItem(label: LocaleKeys.common_notes.tr, value: controller.item['notes'], crossAlign: CrossAxisAlignment.start),
                   SizedBox(
                     width: double.infinity,
                     child: DialogConfirm(

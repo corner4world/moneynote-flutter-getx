@@ -7,6 +7,7 @@ import 'package:moneynote/app/core/components/form/my_select.dart';
 import 'package:moneynote/app/modules/accounts/controllers/account_adjust_controller.dart';
 import 'package:moneynote/generated/locales.g.dart';
 
+import '../../../core/commons/form/not_empty_num_formz.dart';
 import '../../../core/components/my_form_page.dart';
 import '../../common/book_select/book_option.dart';
 import '../../common/book_select/book_select_controller.dart';
@@ -24,9 +25,9 @@ class AccountAdjustPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.done),
-            onPressed: () {
-              //BlocProvider.of<AccountAdjustBloc>(context).add(AdjustSubmitted());
-            },
+            onPressed: controller.valid ? () {
+              Get.find<AccountAdjustController>().submit();
+            } : null,
           ),
         ],
         children: [
@@ -39,15 +40,14 @@ class AccountAdjustPage extends StatelessWidget {
               Get.to(() => BookOption(
                 value: controller.book,
                 onSelect: (value) {
-                  controller.book = value;
-                  controller.update();
+                  Get.find<AccountAdjustController>().bookChanged(value);
                   Get.back();
                 },
               ));
             },
           ),
           MyFormText(
-            label: LocaleKeys.flow_labelTitle.tr,
+            label: LocaleKeys.flow_title.tr,
             value: controller.form['title'],
             onChange: (value) {
               controller.form['title'] = value;
@@ -55,13 +55,40 @@ class AccountAdjustPage extends StatelessWidget {
             },
           ),
           MyFormDate(
-            label: LocaleKeys.flow_labelCreateTime.tr,
+            label: LocaleKeys.flow_createTime.tr,
             value: controller.form['createTime'],
             required: true,
             onChange: (value) {
               controller.form['createTime'] = value;
               controller.update();
             },
+          ),
+          MyFormText(
+            required: true,
+            label: LocaleKeys.flow_currentBalance.tr,
+            value: controller.form['balance'],
+            onChange: (value) {
+              Get.find<AccountAdjustController>().balanceChanged(value);
+            },
+            errorText: (controller.balanceFormz.isPure || controller.balanceFormz.isValid)? null : controller.balanceFormz.displayError == NotEmptyNumError.empty ? LocaleKeys.error_empty.tr : LocaleKeys.error_format.tr,
+          ),
+          MyFormText(
+            label: LocaleKeys.common_notes.tr,
+            value: controller.form['notes'],
+            onChange: (value) {
+              controller.form['notes'] = value;
+              controller.update();
+            },
+          ),
+          const SizedBox(height: 70),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+                onPressed: controller.valid ? () {
+                  Get.find<AccountAdjustController>().submit();
+                } : null,
+                child: Text(LocaleKeys.common_submit.tr)
+            ),
           )
         ]
       );

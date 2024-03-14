@@ -20,6 +20,8 @@ class LocaleKeys {
   static const common_copy = 'common_copy';
   static const common_delete = 'common_delete';
   static const common_operationSuccess = 'common_operationSuccess';
+  static const common_notes = 'common_notes';
+  static const common_submit = 'common_submit';
   static const menu_account = 'menu_account';
   static const menu_flow = 'menu_flow';
   static const menu_newFlow = 'menu_newFlow';
@@ -60,7 +62,6 @@ class LocaleKeys {
   static const account_detailLabelCanTransferFrom =
       'account_detailLabelCanTransferFrom';
   static const account_detailLabelNo = 'account_detailLabelNo';
-  static const account_detailLabelNotes = 'account_detailLabelNotes';
   static const account_adjustPageTitle = 'account_adjustPageTitle';
   static const my_currentTheme = 'my_currentTheme';
   static const my_currentLang = 'my_currentLang';
@@ -69,13 +70,16 @@ class LocaleKeys {
   static const book_whichBook = 'book_whichBook';
   static const form_selectPlaceholder1 = 'form_selectPlaceholder1';
   static const form_selectPlaceholder2 = 'form_selectPlaceholder2';
-  static const flow_labelTitle = 'flow_labelTitle';
-  static const flow_labelCreateTime = 'flow_labelCreateTime';
+  static const flow_title = 'flow_title';
+  static const flow_createTime = 'flow_createTime';
+  static const flow_currentBalance = 'flow_currentBalance';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
   static const theme_green = 'theme_green';
   static const theme_dark = 'theme_dark';
+  static const error_empty = 'error_empty';
+  static const error_format = 'error_format';
 }
 
 class Locales {
@@ -89,6 +93,8 @@ class Locales {
     'common_copy': 'Copy',
     'common_delete': 'Delete',
     'common_operationSuccess': 'Operation successful',
+    'common_notes': 'Notes',
+    'common_submit': 'Submit',
     'menu_account': 'Account',
     'menu_flow': 'Flow',
     'menu_newFlow': 'New',
@@ -124,7 +130,6 @@ class Locales {
     'account_detailLabelCanTransferTo': 'Can Transfer In',
     'account_detailLabelCanTransferFrom': 'Can Transfer Out',
     'account_detailLabelNo': 'No',
-    'account_detailLabelNotes': 'Notes',
     'account_adjustPageTitle': 'Adjust Account Balance',
     'my_currentTheme': 'Current Theme: ',
     'my_currentLang': 'Current Language: ',
@@ -133,13 +138,16 @@ class Locales {
     'book_whichBook': 'Which Book',
     'form_selectPlaceholder1': 'Choose One or More',
     'form_selectPlaceholder2': 'Choose Only One',
-    'flow_labelTitle': 'Title',
-    'flow_labelCreateTime': 'Create Time',
+    'flow_title': 'Title',
+    'flow_createTime': 'Create Time',
+    'flow_currentBalance': 'Current Balance',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
     'theme_green': 'Green',
     'theme_dark': 'Dark',
+    'error_empty': 'It is required',
+    'error_format': 'Format error',
   };
   static const zh_CN = {
     'common_confirmDialogTitle': '确认此操作吗？',
@@ -151,6 +159,8 @@ class Locales {
     'common_copy': '复制',
     'common_delete': '删除',
     'common_operationSuccess': '操作成功',
+    'common_notes': '备注',
+    'common_submit': '提交',
     'menu_account': '账户',
     'menu_flow': '账单',
     'menu_newFlow': '记账',
@@ -186,7 +196,6 @@ class Locales {
     'account_detailLabelCanTransferTo': '是否可转入',
     'account_detailLabelCanTransferFrom': '是否可转出',
     'account_detailLabelNo': '卡号',
-    'account_detailLabelNotes': '备注',
     'account_adjustPageTitle': '调整账户余额',
     'my_currentTheme': '当前主题: ',
     'my_currentLang': '当前语言: ',
@@ -195,12 +204,15 @@ class Locales {
     'book_whichBook': '所属账本',
     'form_selectPlaceholder1': '选择一个或多个',
     'form_selectPlaceholder2': '选择一个',
-    'flow_labelTitle': '标题',
-    'flow_labelCreateTime': '时间',
+    'flow_title': '标题',
+    'flow_createTime': '时间',
+    'flow_currentBalance': '当前余额',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',
     'theme_green': '绿色',
     'theme_dark': '暗黑',
+    'error_empty': '请输入',
+    'error_format': '格式错误',
   };
 }
