@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/common/account_select/account_select_controller.dart';
 import '/app/modules/common/currency_select/currency_select_controller.dart';
 import '/app/modules/common/book_select/book_select_controller.dart';
 import '/app/modules/my/controllers/language_controller.dart';
@@ -14,6 +15,7 @@ class InitialBinding implements Bindings {
     Get.put(ThemeController());
     Get.put(BookSelectController());
     Get.put(CurrencySelectController());
+    Get.put(AccountSelectController());
   }
 
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/app/modules/flows/widgets/filter/book.dart';
-import '/app/modules/flows/widgets/filter/type.dart';
-import '/app/modules/flows/widgets/filter/title.dart' as f;
+import '/app/modules/flows/widgets/filter/index.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/my_form_page.dart';
@@ -27,7 +25,8 @@ class FlowFilterPage extends StatelessWidget {
         children: [
           const Book(),
           const Type(),
-          const f.Title(),
+          const FilterTitle(),
+          const Account(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,

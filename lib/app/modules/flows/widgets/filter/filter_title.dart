@@ -4,9 +4,9 @@ import '/generated/locales.g.dart';
 import '/app/core/components/form/my_form_text.dart';
 import '../../controllers/flows_controller.dart';
 
-class Title extends StatelessWidget {
+class FilterTitle extends StatelessWidget {
 
-  const Title({super.key});
+  const FilterTitle({super.key});
 
   @override
   Widget build(BuildContext context) {

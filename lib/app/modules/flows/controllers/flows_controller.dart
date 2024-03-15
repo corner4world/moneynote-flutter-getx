@@ -35,12 +35,7 @@ class FlowsController extends BaseController {
       status = LoadDataStatus.progress;
       update();
       query[AppConst.pageParameter] = AppConst.pageStart;
-      items = await BaseRepository.query1('balance-flows', {
-        ...query,
-        ...{
-          'book': query['book']?['value']
-        }
-      });
+      items = await BaseRepository.query1('balance-flows', buildQuery());
       if (items.length < AppConst.defaultPageSize) {
         refreshController.loadNoData();
       }
@@ -60,7 +55,7 @@ class FlowsController extends BaseController {
   void loadMore() async {
     try {
       query[AppConst.pageParameter] = query[AppConst.pageParameter] + 1;
-      final newItems = await BaseRepository.query1('accounts', query);
+      final newItems = await BaseRepository.query1('accounts', buildQuery());
       if (newItems.isNotEmpty) {
         items = List.of(items)..addAll(newItems);
         refreshController.loadComplete();
@@ -86,6 +81,16 @@ class FlowsController extends BaseController {
   void dispose() {
     super.dispose();
     refreshController.dispose();
+  }
+
+  Map<String, dynamic> buildQuery() {
+    return {
+      ...query,
+      ...{
+        'book': query['book']?['value'],
+        'account': query['account']?['value']
+      }
+    };
   }
 
 }
