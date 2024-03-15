@@ -73,7 +73,8 @@
   "flow": {
     "title": "Title",
     "createTime": "Create Time",
-    "currentBalance": "Current Balance"
+    "currentBalance": "Current Balance",
+    "listPageTitle": "Balance Flow"
   },
   "theme": {
     "default": "Default",

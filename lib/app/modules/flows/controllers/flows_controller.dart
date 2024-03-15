@@ -4,7 +4,7 @@ import '/app/core/values/app_const.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/base/base_controller.dart';
 
-class AccountsController extends BaseController {
+class FlowsController extends BaseController {
 
   LoadDataStatus status = LoadDataStatus.initial;
   List<Map<String, dynamic>> items = [];
@@ -26,7 +26,7 @@ class AccountsController extends BaseController {
       status = LoadDataStatus.progress;
       update();
       query[AppConst.pageParameter] = AppConst.pageStart;
-      items = await BaseRepository.query1('accounts', query);
+      items = await BaseRepository.query1('balance-flows', query);
       if (items.length < AppConst.defaultPageSize) {
         refreshController.loadNoData();
       }

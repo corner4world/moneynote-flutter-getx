@@ -73,7 +73,8 @@
   "flow": {
     "title": "标题",
     "createTime": "时间",
-    "currentBalance": "当前余额"
+    "currentBalance": "当前余额",
+    "listPageTitle": "账单列表"
   },
   "theme": {
     "default": "默认",

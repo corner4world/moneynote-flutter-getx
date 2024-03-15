@@ -95,23 +95,25 @@ class AccountDetailPage extends StatelessWidget {
                   const SizedBox(height: 30),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.edit, size: 15),
                       onPressed: () {
                         Get.put(AccountFormController(controller.item['type'], 2, controller.item));
                         Get.to(() => const AccountFormPage(), fullscreenDialog: true)?.then(
                           (value) => Get.delete<AccountFormController>()
                         );
                       },
-                      child: Text(LocaleKeys.common_edit.tr),
+                      label: Text(LocaleKeys.common_edit.tr),
                     ),
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: DialogConfirm(
                         child: AbsorbPointer(
-                          child: ElevatedButton(
+                          child: ElevatedButton.icon(
+                            icon: const Icon(Icons.delete, size: 15),
                             onPressed: controller.deleteStatus == LoadDataStatus.progress ? null : () { },
-                            child: Text(LocaleKeys.common_delete.tr),
+                            label: Text(LocaleKeys.common_delete.tr),
                           ),
                         ),
                         onConfirm: () {
