@@ -27,7 +27,7 @@ class FlowFilterPage extends StatelessWidget {
           const Type(),
           const FilterTitle(),
           const Account(),
-
+          const Payee(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,

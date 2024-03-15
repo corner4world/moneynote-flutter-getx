@@ -84,13 +84,17 @@ class FlowsController extends BaseController {
   }
 
   Map<String, dynamic> buildQuery() {
-    return {
-      ...query,
-      ...{
-        'book': query['book']?['value'],
-        'account': query['account']?['value']
-      }
-    };
+    Map<String, dynamic> newQuery = { ...query };
+    if (query['book']?['value'] != null) {
+      newQuery['book'] = query['book']?['value'];
+    }
+    if (query['account']?['value'] != null) {
+      newQuery['account'] = query['account']?['value'];
+    }
+    if (query['payees']?['value'] != null) {
+      newQuery['payees'] = [query['payees']?['value']];
+    }
+    return newQuery;
   }
 
 }

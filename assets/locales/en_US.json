@@ -74,6 +74,7 @@
   "flow": {
     "title": "Title",
     "createTime": "Create Time",
+    "payee": "Payee",
     "currentBalance": "Current Balance",
     "listPageTitle": "Balance Flow",
     "order1": "Order By CreateTime",
