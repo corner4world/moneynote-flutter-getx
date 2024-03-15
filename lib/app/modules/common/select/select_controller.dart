@@ -7,12 +7,12 @@ class SelectController extends BaseController {
   LoadDataStatus status = LoadDataStatus.initial;
   List<dynamic> options = [];
 
-  void load(String prefix, Map<String, dynamic> query) async {
+  void load(String prefix, {Map<String, dynamic>? params}) async {
     try {
       status = LoadDataStatus.progress;
       options = [];
       update();
-      options = await BaseRepository.queryAll(prefix, params: query);
+      options = await BaseRepository.queryAll(prefix, params: params);
       status = LoadDataStatus.success;
       update();
     } catch (_) {

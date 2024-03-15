@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/common/select/select_controller.dart';
-import '/generated/locales.g.dart';
-import '/app/modules/common/book_select/book_select_controller.dart';
+import '/app/modules/common/select/select_controller.dart';
 import '/app/core/components/form/my_option.dart';
 
 class SelectOption extends StatelessWidget {

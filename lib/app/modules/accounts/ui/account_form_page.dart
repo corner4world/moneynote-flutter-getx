@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/components/bottomsheet_container.dart';
-import 'package:moneynote/app/core/components/form/my_form_switch.dart';
-import 'package:moneynote/app/core/components/form/my_select.dart';
-import 'package:moneynote/app/core/utils/utils.dart';
-import 'package:moneynote/app/modules/common/currency_select/currency_option.dart';
-import '../../../core/commons/form/not_empty_num_formz.dart';
-import '../../../core/components/form/my_form_text.dart';
-import '../../common/currency_select/currency_select_controller.dart';
+import '/app/core/components/bottomsheet_container.dart';
+import '/app/core/components/form/my_form_switch.dart';
+import '/app/core/components/form/my_select.dart';
+import '/app/core/utils/utils.dart';
+import '/app/core/commons/form/not_empty_num_formz.dart';
+import '/app/core/components/form/my_form_text.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/my_form_page.dart';
+import '../../common/select/select_controller.dart';
+import '../../common/select/select_option.dart';
 import '../controllers/account_form_controller.dart';
 
 class AccountFormPage extends StatelessWidget {
@@ -78,8 +78,9 @@ class AccountFormPage extends StatelessWidget {
                 'label': controller.form['currencyCode']
               },
               onFocus: () {
-                Get.find<CurrencySelectController>().load();
-                Get.to(() => CurrencyOption(
+                Get.find<SelectController>().load('currencies');
+                Get.to(() => SelectOption(
+                  title: LocaleKeys.account_detailLabelCurrency.tr,
                   value: {
                     'value': controller.form['currencyCode'],
                     'label': controller.form['currencyCode']

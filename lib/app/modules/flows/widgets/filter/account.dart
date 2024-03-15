@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/app/modules/common/account_select/account_select_controller.dart';
-import '../../../common/account_select/account_option.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/form/my_select.dart';
+import '../../../common/select/select_controller.dart';
+import '../../../common/select/select_option.dart';
 import '../../controllers/flows_controller.dart';
 
 class Account extends StatelessWidget {
@@ -22,8 +22,9 @@ class Account extends StatelessWidget {
           controller.update();
         },
         onFocus: () {
-          Get.find<AccountSelectController>().load();
-          Get.to(() => AccountOption(
+          Get.find<SelectController>().load('accounts');
+          Get.to(() => SelectOption(
+            title: LocaleKeys.menu_account.tr,
             value: controller.query['account'],
             onSelect: (value) {
               controller.query['account'] = value;
