@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moneynote/app/core/components/bottomsheet_container.dart';
+import 'package:moneynote/app/core/components/form/my_form_switch.dart';
 import 'package:moneynote/app/core/components/form/my_select.dart';
 import 'package:moneynote/app/core/utils/utils.dart';
 import 'package:moneynote/app/modules/common/currency_select/currency_option.dart';
+import '../../../core/commons/form/not_empty_num_formz.dart';
+import '../../../core/components/form/my_form_text.dart';
 import '../../common/currency_select/currency_select_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/my_form_page.dart';
@@ -28,6 +31,7 @@ class AccountFormPage extends StatelessWidget {
           ],
           children: [
             MySelect(
+              readOnly: controller.action == 2,
               label: LocaleKeys.account_detailLabelTypeName.tr,
               required: true,
               value: {
@@ -66,6 +70,7 @@ class AccountFormPage extends StatelessWidget {
               }
             ),
             MySelect(
+              readOnly: controller.action == 2,
               label: LocaleKeys.account_detailLabelCurrency.tr,
               required: true,
               value: {
@@ -83,6 +88,109 @@ class AccountFormPage extends StatelessWidget {
                     Get.find<AccountFormController>().changeCurrency(value['value']);
                   },
                 ));
+              },
+            ),
+            MyFormText(
+              required: true,
+              label: LocaleKeys.account_detailLabelName.tr,
+              value: controller.form['name'],
+              onChange: (value) {
+                Get.find<AccountFormController>().changeName(value);
+              },
+              errorText: (controller.nameFormz.isPure || controller.nameFormz.isValid) ? null : LocaleKeys.error_empty.tr ,
+            ),
+            MyFormText(
+              readOnly: controller.action == 2,
+              required: true,
+              label: LocaleKeys.flow_currentBalance.tr,
+              value: controller.form['balance'],
+              onChange: (value) {
+                Get.find<AccountFormController>().changeBalance(value);
+              },
+              errorText: (controller.balanceFormz.isPure || controller.balanceFormz.isValid)? null : controller.balanceFormz.displayError == NotEmptyNumError.empty ? LocaleKeys.error_empty.tr : LocaleKeys.error_format.tr,
+            ),
+            if (controller.type == 'CREDIT' || controller.type == 'DEBT') ...[
+              MyFormText(
+                label: LocaleKeys.account_detailLabelCreditLimit.tr,
+                value: controller.form['creditLimit'],
+                onChange: (value) {
+                  controller.form['creditLimit'] = value;
+                  controller.update();
+                },
+              ),
+              MyFormText(
+                label: controller.type == 'CREDIT' ? LocaleKeys.account_detailLabelBillDay.tr : LocaleKeys.account_detailLabelPayDay.tr,
+                value: controller.form['billDay'],
+                onChange: (value) {
+                  controller.form['billDay'] = value;
+                  controller.update();
+                },
+              ),
+            ],
+            if (controller.type == 'DEBT') ...[
+              MyFormText(
+                label: LocaleKeys.account_detailLabelApr.tr,
+                value: controller.form['apr'],
+                onChange: (value) {
+                  controller.form['apr'] = value;
+                  controller.update();
+                },
+              ),
+            ],
+            MyFormSwitch(
+              label: LocaleKeys.account_detailLabelCanExpense.tr,
+              value: controller.form['canExpense'],
+              onChange: (value) {
+                controller.form['canExpense'] = value;
+                controller.update();
+              },
+            ),
+            MyFormSwitch(
+              label: LocaleKeys.account_detailLabelCanIncome.tr,
+              value: controller.form['canIncome'],
+              onChange: (value) {
+                controller.form['canIncome'] = value;
+                controller.update();
+              },
+            ),
+            MyFormSwitch(
+              label: LocaleKeys.account_detailLabelCanTransferTo.tr,
+              value: controller.form['canTransferTo'],
+              onChange: (value) {
+                controller.form['canTransferTo'] = value;
+                controller.update();
+              },
+            ),
+            MyFormSwitch(
+              label: LocaleKeys.account_detailLabelCanTransferFrom.tr,
+              value: controller.form['canTransferFrom'],
+              onChange: (value) {
+                controller.form['canTransferFrom'] = value;
+                controller.update();
+              },
+            ),
+            MyFormSwitch(
+              label: LocaleKeys.account_detailLabelInclude.tr,
+              value: controller.form['include'],
+              onChange: (value) {
+                controller.form['include'] = value;
+                controller.update();
+              },
+            ),
+            MyFormText(
+              label: LocaleKeys.account_detailLabelNo.tr,
+              value: controller.form['no'],
+              onChange: (value) {
+                controller.form['no'] = value;
+                controller.update();
+              },
+            ),
+            MyFormText(
+              label: LocaleKeys.common_notes.tr,
+              value: controller.form['notes'],
+              onChange: (value) {
+                controller.form['notes'] = value;
+                controller.update();
               },
             ),
             const SizedBox(height: 70),
