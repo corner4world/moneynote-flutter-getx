@@ -26,12 +26,6 @@ class Payee extends StatelessWidget {
           if (controller.query['book'] != null) {
             query['bookId'] = controller.query['book']['value'];
           }
-          if (controller.query['type'] == 'EXPENSE') {
-            query['canExpense'] = true;
-          }
-          if (controller.query['type'] == 'INCOME') {
-            query['canIncome'] = true;
-          }
           Get.find<SelectController>().load('payees', params: query);
           Get.to(() => SelectOption(
             title: LocaleKeys.flow_payee.tr,
