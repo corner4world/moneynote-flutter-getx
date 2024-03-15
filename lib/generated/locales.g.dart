@@ -81,6 +81,11 @@ class LocaleKeys {
   static const flow_order1 = 'flow_order1';
   static const flow_order2 = 'flow_order2';
   static const flow_filterPageTitle = 'flow_filterPageTitle';
+  static const flow_type = 'flow_type';
+  static const flow_type1 = 'flow_type1';
+  static const flow_type2 = 'flow_type2';
+  static const flow_type3 = 'flow_type3';
+  static const flow_type4 = 'flow_type4';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -147,7 +152,7 @@ class Locales {
     'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
     'my_logout': 'Logout Current User',
-    'book_whichBook': 'Which Book',
+    'book_whichBook': 'Book',
     'form_selectPlaceholder1': 'Choose One or More',
     'form_selectPlaceholder2': 'Choose Only One',
     'flow_title': 'Title',
@@ -157,6 +162,11 @@ class Locales {
     'flow_order1': 'Order By CreateTime',
     'flow_order2': 'Order By Amount',
     'flow_filterPageTitle': 'Filter Balance Flow',
+    'flow_type': 'Type',
+    'flow_type1': 'Expense',
+    'flow_type2': 'Income',
+    'flow_type3': 'Transfer',
+    'flow_type4': 'Adjust Balance',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -231,6 +241,11 @@ class Locales {
     'flow_order1': '按时间排序',
     'flow_order2': '按金额排序',
     'flow_filterPageTitle': '搜索账单',
+    'flow_type': '账单类型',
+    'flow_type1': '支出',
+    'flow_type2': '收入',
+    'flow_type3': '转账',
+    'flow_type4': '调整余额',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

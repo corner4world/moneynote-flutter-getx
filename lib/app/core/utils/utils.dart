@@ -30,6 +30,20 @@ String accountTypeToName(String type) {
   throw Exception('tab index error');
 }
 
+String flowTypeToName(String type) {
+  switch (type) {
+    case 'EXPENSE':
+      return LocaleKeys.flow_type1.tr;
+    case 'INCOME':
+      return LocaleKeys.flow_type2.tr;
+    case 'TRANSFER':
+      return LocaleKeys.flow_type3.tr;
+    case 'ADJUST':
+      return LocaleKeys.flow_type4.tr;
+  }
+  throw Exception('error');
+}
+
 String boolToString(bool val) {
   if (val) {
     return LocaleKeys.common_yes.tr;

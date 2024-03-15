@@ -78,7 +78,12 @@
     "listPageTitle": "账单列表",
     "order1": "按时间排序",
     "order2": "按金额排序",
-    "filterPageTitle": "搜索账单"
+    "filterPageTitle": "搜索账单",
+    "type": "账单类型",
+    "type1": "支出",
+    "type2": "收入",
+    "type3": "转账",
+    "type4": "调整余额"
   },
   "theme": {
     "default": "默认",

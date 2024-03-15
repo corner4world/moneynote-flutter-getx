@@ -65,7 +65,7 @@
     "logout": "Logout Current User"
   },
   "book": {
-    "whichBook": "Which Book"
+    "whichBook": "Book"
   },
   "form": {
     "selectPlaceholder1": "Choose One or More",
@@ -78,7 +78,12 @@
     "listPageTitle": "Balance Flow",
     "order1": "Order By CreateTime",
     "order2": "Order By Amount",
-    "filterPageTitle": "Filter Balance Flow"
+    "filterPageTitle": "Filter Balance Flow",
+    "type": "Type",
+    "type1": "Expense",
+    "type2": "Income",
+    "type3": "Transfer",
+    "type4": "Adjust Balance"
   },
   "theme": {
     "default": "Default",
