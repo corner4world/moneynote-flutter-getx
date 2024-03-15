@@ -77,6 +77,8 @@ class LocaleKeys {
   static const flow_createTime = 'flow_createTime';
   static const flow_currentBalance = 'flow_currentBalance';
   static const flow_listPageTitle = 'flow_listPageTitle';
+  static const flow_order1 = 'flow_order1';
+  static const flow_order2 = 'flow_order2';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -149,6 +151,8 @@ class Locales {
     'flow_createTime': 'Create Time',
     'flow_currentBalance': 'Current Balance',
     'flow_listPageTitle': 'Balance Flow',
+    'flow_order1': 'Order By CreateTime',
+    'flow_order2': 'Order By Amount',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -219,6 +223,8 @@ class Locales {
     'flow_createTime': '时间',
     'flow_currentBalance': '当前余额',
     'flow_listPageTitle': '账单列表',
+    'flow_order1': '按时间排序',
+    'flow_order2': '按金额排序',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

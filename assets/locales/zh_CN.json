@@ -74,7 +74,9 @@
     "title": "标题",
     "createTime": "时间",
     "currentBalance": "当前余额",
-    "listPageTitle": "账单列表"
+    "listPageTitle": "账单列表",
+    "order1": "按时间排序",
+    "order2": "按金额排序"
   },
   "theme": {
     "default": "默认",

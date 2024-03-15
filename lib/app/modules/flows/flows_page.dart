@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/components/order_button.dart';
+import 'package:moneynote/app/core/values/app_const.dart';
+import 'package:moneynote/app/core/values/app_values.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
 import '/generated/locales.g.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -25,6 +28,28 @@ class FlowsPage extends StatelessWidget {
         ),
         centerTitle: true,
         title: Text(LocaleKeys.flow_listPageTitle.tr),
+        actions: [
+          GetBuilder<FlowsController>(builder: (controller) {
+            return OrderButton(
+              items: {
+                'createTime,desc': LocaleKeys.flow_order1.tr,
+                'amount,desc': LocaleKeys.flow_order2.tr,
+              },
+              selected: controller.query[AppConst.sortParameter] ?? '',
+              onSelected: (value) {
+                Get.find<FlowsController>().queryChanged({
+                  AppConst.sortParameter: value
+                });
+              },
+            );
+          }),
+          IconButton(
+            onPressed: () {
+              // fullDialog(context, const FlowFilterPage());
+            },
+            icon: const Icon(Icons.search)
+          )
+        ],
       ),
       body: GetBuilder<FlowsController>(builder: (controller) {
         LoadDataStatus status = controller.status;

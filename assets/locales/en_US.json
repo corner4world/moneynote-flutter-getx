@@ -74,7 +74,9 @@
     "title": "Title",
     "createTime": "Create Time",
     "currentBalance": "Current Balance",
-    "listPageTitle": "Balance Flow"
+    "listPageTitle": "Balance Flow",
+    "order1": "Order By CreateTime",
+    "order2": "Order By Amount"
   },
   "theme": {
     "default": "Default",
