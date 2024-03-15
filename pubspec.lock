@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  awesome_select:
-    dependency: "direct main"
-    description:
-      name: awesome_select
-      sha256: b7ea3886c29f07db559688feca329961aa8115c97ecc0615b11db8b8705160c3
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -105,14 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.1"
-  equatable:
-    dependency: "direct main"
-    description:
-      name: equatable
-      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
