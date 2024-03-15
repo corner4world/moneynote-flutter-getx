@@ -81,11 +81,12 @@ class AccountAdjustPage extends StatelessWidget {
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
+                icon: const Icon(Icons.send),
                 onPressed: controller.valid ? () {
                   Get.find<AccountAdjustController>().submit();
                 } : null,
-                child: Text(LocaleKeys.common_submit.tr)
+                label: Text(LocaleKeys.common_submit.tr)
             ),
           )
         ]

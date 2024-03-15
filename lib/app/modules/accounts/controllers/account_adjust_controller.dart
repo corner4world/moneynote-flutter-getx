@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
 import 'package:formz/formz.dart';
-import 'package:moneynote/app/modules/accounts/controllers/account_detail_controller.dart';
-import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
-
-import '../../../core/commons/form/not_empty_formz.dart';
-import '../../../core/commons/form/not_empty_num_formz.dart';
+import '/app/modules/accounts/controllers/account_detail_controller.dart';
+import '/app/modules/accounts/controllers/accounts_controller.dart';
+import '/app/core/commons/form/not_empty_num_formz.dart';
+import '/app/core/base/base_controller.dart';
 import '../../login/controllers/auth_controller.dart';
 import '../data/account_repository.dart';
-import '/app/core/base/base_controller.dart';
+
 
 class AccountAdjustController extends BaseController {
 

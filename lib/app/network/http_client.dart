@@ -1,7 +1,7 @@
 import 'package:get/get.dart' as getx;
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
 import '/app/core/utils/token.dart';
 import '/app/core/values/app_values.dart';
 import '/app/core/utils/message.dart';

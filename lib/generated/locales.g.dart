@@ -23,6 +23,7 @@ class LocaleKeys {
   static const common_operationSuccess = 'common_operationSuccess';
   static const common_notes = 'common_notes';
   static const common_submit = 'common_submit';
+  static const common_reset = 'common_reset';
   static const menu_account = 'menu_account';
   static const menu_flow = 'menu_flow';
   static const menu_newFlow = 'menu_newFlow';
@@ -79,6 +80,7 @@ class LocaleKeys {
   static const flow_listPageTitle = 'flow_listPageTitle';
   static const flow_order1 = 'flow_order1';
   static const flow_order2 = 'flow_order2';
+  static const flow_filterPageTitle = 'flow_filterPageTitle';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -102,6 +104,7 @@ class Locales {
     'common_operationSuccess': 'Operation successful',
     'common_notes': 'Notes',
     'common_submit': 'Submit',
+    'common_reset': 'Reset',
     'menu_account': 'Account',
     'menu_flow': 'Flow',
     'menu_newFlow': 'New',
@@ -153,6 +156,7 @@ class Locales {
     'flow_listPageTitle': 'Balance Flow',
     'flow_order1': 'Order By CreateTime',
     'flow_order2': 'Order By Amount',
+    'flow_filterPageTitle': 'Filter Balance Flow',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -174,6 +178,7 @@ class Locales {
     'common_operationSuccess': '操作成功',
     'common_notes': '备注',
     'common_submit': '提交',
+    'common_reset': '重置',
     'menu_account': '账户',
     'menu_flow': '账单',
     'menu_newFlow': '记账',
@@ -225,6 +230,7 @@ class Locales {
     'flow_listPageTitle': '账单列表',
     'flow_order1': '按时间排序',
     'flow_order2': '按金额排序',
+    'flow_filterPageTitle': '搜索账单',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

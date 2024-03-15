@@ -1,8 +1,10 @@
+import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/values/app_const.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/base/base_controller.dart';
+import '../../login/controllers/auth_controller.dart';
 
 class FlowsController extends BaseController {
 
@@ -18,7 +20,14 @@ class FlowsController extends BaseController {
   void onInit() {
     super.onInit();
     refreshController = RefreshController(initialRefresh: false);
+    reset();
     reload();
+  }
+
+  void reset() {
+    query = { };
+    query['book'] = Get.find<AuthController>().initState['book'];
+    update();
   }
 
   void reload() async {
@@ -26,7 +35,12 @@ class FlowsController extends BaseController {
       status = LoadDataStatus.progress;
       update();
       query[AppConst.pageParameter] = AppConst.pageStart;
-      items = await BaseRepository.query1('balance-flows', query);
+      items = await BaseRepository.query1('balance-flows', {
+        ...query,
+        ...{
+          'book': query['book']?['value']
+        }
+      });
       if (items.length < AppConst.defaultPageSize) {
         refreshController.loadNoData();
       }
@@ -37,6 +51,7 @@ class FlowsController extends BaseController {
       }
       update();
     } catch (_) {
+      print(_);
       status = LoadDataStatus.failure;
       update();
     }

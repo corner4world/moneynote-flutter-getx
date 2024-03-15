@@ -58,10 +58,10 @@ class MySelect extends StatelessWidget {
           const Icon(Icons.keyboard_arrow_right),
           if (allowClear && !isNullEmpty(value))
             IconButton(
-                onPressed: () {
-                  onClear?.call();
-                },
-                icon: const Icon(Icons.backspace)
+              onPressed: () {
+                onClear?.call();
+              },
+              icon: const Icon(Icons.backspace)
             )
         ],
       ),
