@@ -75,6 +75,7 @@
     "title": "Title",
     "createTime": "Create Time",
     "payee": "Payee",
+    "category": "Category",
     "currentBalance": "Current Balance",
     "listPageTitle": "Balance Flow",
     "order1": "Order By CreateTime",

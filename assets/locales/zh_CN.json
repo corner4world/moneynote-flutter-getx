@@ -75,6 +75,7 @@
     "title": "标题",
     "createTime": "时间",
     "payee": "交易对象",
+    "category": "分类",
     "currentBalance": "当前余额",
     "listPageTitle": "账单列表",
     "order1": "按时间排序",

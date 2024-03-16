@@ -77,6 +77,7 @@ class LocaleKeys {
   static const flow_title = 'flow_title';
   static const flow_createTime = 'flow_createTime';
   static const flow_payee = 'flow_payee';
+  static const flow_category = 'flow_category';
   static const flow_currentBalance = 'flow_currentBalance';
   static const flow_listPageTitle = 'flow_listPageTitle';
   static const flow_order1 = 'flow_order1';
@@ -159,6 +160,7 @@ class Locales {
     'flow_title': 'Title',
     'flow_createTime': 'Create Time',
     'flow_payee': 'Payee',
+    'flow_category': 'Category',
     'flow_currentBalance': 'Current Balance',
     'flow_listPageTitle': 'Balance Flow',
     'flow_order1': 'Order By CreateTime',
@@ -239,6 +241,7 @@ class Locales {
     'flow_title': '标题',
     'flow_createTime': '时间',
     'flow_payee': '交易对象',
+    'flow_category': '分类',
     'flow_currentBalance': '当前余额',
     'flow_listPageTitle': '账单列表',
     'flow_order1': '按时间排序',
