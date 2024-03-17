@@ -32,7 +32,6 @@ class Category extends StatelessWidget {
             title: LocaleKeys.flow_category.tr,
             values: controller.query['categories'],
             onSelect: (values) {
-              print(values);
               controller.query['categories'] = values;
               controller.update();
               Get.back();

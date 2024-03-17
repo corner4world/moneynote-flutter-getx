@@ -46,7 +46,7 @@ class FlowsController extends BaseController {
       }
       update();
     } catch (_) {
-      print(_);
+      _.printError();
       status = LoadDataStatus.failure;
       update();
     }
@@ -93,6 +93,9 @@ class FlowsController extends BaseController {
     }
     if (query['payees']?['value'] != null) {
       newQuery['payees'] = [query['payees']?['value']];
+    }
+    if (!(query['categories']?.isEmpty ?? true)) {
+      newQuery['categories'] = query['categories'].map((e) => e['value']).toList();
     }
     return newQuery;
   }

@@ -44,6 +44,9 @@ class MySelect extends StatelessWidget {
           if (required) const Asterisk(),
           Text(
             label,
+            maxLines: 1,
+            softWrap: true,
+            overflow: TextOverflow.ellipsis,
             style: readOnly ? AppTextStyle.formReadOnlyLabelStyle : AppTextStyle.formLabelStyle,
           ),
         ],
@@ -51,11 +54,13 @@ class MySelect extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Flexible(child: Text(
-            labelText(),
-            style: readOnly ? AppTextStyle.formReadOnlyLabelStyle : AppTextStyle.formLabelStyle,
-            softWrap: true,
-          )),
+          Flexible(
+            child: Text(
+              labelText(),
+              style: readOnly ? AppTextStyle.formReadOnlyLabelStyle : AppTextStyle.formLabelStyle,
+              softWrap: true,
+            )
+          ),
           const Icon(Icons.keyboard_arrow_right),
           if (allowClear && !isNullEmpty(value))
             IconButton(
