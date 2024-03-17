@@ -60,6 +60,7 @@
   },
   "my": {
     "userName": "用户名: ",
+    "currentBook": "当前账本: ",
     "currentTheme": "当前主题: ",
     "currentLang": "当前语言: ",
     "currentVersion": "当前版本: ",

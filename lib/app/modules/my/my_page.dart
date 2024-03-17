@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/my/controllers/account_overview_controller.dart';
-import '../../core/base/enums.dart';
+import '/app/modules/my/controllers/account_overview_controller.dart';
+import '/app/core/base/enums.dart';
 import '/app/core/components/bottomsheet_container.dart';
 import '/app/core/values/app_values.dart';
 import '/app/modules/my/controllers/language_controller.dart';
@@ -34,7 +34,7 @@ class MyPage extends StatelessWidget {
               ),
               const Divider(),
               ListTile(
-                title: Text(LocaleKeys.my_accountOverview.tr, softWrap: false),
+                title: Text(LocaleKeys.my_accountOverview.tr),
                 subtitle: GetBuilder<AccountOverviewController>(builder: (controller) {
                   if (controller.status == LoadDataStatus.success) {
                     return Text(
@@ -57,15 +57,33 @@ class MyPage extends StatelessWidget {
                 )
               ),
               const Divider(),
-              // ListTile(
-              //     title: const Text('当前默认账本：'),
-              //     trailing: Text(initState['book']['name'])
-              // ),
+              ListTile(
+                title: Text(LocaleKeys.my_currentBook.tr),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GetBuilder<AuthController>(builder: (controller) {
+                      return Text('${controller.initState['group']['name']}-${controller.initState['book']['name']}');
+                    }),
+                    const Icon(Icons.keyboard_arrow_right)
+                  ],
+                ),
+                onTap: () {
+
+                },
+              ),
+              const Divider(),
               ListTile(
                 title: Text(LocaleKeys.my_currentTheme.tr),
-                trailing: GetBuilder<ThemeController>(builder: (controller) {
-                  return Text(controller.currentLabel());
-                }),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GetBuilder<ThemeController>(builder: (controller) {
+                      return Text(controller.currentLabel());
+                    }),
+                    const Icon(Icons.keyboard_arrow_right)
+                  ],
+                ),
                 onTap: () {
                   Get.bottomSheet(
                     BottomSheetContainer(child: GetBuilder<ThemeController>(builder: (controller) {
@@ -87,15 +105,21 @@ class MyPage extends StatelessWidget {
               const Divider(),
               ListTile(
                 title: Text(LocaleKeys.my_currentLang.tr),
-                trailing: Builder(builder: (BuildContext context) {
-                  String locale = Get.locale?.toString() ?? '';
-                  if (locale == 'en_US') {
-                    return const Text("🇺🇸 English");
-                  } else if (locale == 'zh_CN') {
-                    return const Text("🇨🇳 简体中文");
-                  }
-                  return const Text("Not Found");
-                }),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Builder(builder: (BuildContext context) {
+                      String locale = Get.locale?.toString() ?? '';
+                      if (locale == 'en_US') {
+                        return const Text("🇺🇸 English");
+                      } else if (locale == 'zh_CN') {
+                        return const Text("🇨🇳 简体中文");
+                      }
+                      return const Text("Not Found");
+                    }),
+                    const Icon(Icons.keyboard_arrow_right)
+                  ],
+                ),
                 onTap: () {
                   Get.bottomSheet(
                     BottomSheetContainer(child: GetBuilder<LanguageController>(builder: (controller) {

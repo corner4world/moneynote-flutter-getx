@@ -60,6 +60,7 @@
   },
   "my": {
     "userName": "User Name: ",
+    "currentBook": "Current Book: ",
     "currentTheme": "Current Theme: ",
     "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
