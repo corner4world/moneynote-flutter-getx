@@ -32,6 +32,8 @@ class FlowFilterPage extends StatelessWidget {
           const FilterTag(),
           const MinTime(),
           const MaxTime(),
+          const MinAmount(),
+          const MaxAmount(),
           const Confirm(),
           const Include(),
           const HasFile(),

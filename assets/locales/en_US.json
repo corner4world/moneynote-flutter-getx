@@ -93,6 +93,8 @@
     "order1": "Order By CreateTime",
     "order2": "Order By Amount",
     "filterPageTitle": "Filter Balance Flow",
+    "minAmount": "Start Amount",
+    "maxAmount": "End Amount",
     "type": "Type",
     "type1": "Expense",
     "type2": "Income",

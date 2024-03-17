@@ -95,6 +95,8 @@ class LocaleKeys {
   static const flow_order1 = 'flow_order1';
   static const flow_order2 = 'flow_order2';
   static const flow_filterPageTitle = 'flow_filterPageTitle';
+  static const flow_minAmount = 'flow_minAmount';
+  static const flow_maxAmount = 'flow_maxAmount';
   static const flow_type = 'flow_type';
   static const flow_type1 = 'flow_type1';
   static const flow_type2 = 'flow_type2';
@@ -190,6 +192,8 @@ class Locales {
     'flow_order1': 'Order By CreateTime',
     'flow_order2': 'Order By Amount',
     'flow_filterPageTitle': 'Filter Balance Flow',
+    'flow_minAmount': 'Start Amount',
+    'flow_maxAmount': 'End Amount',
     'flow_type': 'Type',
     'flow_type1': 'Expense',
     'flow_type2': 'Income',
@@ -283,6 +287,8 @@ class Locales {
     'flow_order1': '按时间排序',
     'flow_order2': '按金额排序',
     'flow_filterPageTitle': '搜索账单',
+    'flow_minAmount': '起始金额',
+    'flow_maxAmount': '终止金额',
     'flow_type': '账单类型',
     'flow_type1': '支出',
     'flow_type2': '收入',

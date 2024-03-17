@@ -93,6 +93,8 @@
     "order1": "按时间排序",
     "order2": "按金额排序",
     "filterPageTitle": "搜索账单",
+    "minAmount": "起始金额",
+    "maxAmount": "终止金额",
     "type": "账单类型",
     "type1": "支出",
     "type2": "收入",
