@@ -80,6 +80,7 @@
     "createTime": "Create Time",
     "payee": "Payee",
     "category": "Category",
+    "tag": "Tag",
     "currentBalance": "Current Balance",
     "listPageTitle": "Balance Flow",
     "order1": "Order By CreateTime",

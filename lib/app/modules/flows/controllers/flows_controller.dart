@@ -97,6 +97,9 @@ class FlowsController extends BaseController {
     if (!(query['categories']?.isEmpty ?? true)) {
       newQuery['categories'] = query['categories'].map((e) => e['value']).toList();
     }
+    if (!(query['tags']?.isEmpty ?? true)) {
+      newQuery['tags'] = query['tags'].map((e) => e['value']).toList();
+    }
     return newQuery;
   }
 

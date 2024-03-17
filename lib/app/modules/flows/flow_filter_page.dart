@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/flows/widgets/filter/filter_tag.dart';
 import '/app/modules/flows/widgets/filter/category.dart';
 import '/app/modules/flows/widgets/filter/index.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
@@ -30,6 +31,7 @@ class FlowFilterPage extends StatelessWidget {
           const Account(),
           const Payee(),
           const Category(),
+          const FilterTag(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,
