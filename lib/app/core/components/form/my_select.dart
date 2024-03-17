@@ -51,10 +51,11 @@ class MySelect extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            value?['label'] ?? (multiple ? LocaleKeys.form_selectPlaceholder1.tr : LocaleKeys.form_selectPlaceholder2.tr),
+          Flexible(child: Text(
+            labelText(),
             style: readOnly ? AppTextStyle.formReadOnlyLabelStyle : AppTextStyle.formLabelStyle,
-          ),
+            softWrap: true,
+          )),
           const Icon(Icons.keyboard_arrow_right),
           if (allowClear && !isNullEmpty(value))
             IconButton(
@@ -66,6 +67,19 @@ class MySelect extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String labelText() {
+    if (multiple) {
+      if (value?.isEmpty ?? true) {
+        return LocaleKeys.form_selectPlaceholder1.tr;
+      } else {
+        return value.map((e) => e['label']).toList().join(', ');
+      }
+
+    } else {
+      return value?['label'] ?? LocaleKeys.form_selectPlaceholder2.tr;
+    }
   }
 
 }
