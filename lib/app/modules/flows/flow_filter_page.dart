@@ -35,6 +35,7 @@ class FlowFilterPage extends StatelessWidget {
           const Confirm(),
           const Include(),
           const HasFile(),
+          const Notes(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,

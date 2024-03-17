@@ -10,3 +10,4 @@ export 'min_time.dart';
 export 'confirm.dart';
 export 'include.dart';
 export 'has_file.dart';
+export 'notes.dart';
