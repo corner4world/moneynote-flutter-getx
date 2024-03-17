@@ -108,6 +108,10 @@
     "green": "Green",
     "dark": "Dark"
   },
+  "chart": {
+    "asset": "Asset",
+    "debt": "Debt"
+  },
   "error": {
     "empty": "It is required",
     "format": "Format error"

@@ -6,12 +6,10 @@ import '/app/modules/accounts/ui/account_form_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../controllers/account_detail_controller.dart';
 import '/app/core/base/enums.dart';
-import '/app/core/components/pages/empty_page.dart';
+import '/app/core/components/pages/index.dart';
 import '/app/core/values/app_text_styles.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
 import '/generated/locales.g.dart';
-import '/app/core/components/pages/error_page.dart';
-import '/app/core/components/pages/loading_page.dart';
 import '/app/core/utils/utils.dart';
 
 class AccountsPage extends StatefulWidget {

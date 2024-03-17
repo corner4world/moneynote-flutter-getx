@@ -107,6 +107,8 @@ class LocaleKeys {
   static const theme_red = 'theme_red';
   static const theme_green = 'theme_green';
   static const theme_dark = 'theme_dark';
+  static const chart_asset = 'chart_asset';
+  static const chart_debt = 'chart_debt';
   static const error_empty = 'error_empty';
   static const error_format = 'error_format';
 }
@@ -204,6 +206,8 @@ class Locales {
     'theme_red': 'Red',
     'theme_green': 'Green',
     'theme_dark': 'Dark',
+    'chart_asset': 'Asset',
+    'chart_debt': 'Debt',
     'error_empty': 'It is required',
     'error_format': 'Format error',
   };
@@ -299,6 +303,8 @@ class Locales {
     'theme_red': '红色',
     'theme_green': '绿色',
     'theme_dark': '暗黑',
+    'chart_asset': '资产',
+    'chart_debt': '负债',
     'error_empty': '请输入',
     'error_format': '格式错误',
   };

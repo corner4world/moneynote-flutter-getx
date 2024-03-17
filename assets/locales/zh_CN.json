@@ -108,6 +108,10 @@
     "green": "绿色",
     "dark": "暗黑"
   },
+  "chart": {
+    "asset": "资产",
+    "debt": "负债"
+  },
   "error": {
     "empty": "请输入",
     "format": "格式错误"

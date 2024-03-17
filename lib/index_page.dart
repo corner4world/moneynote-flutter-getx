@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/my/controllers/account_overview_controller.dart';
+import '/app/modules/charts/charts_controller.dart';
+import '/app/modules/my/controllers/account_overview_controller.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
 import '/app/modules/charts/charts_page.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
@@ -17,7 +18,7 @@ class IndexPage extends StatefulWidget {
 
   const IndexPage({
     super.key,
-    this.initialIndex = 1,
+    this.initialIndex = 2,
   });
 
   @override
@@ -73,6 +74,7 @@ class _IndexPageState extends State<IndexPage> {
                 Get.put(FlowsController());
                 return const FlowsPage();
               case 2:
+                Get.put(ChartsController());
                 return const ChartsPage();
               case 3:
                 Get.put(AccountOverviewController());

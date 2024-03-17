@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import '/app/core/components/flutter_tree-2.0.3/flutter_tree.dart';
 import '../../base/enums.dart';
-import '../pages/empty_page.dart';
-import '../pages/error_page.dart';
-import '../pages/loading_page.dart';
+import '../pages/index.dart';
+
 
 class MyTreeOption extends StatefulWidget {
 

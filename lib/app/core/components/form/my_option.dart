@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '/app/core/values/app_text_styles.dart';
-import '../pages/empty_page.dart';
-import '../pages/error_page.dart';
-import '../pages/loading_page.dart';
+import '../pages/index.dart';
 import '/app/core/base/enums.dart';
 
 class MyOption extends StatefulWidget {
