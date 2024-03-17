@@ -154,13 +154,13 @@ class MyPage extends StatelessWidget {
               ),
               const Divider(),
               ListTile(
-                title: Text(LocaleKeys.my_currentVersion.tr),
-                trailing: const Text(AppValues.version)
+                title: const Text('API: '),
+                trailing: Text(AppValues.apiUrl)
               ),
               const Divider(),
               ListTile(
-                title: const Text('API: '),
-                trailing: Text(AppValues.apiUrl)
+                title: Text(LocaleKeys.my_currentVersion.tr),
+                trailing: const Text(AppValues.version)
               ),
               const Divider(),
               Container(
