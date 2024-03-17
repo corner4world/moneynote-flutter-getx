@@ -109,6 +109,7 @@ class LocaleKeys {
   static const theme_dark = 'theme_dark';
   static const chart_asset = 'chart_asset';
   static const chart_debt = 'chart_debt';
+  static const chart_expenseCategory = 'chart_expenseCategory';
   static const error_empty = 'error_empty';
   static const error_format = 'error_format';
 }
@@ -208,6 +209,7 @@ class Locales {
     'theme_dark': 'Dark',
     'chart_asset': 'Asset',
     'chart_debt': 'Debt',
+    'chart_expenseCategory': 'Expense Category',
     'error_empty': 'It is required',
     'error_format': 'Format error',
   };
@@ -305,6 +307,7 @@ class Locales {
     'theme_dark': '暗黑',
     'chart_asset': '资产',
     'chart_debt': '负债',
+    'chart_expenseCategory': '支出分类',
     'error_empty': '请输入',
     'error_format': '格式错误',
   };

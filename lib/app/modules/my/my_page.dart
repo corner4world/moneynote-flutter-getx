@@ -31,7 +31,7 @@ class MyPage extends StatelessWidget {
               ListTile(
                   title: Text(LocaleKeys.my_userName.tr),
                   trailing: GetBuilder<AuthController>(builder: (controller) {
-                    return Text(controller.initState['user']['username']);
+                    return Text(controller.initState['user']?['username'] ?? '');
                   }),
               ),
               const Divider(),
@@ -174,7 +174,6 @@ class MyPage extends StatelessWidget {
                     ),
                   ),
                   onConfirm: () {
-                    // BlocProvider.of<AuthBloc>(context).add(LoggedOut());
                     Get.find<AuthController>().onLoggedOut();
                   }
                 )

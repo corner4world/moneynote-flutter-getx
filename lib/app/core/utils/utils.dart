@@ -1,5 +1,8 @@
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
+import '../../modules/accounts/controllers/accounts_controller.dart';
+import '../../modules/flows/controllers/flows_controller.dart';
+import '../../modules/my/controllers/account_overview_controller.dart';
 import '/generated/locales.g.dart';
 
 String accountTabIndexToType(int index) {
@@ -101,4 +104,17 @@ String dateTimeFormat(int? timestamp) {
 String dateFormat(int? timestamp) {
   if (timestamp == null) return '';
   return DateFormat(dateFormatStr2()).format(DateTime.fromMillisecondsSinceEpoch(timestamp));
+}
+
+void reloadState() {
+  if (Get.isRegistered<FlowsController>()) {
+    Get.find<FlowsController>().reset();
+    Get.find<FlowsController>().reload();
+  }
+  if (Get.isRegistered<AccountsController>()) {
+    Get.find<AccountsController>().reload();
+  }
+  if (Get.isRegistered<AccountOverviewController>()) {
+    Get.find<AccountOverviewController>().load();
+  }
 }

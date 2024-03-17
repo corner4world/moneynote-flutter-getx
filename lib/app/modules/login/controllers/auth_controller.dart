@@ -1,8 +1,5 @@
-import 'package:get/get.dart';
-import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
-import 'package:moneynote/app/modules/my/controllers/account_overview_controller.dart';
+import 'package:moneynote/app/core/utils/utils.dart';
 import '/app/network/http.dart';
-import '/app/modules/flows/controllers/flows_controller.dart';
 import '/app/core/utils/api_url.dart';
 import '/app/modules/login/data/login_repository.dart';
 import '/app/core/utils/token.dart';
@@ -47,16 +44,7 @@ class AuthController extends BaseController {
   void changeCurrentBook(String id) async {
     await Http.patch('setDefaultGroupAndBook/$id');
     initState = await LoginRepository.getInitState();
-    if (Get.isRegistered<FlowsController>()) {
-      Get.find<FlowsController>().reset();
-      Get.find<FlowsController>().reload();
-    }
-    if (Get.isRegistered<AccountsController>()) {
-      Get.find<AccountsController>().reload();
-    }
-    if (Get.isRegistered<AccountOverviewController>()) {
-      Get.find<AccountOverviewController>().load();
-    }
+    reloadState();
     update();
   }
 

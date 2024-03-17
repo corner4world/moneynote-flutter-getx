@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import '/app/core/utils/api_url.dart';
+import 'package:moneynote/app/core/utils/utils.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
 import '../data/login_repository.dart';
 import '/app/core/commons/form/not_empty_formz.dart';
@@ -53,6 +53,7 @@ class LoginController extends BaseController {
         authController.onLoggedIn(token, apiFormz.value);
         submissionStatus = FormzSubmissionStatus.success;
         update();
+        reloadState();
       } catch (_) {
         submissionStatus = FormzSubmissionStatus.failure;
         update();

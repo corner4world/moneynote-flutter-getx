@@ -110,7 +110,8 @@
   },
   "chart": {
     "asset": "Asset",
-    "debt": "Debt"
+    "debt": "Debt",
+    "expenseCategory": "Expense Category"
   },
   "error": {
     "empty": "It is required",

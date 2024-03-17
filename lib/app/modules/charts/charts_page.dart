@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'widgets/circular_legend.dart';
+import '/app/core/utils/widget_util.dart';
 import '/app/core/components/pages/index.dart';
 import '/app/modules/charts/charts_controller.dart';
 import '/generated/locales.g.dart';
@@ -90,11 +93,15 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
             case LoadDataStatus.initial:
               return const LoadingPage();
             case LoadDataStatus.success:
-              return Container(
-                color: Colors.red,
-                width: double.infinity,
-                height: double.infinity,
-                child: Text(tabIndex.toString()),
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    _buildChart(controller.data),
+                    const SizedBox(height: 10),
+                    CircularLegend(xys: controller.data)
+                  ],
+                ),
               );
             case LoadDataStatus.empty:
               return const EmptyPage();
@@ -103,6 +110,31 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
           }
         })
       ),
+    );
+  }
+
+  Widget _buildChart(List<Map<String, dynamic>> data) {
+    Map<String, double> dataMap = { };
+    for (var e in data) {
+      dataMap[e['x']] = e['y'];
+    }
+    return SfCircularChart(
+      title: ChartTitle(text: LocaleKeys.chart_expenseCategory.tr),
+      legend: Legend(isVisible: false),
+      tooltipBehavior: TooltipBehavior(enable: true),
+      series: getDefaultDoughnutSeries(data),
+      annotations: [
+        CircularChartAnnotation(
+            widget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text('总金额', style: TextStyle(color: Colors.grey, fontSize: 12)),
+                Text(calChartTotal(data).toStringAsFixed(2), style: const TextStyle(color: Colors.black, fontSize: 18))
+              ],
+            )
+        )
+      ],
     );
   }
 

@@ -110,7 +110,8 @@
   },
   "chart": {
     "asset": "资产",
-    "debt": "负债"
+    "debt": "负债",
+    "expenseCategory": "支出分类"
   },
   "error": {
     "empty": "请输入",
