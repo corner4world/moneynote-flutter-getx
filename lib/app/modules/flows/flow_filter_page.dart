@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/flows/widgets/filter/filter_tag.dart';
-import 'package:moneynote/app/modules/flows/widgets/filter/min_time.dart';
-import '/app/modules/flows/widgets/filter/category.dart';
 import '/app/modules/flows/widgets/filter/index.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
 import '/generated/locales.g.dart';
@@ -35,6 +32,9 @@ class FlowFilterPage extends StatelessWidget {
           const FilterTag(),
           const MinTime(),
           const MaxTime(),
+          const Confirm(),
+          const Include(),
+          const HasFile(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,

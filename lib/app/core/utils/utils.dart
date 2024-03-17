@@ -52,6 +52,14 @@ String boolToString(bool val) {
   }
 }
 
+String hasToString(bool val) {
+  if (val) {
+    return LocaleKeys.common_has.tr;
+  } else {
+    return LocaleKeys.common_none.tr;
+  }
+}
+
 bool isNullEmpty(dynamic o) {
   if (o is Map<String, dynamic> || o is List<dynamic>) {
     return o == null || o.length == 0;

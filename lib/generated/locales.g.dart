@@ -16,6 +16,8 @@ class LocaleKeys {
   static const common_cancel = 'common_cancel';
   static const common_yes = 'common_yes';
   static const common_no = 'common_no';
+  static const common_has = 'common_has';
+  static const common_none = 'common_none';
   static const common_netError = 'common_netError';
   static const common_copy = 'common_copy';
   static const common_delete = 'common_delete';
@@ -85,6 +87,9 @@ class LocaleKeys {
   static const flow_payee = 'flow_payee';
   static const flow_category = 'flow_category';
   static const flow_tag = 'flow_tag';
+  static const flow_confirm = 'flow_confirm';
+  static const flow_include = 'flow_include';
+  static const flow_hasFile = 'flow_hasFile';
   static const flow_currentBalance = 'flow_currentBalance';
   static const flow_listPageTitle = 'flow_listPageTitle';
   static const flow_order1 = 'flow_order1';
@@ -111,6 +116,8 @@ class Locales {
     'common_cancel': 'Cancel',
     'common_yes': 'Yes',
     'common_no': 'No',
+    'common_has': 'Has',
+    'common_none': 'None',
     'common_netError': 'Network Error, Try later on.',
     'common_copy': 'Copy',
     'common_delete': 'Delete',
@@ -175,6 +182,9 @@ class Locales {
     'flow_payee': 'Payee',
     'flow_category': 'Category',
     'flow_tag': 'Tag',
+    'flow_confirm': 'Confirm',
+    'flow_include': 'Include',
+    'flow_hasFile': 'File',
     'flow_currentBalance': 'Current Balance',
     'flow_listPageTitle': 'Balance Flow',
     'flow_order1': 'Order By CreateTime',
@@ -199,6 +209,8 @@ class Locales {
     'common_cancel': '取消',
     'common_yes': '是',
     'common_no': '否',
+    'common_has': '有',
+    'common_none': '无',
     'common_netError': '网络错误，请稍后重试',
     'common_copy': '复制',
     'common_delete': '删除',
@@ -263,6 +275,9 @@ class Locales {
     'flow_payee': '交易对象',
     'flow_category': '分类',
     'flow_tag': '标签',
+    'flow_confirm': '是否确认',
+    'flow_include': '是否统计',
+    'flow_hasFile': '文件',
     'flow_currentBalance': '当前余额',
     'flow_listPageTitle': '账单列表',
     'flow_order1': '按时间排序',
