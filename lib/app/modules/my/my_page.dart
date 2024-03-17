@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/my/controllers/account_overview_controller.dart';
+import '../../core/base/enums.dart';
 import '/app/core/components/bottomsheet_container.dart';
 import '/app/core/values/app_values.dart';
 import '/app/modules/my/controllers/language_controller.dart';
@@ -29,6 +31,30 @@ class MyPage extends StatelessWidget {
                   trailing: GetBuilder<AuthController>(builder: (controller) {
                     return Text(controller.initState['user']['username']);
                   }),
+              ),
+              const Divider(),
+              ListTile(
+                title: Text(LocaleKeys.my_accountOverview.tr, softWrap: false),
+                subtitle: GetBuilder<AccountOverviewController>(builder: (controller) {
+                  if (controller.status == LoadDataStatus.success) {
+                    return Text(
+                      LocaleKeys.my_accountOverviewDesc.trParams({
+                        'asset': controller.data[0].toStringAsFixed(2),
+                        'debt': controller.data[1].toStringAsFixed(2),
+                        'net': controller.data[2].toStringAsFixed(2)
+                      }),
+                      style: const TextStyle(fontSize: 12),
+                      softWrap: true,
+                    );
+                  }
+                  return const Text('Loading...');
+                }),
+                trailing: IconButton(
+                  onPressed: () {
+                    Get.find<AccountOverviewController>().load();
+                  },
+                  icon: const Icon(Icons.refresh)
+                )
               ),
               const Divider(),
               // ListTile(

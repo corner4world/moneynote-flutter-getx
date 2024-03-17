@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/components/order_button.dart';
-import 'package:moneynote/app/core/values/app_const.dart';
-import 'package:moneynote/app/core/values/app_values.dart';
-import 'package:moneynote/app/modules/flows/flow_filter_page.dart';
+import '/app/core/components/order_button.dart';
+import '/app/core/values/app_const.dart';
+import '/app/core/values/app_values.dart';
+import '/app/modules/flows/flow_filter_page.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
 import '/generated/locales.g.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

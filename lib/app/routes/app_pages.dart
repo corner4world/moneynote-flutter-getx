@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:moneynote/start_page.dart';
+import '/start_page.dart';
 part 'app_routes.dart';
 
 class AppPages {

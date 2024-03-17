@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/common/select/select_option.dart';
+import '/app/modules/common/select/select_option.dart';
 import '../../../common/select/select_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/form/my_select.dart';

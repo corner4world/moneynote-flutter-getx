@@ -1,6 +1,6 @@
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/base/base_repository.dart';
+import '/app/core/base/base_repository.dart';
 import '../../../core/utils/utils.dart';
 import '../data/account_repository.dart';
 import '/app/core/commons/form/not_empty_formz.dart';

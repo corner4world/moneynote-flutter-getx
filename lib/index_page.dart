@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/modules/accounts/controllers/accounts_controller.dart';
-import 'package:moneynote/app/modules/charts/charts_page.dart';
-import 'package:moneynote/app/modules/flows/controllers/flows_controller.dart';
-import 'package:moneynote/app/modules/flows/flows_page.dart';
-import 'package:moneynote/app/modules/my/controllers/language_controller.dart';
-import 'package:moneynote/app/modules/my/controllers/theme_controller.dart';
-import 'package:moneynote/app/modules/my/my_page.dart';
+import 'package:moneynote/app/modules/my/controllers/account_overview_controller.dart';
+import '/app/modules/accounts/controllers/accounts_controller.dart';
+import '/app/modules/charts/charts_page.dart';
+import '/app/modules/flows/controllers/flows_controller.dart';
+import '/app/modules/flows/flows_page.dart';
+import '/app/modules/my/my_page.dart';
 import '/app/core/values/app_text_styles.dart';
 import '/app/core/components/lazy_indexed_stack.dart';
 import '/app/modules/accounts/ui/accounts_page.dart';
@@ -76,6 +75,7 @@ class _IndexPageState extends State<IndexPage> {
               case 2:
                 return const ChartsPage();
               case 3:
+                Get.put(AccountOverviewController());
                 return const MyPage();
             }
             throw Exception('index page error');

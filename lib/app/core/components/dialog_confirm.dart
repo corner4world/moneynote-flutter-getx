@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
 
 class DialogConfirm extends StatelessWidget {
 

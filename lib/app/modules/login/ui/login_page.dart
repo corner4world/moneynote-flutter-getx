@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/components/bottomsheet_container.dart';
+import '/app/core/components/bottomsheet_container.dart';
 import './widgets/login_form.dart';
 import '/app/core/values/app_values.dart';
 import '/app/core/values/app_text_styles.dart';

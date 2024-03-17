@@ -10,4 +10,9 @@ class AccountRepository {
     return (await Http.put('accounts/$id/adjust', data: form))['success'];
   }
 
+  static Future<List<num>> balanceView() async {
+    dynamic data = (await Http.get('/accounts/overview'))['data'];
+    return List<num>.from(data);
+  }
+
 }

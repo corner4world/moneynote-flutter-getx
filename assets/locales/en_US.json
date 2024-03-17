@@ -63,6 +63,8 @@
     "currentTheme": "Current Theme: ",
     "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
+    "accountOverview": "Account Overview: ",
+    "accountOverviewDesc": "Asset: @asset，Debt: @debt，Net Worth: @net.",
     "logout": "Logout Current User"
   },
   "book": {

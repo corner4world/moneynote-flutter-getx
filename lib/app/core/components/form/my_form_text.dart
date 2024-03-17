@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moneynote/app/core/values/app_text_styles.dart';
+import '/app/core/values/app_text_styles.dart';
 
 import '../../utils/utils.dart';
 import '../asterisk.dart';
