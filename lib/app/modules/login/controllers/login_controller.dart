@@ -50,10 +50,9 @@ class LoginController extends BaseController {
         submissionStatus = FormzSubmissionStatus.inProgress;
         update();
         String token = await LoginRepository.logIn(username: usernameFormz.value, password: passwordFormz.value);
-        authController.onLoggedIn(token);
+        authController.onLoggedIn(token, apiFormz.value);
         submissionStatus = FormzSubmissionStatus.success;
         update();
-        await ApiUrl.save(apiFormz.value);
       } catch (_) {
         submissionStatus = FormzSubmissionStatus.failure;
         update();

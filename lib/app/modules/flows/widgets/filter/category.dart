@@ -29,7 +29,13 @@ class Category extends StatelessWidget {
           }
           Get.find<SelectController>().load('categories', params: query);
           Get.to(() => TreeSelectOption(
-            title: LocaleKeys.flow_category.tr
+            title: LocaleKeys.flow_category.tr,
+            values: controller.query['categories'],
+            onSelect: (values) {
+              controller.query['categories'] = values;
+              controller.update();
+              Get.back();
+            },
           ));
         },
       );

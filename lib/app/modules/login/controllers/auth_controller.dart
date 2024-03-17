@@ -10,10 +10,10 @@ class AuthController extends BaseController {
   AuthStatus status = AuthStatus.uninitialized;
   Map<String, dynamic> initState = const { };
 
-  void onLoggedIn(String token) async {
+  void onLoggedIn(String token, String api) async {
     await Token.save(token);
-    status = AuthStatus.authenticated;
-    update();
+    await ApiUrl.save(api);
+    onAppStarted();
   }
 
   void onLoggedOut() async {
