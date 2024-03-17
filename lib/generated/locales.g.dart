@@ -24,6 +24,8 @@ class LocaleKeys {
   static const common_notes = 'common_notes';
   static const common_submit = 'common_submit';
   static const common_reset = 'common_reset';
+  static const common_minTime = 'common_minTime';
+  static const common_maxTime = 'common_maxTime';
   static const menu_account = 'menu_account';
   static const menu_flow = 'menu_flow';
   static const menu_newFlow = 'menu_newFlow';
@@ -117,6 +119,8 @@ class Locales {
     'common_notes': 'Notes',
     'common_submit': 'Submit',
     'common_reset': 'Reset',
+    'common_minTime': 'Start Date',
+    'common_maxTime': 'End Date',
     'menu_account': 'Account',
     'menu_flow': 'Flow',
     'menu_newFlow': 'New',
@@ -203,6 +207,8 @@ class Locales {
     'common_notes': '备注',
     'common_submit': '提交',
     'common_reset': '重置',
+    'common_minTime': '起始日期',
+    'common_maxTime': '终止日期',
     'menu_account': '账户',
     'menu_flow': '账单',
     'menu_newFlow': '记账',

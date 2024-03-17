@@ -12,7 +12,9 @@
     "operationSuccess": "操作成功",
     "notes": "备注",
     "submit": "提交",
-    "reset": "重置"
+    "reset": "重置",
+    "minTime": "起始日期",
+    "maxTime": "终止日期"
   },
   "menu": {
     "account": "账户",

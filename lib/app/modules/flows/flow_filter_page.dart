@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moneynote/app/modules/flows/widgets/filter/filter_tag.dart';
+import 'package:moneynote/app/modules/flows/widgets/filter/min_time.dart';
 import '/app/modules/flows/widgets/filter/category.dart';
 import '/app/modules/flows/widgets/filter/index.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
@@ -32,6 +33,8 @@ class FlowFilterPage extends StatelessWidget {
           const Payee(),
           const Category(),
           const FilterTag(),
+          const MinTime(),
+          const MaxTime(),
           const SizedBox(height: 70),
           SizedBox(
             width: double.infinity,

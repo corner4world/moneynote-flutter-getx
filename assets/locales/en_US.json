@@ -12,7 +12,9 @@
     "operationSuccess": "Operation successful",
     "notes": "Notes",
     "submit": "Submit",
-    "reset": "Reset"
+    "reset": "Reset",
+    "minTime": "Start Date",
+    "maxTime": "End Date"
   },
   "menu": {
     "account": "Account",
