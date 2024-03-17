@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/components/bottomsheet_container.dart';
-import 'package:moneynote/app/core/utils/language.dart';
-import 'package:moneynote/app/core/values/app_values.dart';
-import 'package:moneynote/app/modules/my/controllers/language_controller.dart';
-import 'package:moneynote/app/modules/my/controllers/theme_controller.dart';
-import 'package:moneynote/generated/locales.g.dart';
-
-import '../../core/components/dialog_confirm.dart';
+import '/app/core/components/bottomsheet_container.dart';
+import '/app/core/values/app_values.dart';
+import '/app/modules/my/controllers/language_controller.dart';
+import '/app/modules/my/controllers/theme_controller.dart';
+import '/generated/locales.g.dart';
+import '/app/core/components/dialog_confirm.dart';
 import '../login/controllers/auth_controller.dart';
 
 class MyPage extends StatelessWidget {
@@ -26,10 +24,13 @@ class MyPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // ListTile(
-              //     title: const Text('登录用户名：'),
-              //     trailing: Text(initState['user']['username'])
-              // ),
+              ListTile(
+                  title: Text(LocaleKeys.my_userName.tr),
+                  trailing: GetBuilder<AuthController>(builder: (controller) {
+                    return Text(controller.initState['user']['username']);
+                  }),
+              ),
+              const Divider(),
               // ListTile(
               //     title: const Text('当前默认账本：'),
               //     trailing: Text(initState['book']['name'])
@@ -91,6 +92,11 @@ class MyPage extends StatelessWidget {
               ListTile(
                 title: Text(LocaleKeys.my_currentVersion.tr),
                 trailing: const Text(AppValues.version)
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text('API: '),
+                trailing: Text(AppValues.apiUrl)
               ),
               const Divider(),
               Container(

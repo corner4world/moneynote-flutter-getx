@@ -67,6 +67,7 @@ class LocaleKeys {
   static const account_adjustPageTitle = 'account_adjustPageTitle';
   static const account_new = 'account_new';
   static const account_edit = 'account_edit';
+  static const my_userName = 'my_userName';
   static const my_currentTheme = 'my_currentTheme';
   static const my_currentLang = 'my_currentLang';
   static const my_currentVersion = 'my_currentVersion';
@@ -150,6 +151,7 @@ class Locales {
     'account_adjustPageTitle': 'Adjust Account Balance',
     'account_new': 'New Account',
     'account_edit': 'Edit Account',
+    'my_userName': 'User Name: ',
     'my_currentTheme': 'Current Theme: ',
     'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
@@ -231,6 +233,7 @@ class Locales {
     'account_adjustPageTitle': '调整账户余额',
     'account_new': '新增账户',
     'account_edit': '编辑账户',
+    'my_userName': '用户名: ',
     'my_currentTheme': '当前主题: ',
     'my_currentLang': '当前语言: ',
     'my_currentVersion': '当前版本: ',

@@ -59,6 +59,7 @@
     "edit": "编辑账户"
   },
   "my": {
+    "userName": "用户名: ",
     "currentTheme": "当前主题: ",
     "currentLang": "当前语言: ",
     "currentVersion": "当前版本: ",

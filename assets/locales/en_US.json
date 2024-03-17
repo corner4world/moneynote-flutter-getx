@@ -59,6 +59,7 @@
     "edit": "Edit Account"
   },
   "my": {
+    "userName": "User Name: ",
     "currentTheme": "Current Theme: ",
     "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
