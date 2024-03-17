@@ -62,7 +62,7 @@ class _IndexPageState extends State<IndexPage> {
     final theme = Theme.of(context);
     return Scaffold(
         body: LazyIndexedStack(
-          reuse: false,
+          reuse: true,
           index: _selectedIndex,
           itemBuilder: (c, i) {
             switch (i) {

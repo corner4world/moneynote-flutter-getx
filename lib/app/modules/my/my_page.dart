@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../common/select/select_controller.dart';
+import '../common/select/select_option.dart';
 import '/app/modules/my/controllers/account_overview_controller.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/components/bottomsheet_container.dart';
@@ -57,21 +59,33 @@ class MyPage extends StatelessWidget {
                 )
               ),
               const Divider(),
-              ListTile(
-                title: Text(LocaleKeys.my_currentBook.tr),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    GetBuilder<AuthController>(builder: (controller) {
-                      return Text('${controller.initState['group']['name']}-${controller.initState['book']['name']}');
-                    }),
-                    const Icon(Icons.keyboard_arrow_right)
-                  ],
-                ),
-                onTap: () {
-
-                },
-              ),
+              GetBuilder<AuthController>(builder: (controller) {
+                dynamic group = controller.initState['group'];
+                dynamic book = controller.initState['book'];
+                return ListTile(
+                  title: Text(LocaleKeys.my_currentBook.tr),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('${group['name']}(${group['defaultCurrencyCode']})-${book['name']}(${book['defaultCurrencyCode']})'),
+                      const Icon(Icons.keyboard_arrow_right)
+                    ],
+                  ),
+                  onTap: () {
+                    Get.find<SelectController>().load('bookSelect');
+                    Get.to(() => SelectOption(
+                      title: LocaleKeys.my_currentBook.tr,
+                      value: {
+                        'value': '${controller.initState['group']['id']}-${controller.initState['book']['id']}'
+                      },
+                      onSelect: (value) async {
+                        Get.back();
+                        Get.find<AuthController>().changeCurrentBook(value['value']);
+                      },
+                    ));
+                  },
+                );
+              }),
               const Divider(),
               ListTile(
                 title: Text(LocaleKeys.my_currentTheme.tr),
