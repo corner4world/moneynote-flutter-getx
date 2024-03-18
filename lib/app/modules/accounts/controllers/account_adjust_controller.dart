@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:formz/formz.dart';
+import '../../../core/utils/message.dart';
 import '/app/modules/accounts/controllers/account_detail_controller.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
 import '/app/core/commons/form/not_empty_num_formz.dart';
@@ -11,7 +12,6 @@ import '../data/account_repository.dart';
 class AccountAdjustController extends BaseController {
 
   bool valid = false;
-  FormzSubmissionStatus submissionStatus = FormzSubmissionStatus.initial;
   Map<String, dynamic> form = { };
   NotEmptyNumFormz balanceFormz = const NotEmptyNumFormz.pure();
   dynamic book;
@@ -46,8 +46,7 @@ class AccountAdjustController extends BaseController {
   void submit() async {
     if (valid) {
       try {
-        submissionStatus = FormzSubmissionStatus.inProgress;
-        update();
+        Message.showLoading();
         bool result = false;
         switch (action) {
           case 1:
@@ -58,16 +57,13 @@ class AccountAdjustController extends BaseController {
             break;
         }
         if (result) {
-          submissionStatus = FormzSubmissionStatus.success;
           Get.back();
           // 更新成功要刷新列表页和详情页
-          Get.find<AccountDetailController>().load();
           Get.find<AccountsController>().reload();
-        } else {
-          submissionStatus = FormzSubmissionStatus.failure;
+          Get.find<AccountDetailController>().load();
         }
       } catch (_) {
-        submissionStatus = FormzSubmissionStatus.failure;
+        _.printError();
       }
     }
   }
