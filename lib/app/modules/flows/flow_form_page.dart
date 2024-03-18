@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/generated/locales.g.dart';
+import '/generated/locales.g.dart';
+import '../../core/components/my_form_page.dart';
+import 'widgets/form/index.dart';
 import 'controllers/flow_form_controller.dart';
 
 
@@ -48,14 +50,19 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FlowFormController>(builder: (controller) {
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: _buildTitle(context, controller.action),
-          actions: [
-
-          ],
-        ),
+      return MyFormPage(
+        title: _buildTitle(context, controller.action),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.done),
+            onPressed: controller.valid ? () {
+              Get.find<FlowFormController>().submit();
+            } : null,
+          )
+        ],
+        children: [
+          const Book(),
+        ],
       );
     });
   }

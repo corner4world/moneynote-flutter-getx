@@ -32,14 +32,16 @@ class AccountAdjustPage extends StatelessWidget {
           MySelect(
             label: LocaleKeys.book_whichBook.tr,
             required: true,
-            value: controller.book,
+            value: controller.form['book'],
             onFocus: () {
               Get.find<SelectController>().load('books');
               Get.to(() => SelectOption(
                 title: LocaleKeys.book_whichBook.tr,
-                value: controller.book,
+                value: controller.form['book'],
                 onSelect: (value) {
-                  Get.find<AccountAdjustController>().bookChanged(value);
+                  controller.form['book'] = value;
+                  controller.update();
+                  Get.back();
                 },
               ));
             },

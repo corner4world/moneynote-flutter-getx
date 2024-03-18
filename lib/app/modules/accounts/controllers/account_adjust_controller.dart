@@ -14,7 +14,6 @@ class AccountAdjustController extends BaseController {
   bool valid = false;
   Map<String, dynamic> form = { };
   NotEmptyNumFormz balanceFormz = const NotEmptyNumFormz.pure();
-  dynamic book;
 
   int action;
   Map<String, dynamic> currentRow;
@@ -24,9 +23,8 @@ class AccountAdjustController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    book = Get.find<AuthController>().initState['book'];
     form['createTime'] = action == 1 ? DateTime.now().millisecondsSinceEpoch : currentRow['createTime'];
-    form['bookId'] = book['value'];
+    form['book'] = Get.find<AuthController>().initState['book'];
   }
 
   void balanceChanged(String value) {
@@ -36,24 +34,21 @@ class AccountAdjustController extends BaseController {
     update();
   }
 
-  void bookChanged(dynamic value) {
-    book = value;
-    form['bookId'] = value['value'];
-    update();
-    Get.back();
-  }
-
   void submit() async {
     if (valid) {
       try {
         Message.showLoading();
         bool result = false;
+        Map<String, dynamic> newForm = { ...form };
+        if (form['book']?['value'] != null) {
+          newForm['book'] = form['book']?['value'];
+        }
         switch (action) {
           case 1:
-            result = await AccountRepository.createAdjust(currentRow['id'], form);
+            result = await AccountRepository.createAdjust(currentRow['id'], newForm);
             break;
           case 2:
-            result = await AccountRepository.updateAdjust(currentRow['id'], form);
+            result = await AccountRepository.updateAdjust(currentRow['id'], newForm);
             break;
         }
         if (result) {
