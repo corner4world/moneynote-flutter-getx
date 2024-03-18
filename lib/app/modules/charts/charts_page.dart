@@ -44,7 +44,7 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-
+            Get.find<ChartsController>().reload();
           },
           icon: const Icon(Icons.refresh)
         ),
@@ -59,16 +59,16 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
           ],
         ),
         actions: [
-          // IconButton(
-          //   onPressed: (tabIndex == 2 || tabIndex == 3) ? null : () {
-          //     if (tabIndex == 0) {
-          //       // fullDialog(context, const ChartExpenseFilterPage());
-          //     } else if (tabIndex == 1) {
-          //       // fullDialog(context, const ChartIncomeFilterPage());
-          //     }
-          //   },
-          //   icon: const Icon(Icons.search)
-          // )
+          IconButton(
+            onPressed: (tabController.index == 2 || tabController.index == 3) ? null : () {
+              if (tabController.index == 0) {
+                // fullDialog(context, const ChartExpenseFilterPage());
+              } else if (tabController.index == 1) {
+                // fullDialog(context, const ChartIncomeFilterPage());
+              }
+            },
+            icon: const Icon(Icons.search)
+          )
         ],
       ),
       body: GestureDetector(
