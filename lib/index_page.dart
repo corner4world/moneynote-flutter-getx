@@ -38,7 +38,7 @@ class _IndexPageState extends State<IndexPage> {
 
   Widget buildBottomItem(int index, IconData iconData, String label) {
     final theme = Theme.of(context);
-    Color color = _selectedIndex == index ? theme.primaryColor : theme.unselectedWidgetColor;
+    Color color = _selectedIndex == index ? theme.colorScheme.primary : theme.unselectedWidgetColor;
     return GestureDetector(
         onTap: () {
           setState(() {
