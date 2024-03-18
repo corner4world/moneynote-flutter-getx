@@ -134,9 +134,6 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
             Get.put(AccountDetailController(item['id']));
             Get.to(() => const AccountDetailPage())?.then((value) => Get.delete<AccountDetailController>());
           },
-          onLongPress: () {
-            // fullDialog(context, AccountAdjustPage(action: 1, currentRow: item));
-          },
         );
       },
       separatorBuilder: (context, index) {

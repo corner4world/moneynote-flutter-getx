@@ -9,6 +9,8 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/components/pages/index.dart';
 import '/app/core/utils/utils.dart';
+import 'controllers/flow_detail_controller.dart';
+import 'flow_detail_page.dart';
 
 class FlowsPage extends StatelessWidget {
 
@@ -101,7 +103,8 @@ class FlowsPage extends StatelessWidget {
             ],
           ),
           onTap: () {
-            // navigateTo(context, FlowDetailPage(id: item['id']));
+            Get.put(FlowDetailController(item['id']));
+            Get.to(() => const FlowDetailPage())?.then((value) => Get.delete<FlowDetailController>());
           },
         );
       },
