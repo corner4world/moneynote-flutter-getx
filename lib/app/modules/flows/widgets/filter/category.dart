@@ -27,6 +27,9 @@ class Category extends StatelessWidget {
           if (controller.query['book'] != null) {
             query['bookId'] = controller.query['book']['value'];
           }
+          if (controller.query['type'] != null) {
+            query['type'] = controller.query['type'];
+          }
           Get.find<SelectController>().load('categories', params: query);
           Get.to(() => TreeSelectOption(
             title: LocaleKeys.flow_category.tr,
