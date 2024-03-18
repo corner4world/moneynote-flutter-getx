@@ -1,30 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class Message {
 
   static success(String msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );
+    EasyLoading.showSuccess(msg, duration: const Duration(seconds: 2));
   }
 
   static error(String msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );
+    EasyLoading.showError(msg, duration: const Duration(seconds: 2));
+  }
+
+  static showLoading({String? msg}) {
+    EasyLoading.show(status: msg ?? 'Loading...', maskType: EasyLoadingMaskType.black);
+  }
+
+  static disLoading() {
+    EasyLoading.dismiss();
   }
 
 }

@@ -131,7 +131,7 @@ class Locales {
     'common_copy': 'Copy',
     'common_delete': 'Delete',
     'common_edit': 'Edit',
-    'common_operationSuccess': 'Operation successful',
+    'common_operationSuccess': 'Success',
     'common_notes': 'Notes',
     'common_submit': 'Submit',
     'common_reset': 'Reset',

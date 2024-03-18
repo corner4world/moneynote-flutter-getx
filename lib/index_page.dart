@@ -11,6 +11,8 @@ import '/app/core/values/app_text_styles.dart';
 import '/app/core/components/lazy_indexed_stack.dart';
 import '/app/modules/accounts/ui/accounts_page.dart';
 import '/generated/locales.g.dart';
+import 'app/modules/flows/controllers/flow_form_controller.dart';
+import 'app/modules/flows/flow_form_page.dart';
 
 class IndexPage extends StatefulWidget {
 
@@ -18,7 +20,7 @@ class IndexPage extends StatefulWidget {
 
   const IndexPage({
     super.key,
-    this.initialIndex = 1,
+    this.initialIndex = 0,
   });
 
   @override
@@ -99,7 +101,10 @@ class _IndexPageState extends State<IndexPage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        // fullDialog(context, const FlowFormPage(action: 1));
+                        Get.put(FlowFormController('EXPENSE', 1, { }));
+                        Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+                          (value) => Get.delete<FlowFormController>()
+                        );
                       },
                       child: Container(
                         height: 44,

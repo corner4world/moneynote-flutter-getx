@@ -1,8 +1,8 @@
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
+import '/app/core/utils/message.dart';
 import '/app/core/base/base_repository.dart';
-import '../../../core/utils/utils.dart';
-import '../data/account_repository.dart';
+import '/app/core/utils/utils.dart';
 import '/app/core/commons/form/not_empty_formz.dart';
 import '/app/core/commons/form/not_empty_num_formz.dart';
 import '../../login/controllers/auth_controller.dart';
@@ -13,7 +13,6 @@ import 'accounts_controller.dart';
 class AccountFormController extends BaseController {
 
   bool valid = false;
-  FormzSubmissionStatus submissionStatus = FormzSubmissionStatus.initial;
   Map<String, dynamic> form = { };
   NotEmptyFormz nameFormz = const NotEmptyFormz.pure();
   NotEmptyNumFormz balanceFormz = const NotEmptyNumFormz.pure();
@@ -49,8 +48,7 @@ class AccountFormController extends BaseController {
   void submit() async {
     if (valid) {
       try {
-        submissionStatus = FormzSubmissionStatus.inProgress;
-        update();
+        Message.showLoading();
         bool result = false;
         switch (action) {
           case 1:
@@ -64,15 +62,14 @@ class AccountFormController extends BaseController {
             break;
         }
         if (result) {
-          submissionStatus = FormzSubmissionStatus.success;
           Get.back();
-          Get.find<AccountDetailController>().load();
           Get.find<AccountsController>().reload();
-        } else {
-          submissionStatus = FormzSubmissionStatus.failure;
+          Get.find<AccountDetailController>().load();
         }
       } catch (_) {
-        submissionStatus = FormzSubmissionStatus.failure;
+        _.printError();
+      } finally {
+        // Message.disLoading();
       }
     }
   }
@@ -104,6 +101,5 @@ class AccountFormController extends BaseController {
       Get.back();
     }
   }
-
 
 }
