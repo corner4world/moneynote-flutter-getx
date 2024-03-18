@@ -24,8 +24,13 @@ class ChartFilterPage extends StatelessWidget {
       ],
       children: [
         const Book(),
+        const FilterTitle(),
+        const MinTime(),
+        const MaxTime(),
         const Category(),
         const FilterTag(),
+        const Payee(),
+        const Account(),
         const SizedBox(height: 70),
         SizedBox(
           width: double.infinity,
