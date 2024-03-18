@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'chart_filter_page.dart';
 import 'widgets/circular_legend.dart';
 import '/app/core/utils/widget_util.dart';
 import '/app/core/components/pages/index.dart';
@@ -59,16 +60,14 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: (tabController.index == 2 || tabController.index == 3) ? null : () {
-              if (tabController.index == 0) {
-                // fullDialog(context, const ChartExpenseFilterPage());
-              } else if (tabController.index == 1) {
-                // fullDialog(context, const ChartIncomeFilterPage());
-              }
-            },
-            icon: const Icon(Icons.search)
-          )
+          GetBuilder<ChartsController>(builder: (controller) {
+            return IconButton(
+              onPressed: (controller.tabIndex == 2 || controller.tabIndex == 3) ? null : () {
+                Get.to(() => const ChartFilterPage(), fullscreenDialog: true);
+              },
+              icon: const Icon(Icons.search)
+            );
+          })
         ],
       ),
       body: GestureDetector(

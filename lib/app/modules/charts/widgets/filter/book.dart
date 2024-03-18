@@ -16,11 +16,6 @@ class Book extends StatelessWidget {
       return MySelect(
         label: LocaleKeys.book_whichBook.tr,
         value: controller.query['book'],
-        allowClear: true,
-        onClear: () {
-          controller.query['book'] = null;
-          controller.update();
-        },
         onFocus: () {
           Get.find<SelectController>().load('books');
           Get.to(() => SelectOption(

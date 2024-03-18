@@ -22,11 +22,22 @@ class Payee extends StatelessWidget {
           controller.update();
         },
         onFocus: () {
-          Map<String, dynamic> query = { };
-          if (controller.query['book'] != null) {
-            query['bookId'] = controller.query['book']['value'];
+          if (controller.query['type'] == 'TRANSFER' || controller.query['type'] == 'ADJUST') {
+            //调整余额，则标签为空
+            Get.find<SelectController>().clear();
+          } else {
+            Map<String, dynamic> query = { };
+            if (controller.query['book'] != null) {
+              query['bookId'] = controller.query['book']['value'];
+            }
+            if (controller.query['type'] == 'EXPENSE') {
+              query['canExpense'] = true;
+            }
+            if (controller.query['type'] == 'INCOME') {
+              query['canIncome'] = true;
+            }
+            Get.find<SelectController>().load('payees', params: query);
           }
-          Get.find<SelectController>().load('payees', params: query);
           Get.to(() => SelectOption(
             title: LocaleKeys.flow_payee.tr,
             value: controller.query['payees'],

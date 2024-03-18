@@ -57,7 +57,6 @@ class _MyTreeOptionState extends State<MyTreeOption> {
           case LoadDataStatus.initial:
             return const LoadingPage();
           case LoadDataStatus.success:
-
             TreeNodeData mapServerDataToTreeData(Map data) {
               return TreeNodeData(
                 extra: data,

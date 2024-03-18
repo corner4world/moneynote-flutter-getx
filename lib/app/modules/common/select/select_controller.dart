@@ -13,12 +13,22 @@ class SelectController extends BaseController {
       options = [];
       update();
       options = await BaseRepository.queryAll(prefix, params: params);
-      status = LoadDataStatus.success;
+      if (options.isEmpty) {
+        status = LoadDataStatus.empty;
+      } else {
+        status = LoadDataStatus.success;
+      }
       update();
     } catch (_) {
       status = LoadDataStatus.failure;
       update();
     }
+  }
+
+  void clear() {
+    status = LoadDataStatus.empty;
+    options = [];
+    update();
   }
 
 }

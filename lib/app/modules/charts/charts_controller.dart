@@ -70,8 +70,7 @@ class ChartsController extends BaseController {
   Map<String, dynamic> buildQuery() {
     Map<String, dynamic> newQuery = { ...query };
     if (query['book']?['value'] != null) {
-      newQuery['bookId'] = query['book']?['value'];
-      newQuery.remove('book');
+      newQuery['book'] = query['book']?['value'];
     }
     if (query['account']?['value'] != null) {
       newQuery['account'] = query['account']?['value'];
