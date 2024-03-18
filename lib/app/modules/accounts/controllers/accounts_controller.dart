@@ -1,3 +1,4 @@
+import 'package:moneynote/app/core/utils/utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/values/app_const.dart';
@@ -11,8 +12,14 @@ class AccountsController extends BaseController {
   Map<String, dynamic> query = {
     AppConst.pageSizeParameter: AppConst.defaultPageSize
   };
-
   late RefreshController refreshController;
+  int tabIndex = 0;
+
+  void tabClick(int index) {
+    tabIndex = index;
+    update();
+    reload();
+  }
 
   @override
   void onInit() {
@@ -26,6 +33,7 @@ class AccountsController extends BaseController {
       status = LoadDataStatus.progress;
       update();
       query[AppConst.pageParameter] = AppConst.pageStart;
+      query['type'] = accountTabIndexToType(tabIndex);
       items = await BaseRepository.query1('accounts', query);
       if (items.length < AppConst.defaultPageSize) {
         refreshController.loadNoData();
@@ -45,6 +53,7 @@ class AccountsController extends BaseController {
   void loadMore() async {
     try {
       query[AppConst.pageParameter] = query[AppConst.pageParameter] + 1;
+      query['type'] = accountTabIndexToType(tabIndex);
       final newItems = await BaseRepository.query1('accounts', query);
       if (newItems.isNotEmpty) {
         items = List.of(items)..addAll(newItems);
@@ -57,14 +66,6 @@ class AccountsController extends BaseController {
       refreshController.loadFailed();
       update();
     }
-  }
-
-  void queryChanged(Map<String, dynamic> newQuery) {
-    query = {
-      ...query,
-      ...newQuery
-    };
-    reload();
   }
 
   @override

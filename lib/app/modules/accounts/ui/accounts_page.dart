@@ -28,12 +28,10 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 4, vsync: this);
+    tabController = TabController(initialIndex: 0, length: 4, vsync: this);
     tabController.addListener(() {
       if(!tabController.indexIsChanging) {
-        Get.find<AccountsController>().queryChanged({
-          'type': accountTabIndexToType(tabController.index)
-        });
+        Get.find<AccountsController>().tabClick(tabController.index);
       }
     });
   }
@@ -69,7 +67,6 @@ class _AccountsPageState extends State<AccountsPage> with TickerProviderStateMix
             IconButton(
                 icon: const Icon(Icons.add),
                 onPressed: () {
-                  // fullDialog(context, AccountFormPage(action: 1, type: accountTabIndexToType(tabController.index)));
                   Get.put(AccountFormController(accountTabIndexToType(tabController.index), 1, {}));
                   Get.to(() => const AccountFormPage(), fullscreenDialog: true)?.then(
                     (value) => Get.delete<AccountFormController>()
