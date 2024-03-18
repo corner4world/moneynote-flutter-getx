@@ -110,6 +110,10 @@ class LocaleKeys {
   static const chart_asset = 'chart_asset';
   static const chart_debt = 'chart_debt';
   static const chart_expenseCategory = 'chart_expenseCategory';
+  static const chart_incomeCategory = 'chart_incomeCategory';
+  static const chart_assetCategory = 'chart_assetCategory';
+  static const chart_debtCategory = 'chart_debtCategory';
+  static const chart_totalAmount = 'chart_totalAmount';
   static const error_empty = 'error_empty';
   static const error_format = 'error_format';
 }
@@ -210,6 +214,10 @@ class Locales {
     'chart_asset': 'Asset',
     'chart_debt': 'Debt',
     'chart_expenseCategory': 'Expense Category',
+    'chart_incomeCategory': 'Income Category',
+    'chart_assetCategory': 'Asset Category',
+    'chart_debtCategory': 'Debt Category',
+    'chart_totalAmount': 'Total Amount',
     'error_empty': 'It is required',
     'error_format': 'Format error',
   };
@@ -308,6 +316,10 @@ class Locales {
     'chart_asset': '资产',
     'chart_debt': '负债',
     'chart_expenseCategory': '支出分类',
+    'chart_incomeCategory': '收入分类',
+    'chart_assetCategory': '资产分类',
+    'chart_debtCategory': '负债分类',
+    'chart_totalAmount': '总金额',
     'error_empty': '请输入',
     'error_format': '格式错误',
   };

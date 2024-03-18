@@ -111,7 +111,11 @@
   "chart": {
     "asset": "Asset",
     "debt": "Debt",
-    "expenseCategory": "Expense Category"
+    "expenseCategory": "Expense Category",
+    "incomeCategory": "Income Category",
+    "assetCategory": "Asset Category",
+    "debtCategory": "Debt Category",
+    "totalAmount": "Total Amount"
   },
   "error": {
     "empty": "It is required",

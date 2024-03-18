@@ -10,9 +10,18 @@ class ChartsController extends BaseController {
   List<Map<String, dynamic>> data = [];
   Map<String, dynamic> query = { };
 
+  int tabIndex = 0;
+
   @override
   void onInit() {
     super.onInit();
+    reset();
+    reload();
+  }
+
+  void tabClick(int index) {
+    tabIndex = index;
+    update();
     reset();
     reload();
   }
@@ -27,7 +36,21 @@ class ChartsController extends BaseController {
     try {
       status = LoadDataStatus.progress;
       update();
-      data = await ChartRepository.expenseCategory(buildQuery());
+      if (tabIndex == 0) {
+        data = await ChartRepository.expenseCategory(buildQuery());
+      }
+      if (tabIndex == 1) {
+        data = await ChartRepository.incomeCategory(buildQuery());
+      }
+      if (tabIndex == 2 || tabIndex == 3) {
+        var res = await ChartRepository.balance();
+        if (tabIndex == 2) {
+          data = res[0];
+        }
+        if (tabIndex == 3) {
+          data = res[1];
+        }
+      }
       status = LoadDataStatus.success;
       update();
     } catch (_) {

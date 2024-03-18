@@ -19,18 +19,15 @@ class ChartsPage extends StatefulWidget {
 
 class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
 
-  int tabIndex = 0;
   late TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(initialIndex: tabIndex, length: 4, vsync: this);
+    tabController = TabController(initialIndex: 0, length: 4, vsync: this);
     tabController.addListener(() {
       if(!tabController.indexIsChanging) {
-        setState(() {
-          tabIndex = tabController.index;
-        });
+        Get.find<ChartsController>().tabClick(tabController.index);
       }
     });
   }
@@ -62,16 +59,16 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: (tabIndex == 2 || tabIndex == 3) ? null : () {
-              if (tabIndex == 0) {
-                // fullDialog(context, const ChartExpenseFilterPage());
-              } else if (tabIndex == 1) {
-                // fullDialog(context, const ChartIncomeFilterPage());
-              }
-            },
-            icon: const Icon(Icons.search)
-          )
+          // IconButton(
+          //   onPressed: (tabIndex == 2 || tabIndex == 3) ? null : () {
+          //     if (tabIndex == 0) {
+          //       // fullDialog(context, const ChartExpenseFilterPage());
+          //     } else if (tabIndex == 1) {
+          //       // fullDialog(context, const ChartIncomeFilterPage());
+          //     }
+          //   },
+          //   icon: const Icon(Icons.search)
+          // )
         ],
       ),
       body: GestureDetector(
@@ -97,7 +94,7 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
-                    _buildChart(controller.data),
+                    _buildChart(controller.data, controller.tabIndex),
                     const SizedBox(height: 10),
                     CircularLegend(xys: controller.data)
                   ],
@@ -113,29 +110,43 @@ class _ChartsPageState extends State<ChartsPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildChart(List<Map<String, dynamic>> data) {
+  Widget _buildChart(List<Map<String, dynamic>> data, int index) {
     Map<String, double> dataMap = { };
     for (var e in data) {
       dataMap[e['x']] = e['y'];
     }
     return SfCircularChart(
-      title: ChartTitle(text: LocaleKeys.chart_expenseCategory.tr),
+      title: ChartTitle(text: title(index)),
       legend: Legend(isVisible: false),
       tooltipBehavior: TooltipBehavior(enable: true),
       series: getDefaultDoughnutSeries(data),
       annotations: [
         CircularChartAnnotation(
-            widget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text('总金额', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                Text(calChartTotal(data).toStringAsFixed(2), style: const TextStyle(color: Colors.black, fontSize: 18))
-              ],
-            )
+          widget: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(LocaleKeys.chart_totalAmount.tr, style: const TextStyle(color: Colors.grey, fontSize: 12)),
+              Text(calChartTotal(data).toStringAsFixed(2), style: const TextStyle(color: Colors.black, fontSize: 18))
+            ],
+          )
         )
       ],
     );
+  }
+
+  String title(int index) {
+    switch (index) {
+      case 0:
+        return LocaleKeys.chart_expenseCategory.tr;
+      case 1:
+        return LocaleKeys.chart_incomeCategory.tr;
+      case 2:
+        return LocaleKeys.chart_assetCategory.tr;
+      case 3:
+        return LocaleKeys.chart_debtCategory.tr;
+    }
+    return '';
   }
 
 }
