@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/generated/locales.g.dart';
-import '../../core/components/my_form_page.dart';
 import 'widgets/form/index.dart';
 import 'controllers/flow_form_controller.dart';
 
@@ -26,7 +25,7 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
     tabController = TabController(initialIndex: 0, length: 3, vsync: this);
     tabController.addListener(() {
       if(!tabController.indexIsChanging) {
-
+        Get.find<FlowFormController>().tabClick(tabController.index);
       }
     });
   }
@@ -50,19 +49,51 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FlowFormController>(builder: (controller) {
-      return MyFormPage(
-        title: _buildTitle(context, controller.action),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.done),
-            onPressed: controller.valid ? () {
-              Get.find<FlowFormController>().submit();
-            } : null,
-          )
-        ],
-        children: [
-          const Book(),
-        ],
+      return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: _buildTitle(context, controller.action),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.done),
+              onPressed: controller.valid ? () {
+                Get.find<FlowFormController>().submit();
+              } : null,
+            )
+          ],
+        ),
+        body: GestureDetector(
+          onHorizontalDragEnd: (details) {
+            if (details.velocity.pixelsPerSecond.dx > 0) {
+              if (tabController.index > 0) {
+                tabController.animateTo(tabController.index - 1);
+              }
+            } else if (details.velocity.pixelsPerSecond.dx < 0) {
+              if (tabController.index < 2) {
+                tabController.animateTo(tabController.index + 1);
+              }
+            }
+          },
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 30),
+              child: Wrap(
+                runSpacing: 5,
+                children: [
+                  Book(controller: controller),
+                  FormTitle(controller: controller),
+                  CreateTime(controller: controller),
+                  Account(controller: controller),
+                  if (controller.type == 'EXPENSE' || controller.type  == 'INCOME') ...[
+                    Category(controller: controller),
+                    Amount(controller: controller)
+                  ],
+
+                ],
+              ),
+            ),
+          ),
+        ),
       );
     });
   }

@@ -34,15 +34,12 @@ class AccountFormController extends BaseController {
     }
     if (action == 1) {
       form['currencyCode'] = Get.find<AuthController>().initState['group']['defaultCurrencyCode'];
-    }
-    if (action == 1) {
       form['canExpense'] = true;
       form['canIncome'] = true;
       form['canTransferFrom'] = true;
       form['canTransferTo'] = true;
       form['include'] = true;
     }
-
   }
 
   void submit() async {

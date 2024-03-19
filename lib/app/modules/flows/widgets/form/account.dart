@@ -6,11 +6,11 @@ import '../../../common/select/select_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/form/my_select.dart';
 
-class Book extends StatelessWidget {
+class Account extends StatelessWidget {
 
   final FlowFormController controller;
 
-  const Book({
+  const Account({
     super.key,
     required this.controller
   });
@@ -18,16 +18,15 @@ class Book extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MySelect(
-      required: true,
-      label: LocaleKeys.book_whichBook.tr,
-      value: controller.form['book'],
+      label: LocaleKeys.flow_account.tr,
+      value: controller.form['account'],
       onFocus: () {
-        Get.find<SelectController>().load('books');
+        Get.find<SelectController>().load('accounts');
         Get.to(() => SelectOption(
-          title: LocaleKeys.book_whichBook.tr,
-          value: controller.form['book'],
+          title: LocaleKeys.menu_account.tr,
+          value: controller.form['account'],
           onSelect: (value) {
-            controller.form['book'] = value;
+            controller.form['account'] = value;
             controller.update();
             Get.back();
           },

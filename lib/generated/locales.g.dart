@@ -84,9 +84,11 @@ class LocaleKeys {
   static const form_selectPlaceholder2 = 'form_selectPlaceholder2';
   static const flow_title = 'flow_title';
   static const flow_createTime = 'flow_createTime';
+  static const flow_account = 'flow_account';
   static const flow_payee = 'flow_payee';
   static const flow_category = 'flow_category';
   static const flow_tag = 'flow_tag';
+  static const flow_amount = 'flow_amount';
   static const flow_confirm = 'flow_confirm';
   static const flow_include = 'flow_include';
   static const flow_hasFile = 'flow_hasFile';
@@ -188,9 +190,11 @@ class Locales {
     'form_selectPlaceholder2': 'Choose Only One',
     'flow_title': 'Title',
     'flow_createTime': 'Create Time',
+    'flow_account': 'Account',
     'flow_payee': 'Payee',
     'flow_category': 'Category',
     'flow_tag': 'Tag',
+    'flow_amount': 'Amount',
     'flow_confirm': 'Confirm',
     'flow_include': 'Include',
     'flow_hasFile': 'File',
@@ -290,9 +294,11 @@ class Locales {
     'form_selectPlaceholder2': '选择一个',
     'flow_title': '标题',
     'flow_createTime': '时间',
+    'flow_account': '账户',
     'flow_payee': '交易对象',
     'flow_category': '分类',
     'flow_tag': '标签',
+    'flow_amount': '金额',
     'flow_confirm': '是否确认',
     'flow_include': '是否统计',
     'flow_hasFile': '文件',

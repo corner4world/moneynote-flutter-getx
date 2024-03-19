@@ -82,9 +82,11 @@
   "flow": {
     "title": "Title",
     "createTime": "Create Time",
+    "account": "Account",
     "payee": "Payee",
     "category": "Category",
     "tag": "Tag",
+    "amount": "Amount",
     "confirm": "Confirm",
     "include": "Include",
     "hasFile": "File",
