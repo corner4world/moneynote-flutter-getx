@@ -27,6 +27,7 @@ class FlowFormController extends BaseController {
     }
     if (action == 1) {
       form['book'] = Get.find<AuthController>().initState['book'];
+      form['createTime'] = action != 2 ? DateTime.now().millisecondsSinceEpoch : currentRow['createTime'];
       form['categories'] = [];
       form['confirm'] = true;
       form['include'] = true;

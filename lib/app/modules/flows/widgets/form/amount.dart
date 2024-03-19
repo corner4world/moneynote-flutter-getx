@@ -24,6 +24,8 @@ class Amount extends StatelessWidget {
               label: "${e['categoryName']} - ${LocaleKeys.flow_amount.tr}",
               value: e['amount'],
               onChange: (value) {
+                e['amount'] = value;
+                controller.update();
                 //context.read<FlowFormBloc>().add(CategoryAmountChanged(e['categoryId'], value));
               },
             ),
@@ -38,6 +40,8 @@ class Amount extends StatelessWidget {
                       label: "${e['categoryName']} - ${controller.convertCode}",
                       value: e['convertedAmount'],
                       onChange: (value) {
+                        e['convertedAmount'] = value;
+                        controller.update();
                         // context.read<FlowFormBloc>().add(CategoryConvertedAmountChanged(e['categoryId'], value));
                       },
                     ),
