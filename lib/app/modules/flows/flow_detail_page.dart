@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:moneynote/app/core/utils/utils.dart';
+import 'package:moneynote/app/modules/flows/controllers/flow_form_controller.dart';
+import 'package:moneynote/app/modules/flows/flow_form_page.dart';
+import '/app/core/utils/utils.dart';
 import '../../core/components/detail_item.dart';
 import '/app/core/components/dialog_confirm.dart';
-import '/app/modules/accounts/controllers/account_detail_controller.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/base/enums.dart';
@@ -17,8 +18,6 @@ class FlowDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    AuthController authController = Get.find<AuthController>();
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +53,7 @@ class FlowDetailPage extends StatelessWidget {
                   ),
                   DetailItem(
                     label: LocaleKeys.flow_account.tr,
-                    value: item['account']['label']
+                    value: item['account']?['label']
                   ),
                   DetailItem(
                     label: LocaleKeys.flow_amount.tr,
@@ -113,7 +112,10 @@ class FlowDetailPage extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton.icon(
           onPressed: () {
-            // fullDialog(context, FlowFormPage(action: 3, currentRow: item));
+            Get.put(FlowFormController(item['type'], 3, item));
+            Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+              (value) => Get.delete<FlowFormController>()
+            );
           },
           icon: const Icon(Icons.copy, size: 15),
           label: Text(LocaleKeys.common_copy.tr),
@@ -122,11 +124,14 @@ class FlowDetailPage extends StatelessWidget {
       SizedBox(
         width: double.infinity,
         child: ElevatedButton.icon(
-            onPressed: () {
-              // fullDialog(context, FlowFormPage(action: 4, currentRow: item));
-            },
-            icon: const Icon(Icons.undo, size: 15),
-            label: Text(LocaleKeys.flow_refund.tr)
+          onPressed: () {
+            Get.put(FlowFormController(item['type'], 4, item));
+            Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+              (value) => Get.delete<FlowFormController>()
+            );
+          },
+          icon: const Icon(Icons.undo, size: 15),
+          label: Text(LocaleKeys.flow_refund.tr)
         ),
       ),
       SizedBox(
@@ -159,7 +164,7 @@ class FlowDetailPage extends StatelessWidget {
       SizedBox(
         width: double.infinity,
         child: DialogConfirm(
-            content: item['confirm'] ? LocaleKeys.flow_deleteConfirm : LocaleKeys.common_deleteDialogTitle.tr,
+            content: item['confirm'] ? LocaleKeys.flow_deleteConfirm.tr : LocaleKeys.common_deleteDialogTitle.tr,
             child: AbsorbPointer(
               child: ElevatedButton.icon(
                 onPressed: () {  },
@@ -168,7 +173,7 @@ class FlowDetailPage extends StatelessWidget {
               ),
             ),
             onConfirm: () {
-              //BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
+              Get.find<FlowDetailController>().delete();
             }
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../core/utils/message.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/base/enums.dart';
@@ -34,20 +35,14 @@ class AccountDetailController extends BaseController {
 
   void delete() async {
     try {
-      deleteStatus = LoadDataStatus.progress;
-      update();
+      Message.showLoading();
       final result = await BaseRepository.toggle('accounts', id);
       if (result) {
-        deleteStatus = LoadDataStatus.success;
         Get.back();
         Get.find<AccountsController>().reload();
-      } else {
-        deleteStatus = LoadDataStatus.failure;
       }
-      update();
     } catch (_) {
-      status = LoadDataStatus.failure;
-      update();
+      _.printError();
     }
   }
 

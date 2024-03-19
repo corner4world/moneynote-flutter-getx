@@ -14,9 +14,15 @@ class Http {
     return (await HttpClient().patch(uri, data: data));
   }
 
+  static Future<Map<String, dynamic>> delete(String uri) async {
+    return (await HttpClient().delete(uri));
+  }
+
   static Future<Map<String, dynamic>> put(String uri, {data}) async {
     return (await HttpClient().put(uri, data: data));
   }
+
+
 
   static void init() {
     HttpClient().init();

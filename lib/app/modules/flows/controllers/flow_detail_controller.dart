@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import '/app/modules/accounts/controllers/accounts_controller.dart';
+import '/app/core/utils/message.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/base/base_controller.dart';
+import 'flows_controller.dart';
 
 class FlowDetailController extends BaseController {
 
@@ -34,20 +35,14 @@ class FlowDetailController extends BaseController {
 
   void delete() async {
     try {
-      deleteStatus = LoadDataStatus.progress;
-      update();
-      final result = await BaseRepository.toggle('balance-flows', id);
+      Message.showLoading();
+      final result = await BaseRepository.delete('balance-flows', id);
       if (result) {
-        deleteStatus = LoadDataStatus.success;
         Get.back();
-        Get.find<AccountsController>().reload();
-      } else {
-        deleteStatus = LoadDataStatus.failure;
+        Get.find<FlowsController>().reload();
       }
-      update();
     } catch (_) {
-      status = LoadDataStatus.failure;
-      update();
+      _.printError();
     }
   }
 

@@ -16,6 +16,10 @@ class BaseRepository {
     return (await Http.patch('$prefix/$id/toggle'))['success'];
   }
 
+  static Future<bool> delete(String prefix, int id) async {
+    return (await Http.delete('$prefix/$id'))['success'];
+  }
+
   static Future<Map<String, dynamic>> get(String prefix, int id) async {
     return (await Http.get('$prefix/$id'))['data'];
   }
@@ -32,5 +36,7 @@ class BaseRepository {
   static Future<bool> update(String prefix, int id, Map<String, dynamic> form) async {
     return (await Http.put('$prefix/$id', data: form))['success'];
   }
+
+
 
 }

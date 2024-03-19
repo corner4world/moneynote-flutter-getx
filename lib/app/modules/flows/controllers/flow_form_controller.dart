@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import '../../../core/base/enums.dart';
+import '../../../network/http.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/modules/flows/controllers/flow_detail_controller.dart';
 import '../../../core/utils/message.dart';
@@ -130,6 +132,22 @@ class FlowFormController extends BaseController {
       newForm['tags'] = form['tags'].map((e) => e['value']).toList();
     }
     return newForm;
+  }
+
+  Future<double?> calcCurrency(double amount) async {
+    try {
+      Message.showLoading();
+      return (await Http.get('currencies/calc', params: {
+        'from': form['account']['currencyCode'],
+        'to': convertCode,
+        'amount': amount,
+      }))['data'];
+    } catch (_) {
+      _.printError();
+    } finally {
+      Message.disLoading();
+    }
+    return null;
   }
 
 }

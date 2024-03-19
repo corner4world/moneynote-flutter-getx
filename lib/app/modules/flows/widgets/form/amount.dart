@@ -47,7 +47,13 @@ class Amount extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: () { },
+                    onPressed: () async {
+                      double? c = await Get.find<FlowFormController>().calcCurrency(double.parse(e['amount']));
+                      if (c != null) {
+                        e['convertedAmount'] = c;
+                        controller.update();
+                      }
+                    },
                     icon: const Icon(Icons.calculate)
                   )
                 ],
