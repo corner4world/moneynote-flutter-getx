@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/my/controllers/api_version_controller.dart';
 import '/app/modules/charts/charts_controller.dart';
 import '/app/modules/my/controllers/account_overview_controller.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
@@ -80,6 +81,7 @@ class _IndexPageState extends State<IndexPage> {
                 return const ChartsPage();
               case 3:
                 Get.put(AccountOverviewController());
+                Get.put(ApiVersionController());
                 return const MyPage();
             }
             throw Exception('index page error');

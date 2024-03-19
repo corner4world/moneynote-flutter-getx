@@ -76,6 +76,7 @@ class LocaleKeys {
   static const my_currentTheme = 'my_currentTheme';
   static const my_currentLang = 'my_currentLang';
   static const my_currentVersion = 'my_currentVersion';
+  static const my_apiVersion = 'my_apiVersion';
   static const my_accountOverview = 'my_accountOverview';
   static const my_accountOverviewDesc = 'my_accountOverviewDesc';
   static const my_logout = 'my_logout';
@@ -182,6 +183,7 @@ class Locales {
     'my_currentTheme': 'Current Theme: ',
     'my_currentLang': 'Current Language: ',
     'my_currentVersion': 'Current Version: ',
+    'my_apiVersion': 'API Version: ',
     'my_accountOverview': 'Account Overview: ',
     'my_accountOverviewDesc': 'Asset: @asset，Debt: @debt，Net Worth: @net.',
     'my_logout': 'Logout Current User',
@@ -286,6 +288,7 @@ class Locales {
     'my_currentTheme': '当前主题: ',
     'my_currentLang': '当前语言: ',
     'my_currentVersion': '当前版本: ',
+    'my_apiVersion': 'API版本: ',
     'my_accountOverview': '账户概览: ',
     'my_accountOverviewDesc': '资产：@asset，负债：@debt，净资产：@net。',
     'my_logout': '退出登录',

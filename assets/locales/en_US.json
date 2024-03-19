@@ -68,6 +68,7 @@
     "currentTheme": "Current Theme: ",
     "currentLang": "Current Language: ",
     "currentVersion": "Current Version: ",
+    "apiVersion": "API Version: ",
     "accountOverview": "Account Overview: ",
     "accountOverviewDesc": "Asset: @asset，Debt: @debt，Net Worth: @net.",
     "logout": "Logout Current User"

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/my/controllers/api_version_controller.dart';
 import '../common/select/select_controller.dart';
 import '../common/select/select_option.dart';
 import '/app/modules/my/controllers/account_overview_controller.dart';
@@ -161,6 +162,13 @@ class MyPage extends StatelessWidget {
               ListTile(
                 title: Text(LocaleKeys.my_currentVersion.tr),
                 trailing: const Text(AppValues.version)
+              ),
+              const Divider(),
+              ListTile(
+                title: Text(LocaleKeys.my_apiVersion.tr),
+                trailing: GetBuilder<ApiVersionController>(builder: (controller) {
+                  return Text(controller.version);
+                })
               ),
               const Divider(),
               Container(
