@@ -26,6 +26,10 @@ class AccountFormController extends BaseController {
   @override
   void onInit() {
     super.onInit();
+    reset();
+  }
+
+  void reset() {
     valid = action != 1;
     if (action == 2) {
       form = { ...currentRow };
@@ -33,6 +37,7 @@ class AccountFormController extends BaseController {
       balanceFormz = NotEmptyNumFormz.dirty(value: removeDecimalZero(currentRow['balance']));
     }
     if (action == 1) {
+      form = {};
       form['currencyCode'] = Get.find<AuthController>().initState['group']['defaultCurrencyCode'];
       form['canExpense'] = true;
       form['canIncome'] = true;
@@ -40,6 +45,7 @@ class AccountFormController extends BaseController {
       form['canTransferTo'] = true;
       form['include'] = true;
     }
+    update();
   }
 
   void submit() async {

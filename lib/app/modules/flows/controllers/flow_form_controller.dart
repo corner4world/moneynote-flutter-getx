@@ -23,17 +23,33 @@ class FlowFormController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    valid =true;
+    valid = true;
+    Map<String, dynamic> initState = Get.find<AuthController>().initState;
     if (action == 2) {
       form = { ...currentRow };
     }
     if (action == 1) {
-      form['book'] = Get.find<AuthController>().initState['book'];
+      form['book'] = initState['book'];
+      form['account'] = (){
+        if (type == 'EXPENSE') {
+          return initState['book']['defaultExpenseAccount'];
+        }
+        if (type == 'INCOME') {
+          return initState['book']['defaultIncomeAccount'];
+        }
+        if (type == 'TRANSFER') {
+          return initState['book']['defaultTransferFromAccount'];
+        }
+      }();
       form['createTime'] = action != 2 ? DateTime.now().millisecondsSinceEpoch : currentRow['createTime'];
       form['categories'] = [];
       form['confirm'] = true;
       form['include'] = true;
     }
+  }
+
+  void reset() {
+
   }
 
   void submit() async {
