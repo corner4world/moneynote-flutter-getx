@@ -47,6 +47,20 @@ String flowTypeToName(String type) {
   throw Exception('error');
 }
 
+String translateAction(int action) {
+  switch (action) {
+    case 1:
+      return LocaleKeys.common_new.tr;
+    case 2:
+      return LocaleKeys.common_edit.tr;
+    case 3:
+      return LocaleKeys.common_copy.tr;
+    case 4:
+      return LocaleKeys.flow_refund.tr;
+  }
+  throw Exception('action error');
+}
+
 String boolToString(bool val) {
   if (val) {
     return LocaleKeys.common_yes.tr;

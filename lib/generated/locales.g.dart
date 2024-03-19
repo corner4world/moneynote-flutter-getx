@@ -20,9 +20,11 @@ class LocaleKeys {
   static const common_has = 'common_has';
   static const common_none = 'common_none';
   static const common_netError = 'common_netError';
+  static const common_new = 'common_new';
   static const common_copy = 'common_copy';
   static const common_delete = 'common_delete';
   static const common_edit = 'common_edit';
+  static const common_formTitle = 'common_formTitle';
   static const common_operationSuccess = 'common_operationSuccess';
   static const common_notes = 'common_notes';
   static const common_submit = 'common_submit';
@@ -141,9 +143,11 @@ class Locales {
     'common_has': 'Has',
     'common_none': 'None',
     'common_netError': 'Network Error, Try later on.',
+    'common_new': 'New',
     'common_copy': 'Copy',
     'common_delete': 'Delete',
     'common_edit': 'Edit',
+    'common_formTitle': '@action @name',
     'common_operationSuccess': 'Success',
     'common_notes': 'Notes',
     'common_submit': 'Submit',
@@ -256,9 +260,11 @@ class Locales {
     'common_has': '有',
     'common_none': '无',
     'common_netError': '网络错误，请稍后重试',
+    'common_new': '新增',
     'common_copy': '复制',
     'common_delete': '删除',
     'common_edit': '编辑',
+    'common_formTitle': '@action@name',
     'common_operationSuccess': '操作成功',
     'common_notes': '备注',
     'common_submit': '提交',

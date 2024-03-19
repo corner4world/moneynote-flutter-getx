@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/core/utils/utils.dart';
 import 'package:moneynote/app/modules/flows/widgets/form/transfer_amount.dart';
 import '/generated/locales.g.dart';
 import 'widgets/form/index.dart';
@@ -31,7 +32,7 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
     });
   }
 
-  Widget _buildTitle(BuildContext context, int action) {
+  Widget _buildTitle(BuildContext context, int action, String type) {
     if (action == 1) {
       return TabBar(
         controller: tabController,
@@ -43,7 +44,10 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
       );
     } else {
       //return Text(translateAction(widget.action) + translateFlowType(widget.currentRow['type']));
-      return Text('123');
+      return Text(LocaleKeys.common_formTitle.trParams({
+        'action': translateAction(action),
+        'name': flowTypeToName(type)
+      }));
     }
   }
 
@@ -53,7 +57,7 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: _buildTitle(context, controller.action),
+          title: _buildTitle(context, controller.action, controller.type),
           actions: [
             IconButton(
               icon: const Icon(Icons.done),

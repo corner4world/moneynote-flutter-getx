@@ -9,9 +9,11 @@
     "has": "有",
     "none": "无",
     "netError": "网络错误，请稍后重试",
+    "new": "新增",
     "copy": "复制",
     "delete": "删除",
     "edit": "编辑",
+    "formTitle": "@action@name",
     "operationSuccess": "操作成功",
     "notes": "备注",
     "submit": "提交",
@@ -61,9 +63,7 @@
     "detailLabelCanTransferTo": "是否可转入",
     "detailLabelCanTransferFrom": "是否可转出",
     "detailLabelNo": "卡号",
-    "adjustPageTitle": "调整账户余额",
-    "new": "新增账户",
-    "edit": "编辑账户"
+    "adjustPageTitle": "调整账户余额"
   },
   "my": {
     "userName": "用户名: ",

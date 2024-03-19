@@ -9,9 +9,11 @@
     "has": "Has",
     "none": "None",
     "netError": "Network Error, Try later on.",
+    "new": "New",
     "copy": "Copy",
     "delete": "Delete",
     "edit": "Edit",
+    "formTitle": "@action @name",
     "operationSuccess": "Success",
     "notes": "Notes",
     "submit": "Submit",
@@ -61,9 +63,7 @@
     "detailLabelCanTransferTo": "Can Transfer In",
     "detailLabelCanTransferFrom": "Can Transfer Out",
     "detailLabelNo": "No",
-    "adjustPageTitle": "Adjust Account Balance",
-    "new": "New Account",
-    "edit": "Edit Account"
+    "adjustPageTitle": "Adjust Account Balance"
   },
   "my": {
     "userName": "User Name: ",
