@@ -1,6 +1,10 @@
 import 'package:get/get.dart';
+import '/app/core/base/base_repository.dart';
+import '/app/modules/flows/controllers/flow_detail_controller.dart';
+import '../../../core/utils/message.dart';
 import '../../login/controllers/auth_controller.dart';
 import '/app/core/base/base_controller.dart';
+import 'flows_controller.dart';
 
 class FlowFormController extends BaseController {
 
@@ -17,18 +21,40 @@ class FlowFormController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    valid = action != 1;
+    valid =true;
     if (action == 2) {
       form = { ...currentRow };
     }
     if (action == 1) {
       form['book'] = Get.find<AuthController>().initState['book'];
       form['categories'] = [];
+      form['confirm'] = true;
+      form['include'] = true;
     }
   }
 
   void submit() async {
-
+    if (valid) {
+      try {
+        Message.showLoading();
+        bool result = false;
+        print(buildForm());
+        if (action == 2) {
+          result = await BaseRepository.update('balance-flows', currentRow['id'], buildForm());
+        } else {
+          result = await BaseRepository.add('balance-flows', buildForm());
+        }
+        if (result) {
+          Get.back();
+          Get.find<FlowsController>().reload();
+          Get.find<FlowDetailController>().load();
+        }
+      } catch (_) {
+        _.printError();
+      } finally {
+        // Message.disLoading();
+      }
+    }
   }
 
   void tabClick(int index) {
@@ -82,6 +108,27 @@ class FlowFormController extends BaseController {
     } else {
       return form['book']['defaultCurrencyCode'];
     }
+  }
+
+  Map<String, dynamic> buildForm() {
+    Map<String, dynamic> newForm = { ...form };
+    newForm['type'] = type;
+    if (form['book']?['value'] != null) {
+      newForm['book'] = form['book']?['value'];
+    }
+    if (form['account']?['value'] != null) {
+      newForm['account'] = form['account']?['value'];
+    }
+    if (form['to']?['value'] != null) {
+      newForm['to'] = form['to']?['value'];
+    }
+    if (form['payees']?['value'] != null) {
+      newForm['payees'] = [form['payees']?['value']];
+    }
+    if (!(form['tags']?.isEmpty ?? true)) {
+      newForm['tags'] = form['tags'].map((e) => e['value']).toList();
+    }
+    return newForm;
   }
 
 }

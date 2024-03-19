@@ -29,10 +29,10 @@ class TransferAmount extends StatelessWidget {
         if (controller.needConvert) ...[
           MyFormText(
             required: true,
-            label: LocaleKeys.flow_amount.tr,
-            value: controller.form['amount'],
+            label: LocaleKeys.account_detailLabelConvert.trParams({'code': controller.convertCode}),
+            value: controller.form['convertedAmount'],
             onChange: (value) {
-              controller.form['amount'] = value;
+              controller.form['convertedAmount'] = value;
               controller.update();
             },
           )

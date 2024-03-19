@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moneynote/app/modules/flows/widgets/form/transfer_amount.dart';
 import '/generated/locales.g.dart';
 import 'widgets/form/index.dart';
 import 'controllers/flow_form_controller.dart';
@@ -90,8 +91,24 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
                     Payee(controller: controller)
                   ],
                   if (controller.type == 'TRANSFER') ...[
-                    ToAccount(controller: controller)
+                    ToAccount(controller: controller),
+                    TransferAmount(controller: controller)
                   ],
+                  FormTag(controller: controller),
+                  Confirm(controller: controller),
+                  Include(controller: controller),
+                  Notes(controller: controller),
+                  const SizedBox(height: 70),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.send),
+                      onPressed: controller.valid ? () {
+                        Get.find<FlowFormController>().submit();
+                      } : null,
+                      label: Text(LocaleKeys.common_submit.tr)
+                    ),
+                  )
                 ],
               ),
             ),

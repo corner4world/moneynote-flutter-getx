@@ -6,3 +6,7 @@ export 'category.dart';
 export 'amount.dart';
 export 'payee.dart';
 export 'to_account.dart';
+export 'form_tag.dart';
+export 'confirm.dart';
+export 'include.dart';
+export 'notes.dart';

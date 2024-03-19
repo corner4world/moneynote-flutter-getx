@@ -20,7 +20,7 @@ class ToAccount extends StatelessWidget {
     return MySelect(
       required: true,
       label: LocaleKeys.flow_to.tr,
-      value: controller.form['account'],
+      value: controller.form['to'],
       onFocus: () {
         Get.find<SelectController>().load('accounts', params: { 'canTransferTo': true });
         Get.to(() => SelectOption(
