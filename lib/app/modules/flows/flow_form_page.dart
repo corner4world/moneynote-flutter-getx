@@ -86,9 +86,12 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
                   Account(controller: controller),
                   if (controller.type == 'EXPENSE' || controller.type  == 'INCOME') ...[
                     Category(controller: controller),
-                    Amount(controller: controller)
+                    Amount(controller: controller),
+                    Payee(controller: controller)
                   ],
-
+                  if (controller.type == 'TRANSFER') ...[
+                    ToAccount(controller: controller)
+                  ],
                 ],
               ),
             ),

@@ -27,14 +27,28 @@ class Amount extends StatelessWidget {
                 //context.read<FlowFormBloc>().add(CategoryAmountChanged(e['categoryId'], value));
               },
             ),
-            if (controller.needConvert) MyFormText(
-              required: true,
-              label: "${e['categoryName']} - ${controller.convertCode}",
-              value: e['convertedAmount'],
-              onChange: (value) {
-                // context.read<FlowFormBloc>().add(CategoryConvertedAmountChanged(e['categoryId'], value));
-              },
-            ),
+            if (controller.needConvert) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: MyFormText(
+                      required: true,
+                      label: "${e['categoryName']} - ${controller.convertCode}",
+                      value: e['convertedAmount'],
+                      onChange: (value) {
+                        // context.read<FlowFormBloc>().add(CategoryConvertedAmountChanged(e['categoryId'], value));
+                      },
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () { },
+                    icon: const Icon(Icons.calculate)
+                  )
+                ],
+              )
+            ],
           ],
         );
       }).toList(),

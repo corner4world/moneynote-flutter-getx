@@ -86,6 +86,7 @@ class LocaleKeys {
   static const flow_title = 'flow_title';
   static const flow_createTime = 'flow_createTime';
   static const flow_account = 'flow_account';
+  static const flow_to = 'flow_to';
   static const flow_payee = 'flow_payee';
   static const flow_category = 'flow_category';
   static const flow_tag = 'flow_tag';
@@ -162,7 +163,7 @@ class Locales {
     'account_detailLabelBalance': 'Account Balance',
     'account_detailAdjust': 'Adjust Balance',
     'account_detailLabelCurrency': 'Account Currency',
-    'account_detailLabelConvert': 'Convert To ',
+    'account_detailLabelConvert': 'Convert To @code',
     'account_detailLabelCurrencyRate': 'Currency Rate',
     'account_detailLabelCreditLimit': 'Credit Limit',
     'account_detailLabelRemainLimit': 'Remain Limit',
@@ -193,6 +194,7 @@ class Locales {
     'flow_title': 'Title',
     'flow_createTime': 'Create Time',
     'flow_account': 'Account',
+    'flow_to': 'To Account',
     'flow_payee': 'Payee',
     'flow_category': 'Category',
     'flow_tag': 'Tag',
@@ -267,7 +269,7 @@ class Locales {
     'account_detailLabelBalance': '账户余额',
     'account_detailAdjust': '余额调整',
     'account_detailLabelCurrency': '账户币种',
-    'account_detailLabelConvert': '折合',
+    'account_detailLabelConvert': '折合@code',
     'account_detailLabelCurrencyRate': '当前汇率',
     'account_detailLabelCreditLimit': '信用额度',
     'account_detailLabelRemainLimit': '剩余额度',
@@ -302,6 +304,7 @@ class Locales {
     'flow_category': '分类',
     'flow_tag': '标签',
     'flow_amount': '金额',
+    'flow_to': '转入账户',
     'flow_confirm': '是否确认',
     'flow_include': '是否统计',
     'flow_hasFile': '文件',

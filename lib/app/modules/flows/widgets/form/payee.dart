@@ -6,11 +6,11 @@ import '../../../common/select/select_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/components/form/my_select.dart';
 
-class Account extends StatelessWidget {
+class Payee extends StatelessWidget {
 
   final FlowFormController controller;
 
-  const Account({
+  const Payee({
     super.key,
     required this.controller
   });
@@ -18,26 +18,23 @@ class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MySelect(
-      required: controller.type == 'TRANSFER',
-      label: LocaleKeys.flow_account.tr,
-      value: controller.form['account'],
+      label: LocaleKeys.flow_payee.tr,
+      value: controller.form['payee'],
       onFocus: () {
         Map<String, dynamic> query = { };
-        if (controller.type == 'EXPENSE') {
+        query['bookId'] = controller.form['book']['value'];
+        if (controller.form['type'] == 'EXPENSE') {
           query['canExpense'] = true;
         }
-        if (controller.type == 'INCOME') {
+        if (controller.form['type'] == 'INCOME') {
           query['canIncome'] = true;
         }
-        if (controller.type == 'TRANSFER') {
-          query['canTransferFrom'] = true;
-        }
-        Get.find<SelectController>().load('accounts', params: query);
+        Get.find<SelectController>().load('payees', params: query);
         Get.to(() => SelectOption(
           title: LocaleKeys.menu_account.tr,
-          value: controller.form['account'],
+          value: controller.form['payee'],
           onSelect: (value) {
-            controller.form['account'] = value;
+            controller.form['payee'] = value;
             controller.update();
             Get.back();
           },
