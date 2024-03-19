@@ -12,6 +12,7 @@ class AppTranslation {
 class LocaleKeys {
   LocaleKeys._();
   static const common_confirmDialogTitle = 'common_confirmDialogTitle';
+  static const common_deleteDialogTitle = 'common_deleteDialogTitle';
   static const common_ok = 'common_ok';
   static const common_cancel = 'common_cancel';
   static const common_yes = 'common_yes';
@@ -26,6 +27,8 @@ class LocaleKeys {
   static const common_notes = 'common_notes';
   static const common_submit = 'common_submit';
   static const common_reset = 'common_reset';
+  static const common_camera = 'common_camera';
+  static const common_gallery = 'common_gallery';
   static const common_minTime = 'common_minTime';
   static const common_maxTime = 'common_maxTime';
   static const menu_account = 'menu_account';
@@ -84,6 +87,7 @@ class LocaleKeys {
   static const form_selectPlaceholder1 = 'form_selectPlaceholder1';
   static const form_selectPlaceholder2 = 'form_selectPlaceholder2';
   static const flow_title = 'flow_title';
+  static const flow_detailTitle = 'flow_detailTitle';
   static const flow_createTime = 'flow_createTime';
   static const flow_account = 'flow_account';
   static const flow_to = 'flow_to';
@@ -106,6 +110,10 @@ class LocaleKeys {
   static const flow_type2 = 'flow_type2';
   static const flow_type3 = 'flow_type3';
   static const flow_type4 = 'flow_type4';
+  static const flow_refund = 'flow_refund';
+  static const flow_confirmBtn = 'flow_confirmBtn';
+  static const flow_addFile = 'flow_addFile';
+  static const flow_deleteConfirm = 'flow_deleteConfirm';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
   static const theme_red = 'theme_red';
@@ -125,6 +133,7 @@ class LocaleKeys {
 class Locales {
   static const en_US = {
     'common_confirmDialogTitle': 'Are you sure?',
+    'common_deleteDialogTitle': 'Are you sure to delete this item permanently?',
     'common_ok': 'OK',
     'common_cancel': 'Cancel',
     'common_yes': 'Yes',
@@ -139,6 +148,8 @@ class Locales {
     'common_notes': 'Notes',
     'common_submit': 'Submit',
     'common_reset': 'Reset',
+    'common_camera': 'Camera',
+    'common_gallery': 'Gallery',
     'common_minTime': 'Start Date',
     'common_maxTime': 'End Date',
     'menu_account': 'Account',
@@ -192,6 +203,7 @@ class Locales {
     'form_selectPlaceholder1': 'Choose One or More',
     'form_selectPlaceholder2': 'Choose Only One',
     'flow_title': 'Title',
+    'flow_detailTitle': 'Balance Flow Detail',
     'flow_createTime': 'Create Time',
     'flow_account': 'Account',
     'flow_to': 'To Account',
@@ -214,6 +226,11 @@ class Locales {
     'flow_type2': 'Income',
     'flow_type3': 'Transfer',
     'flow_type4': 'Adjust Balance',
+    'flow_refund': 'Refund',
+    'flow_confirmBtn': 'Confirm',
+    'flow_addFile': 'File',
+    'flow_deleteConfirm':
+        'Are you sure? It will also change roll back account balance.',
     'theme_default': 'Default',
     'theme_purple': 'Purple',
     'theme_red': 'Red',
@@ -231,6 +248,7 @@ class Locales {
   };
   static const zh_CN = {
     'common_confirmDialogTitle': '确认此操作吗？',
+    'common_deleteDialogTitle': '删除之后无法恢复，确定删除此条目吗？',
     'common_ok': '确认',
     'common_cancel': '取消',
     'common_yes': '是',
@@ -245,6 +263,8 @@ class Locales {
     'common_notes': '备注',
     'common_submit': '提交',
     'common_reset': '重置',
+    'common_camera': '拍照',
+    'common_gallery': '图片库',
     'common_minTime': '起始日期',
     'common_maxTime': '终止日期',
     'menu_account': '账户',
@@ -298,6 +318,7 @@ class Locales {
     'form_selectPlaceholder1': '选择一个或多个',
     'form_selectPlaceholder2': '选择一个',
     'flow_title': '标题',
+    'flow_detailTitle': '账单详情',
     'flow_createTime': '时间',
     'flow_account': '账户',
     'flow_payee': '交易对象',
@@ -320,6 +341,10 @@ class Locales {
     'flow_type2': '收入',
     'flow_type3': '转账',
     'flow_type4': '调整余额',
+    'flow_refund': '退款',
+    'flow_confirmBtn': '确认',
+    'flow_addFile': '文件',
+    'flow_deleteConfirm': '删除账单会撤回对应账户余额变动且无法恢复，确定删除吗？',
     'theme_default': '默认',
     'theme_purple': '紫色',
     'theme_red': '红色',

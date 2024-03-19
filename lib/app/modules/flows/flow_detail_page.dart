@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:moneynote/app/core/utils/utils.dart';
+import '../../core/components/detail_item.dart';
 import '/app/core/components/dialog_confirm.dart';
 import '/app/modules/accounts/controllers/account_detail_controller.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
@@ -20,10 +23,11 @@ class FlowDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(LocaleKeys.account_detailTitle.tr),
+        title: Text(LocaleKeys.flow_detailTitle.tr),
       ),
       body: GetBuilder<FlowDetailController>(builder: (controller) {
         LoadDataStatus status = controller.status;
+        Map<String, dynamic> item = controller.item;
         switch (status) {
           case LoadDataStatus.progress:
           case LoadDataStatus.initial:
@@ -32,35 +36,67 @@ class FlowDetailPage extends StatelessWidget {
             return ContentPage(
               child: Column(
                 children: [
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.edit, size: 15),
-                      onPressed: () {
-                        // Get.put(AccountFormController(controller.item['type'], 2, controller.item));
-                        // Get.to(() => const AccountFormPage(), fullscreenDialog: true)?.then(
-                        //   (value) => Get.delete<AccountFormController>()
-                        // );
-                      },
-                      label: Text(LocaleKeys.common_edit.tr),
-                    ),
+                  DetailItem(
+                    label: LocaleKeys.book_whichBook.tr,
+                    value: item['book']['name']
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: DialogConfirm(
-                        child: AbsorbPointer(
-                          child: ElevatedButton.icon(
-                            icon: const Icon(Icons.delete, size: 15),
-                            onPressed: controller.deleteStatus == LoadDataStatus.progress ? null : () { },
-                            label: Text(LocaleKeys.common_delete.tr),
-                          ),
-                        ),
-                        onConfirm: () {
-                          Get.find<AccountDetailController>().delete();
-                        }
+                  DetailItem(
+                    label: LocaleKeys.flow_type.tr,
+                    value: item['typeName']
+                  ),
+                  DetailItem(
+                    label: LocaleKeys.flow_title.tr,
+                    value: item['title']
+                  ),
+                  DetailItem(
+                    label: LocaleKeys.flow_createTime.tr,
+                    value: dateTimeFormat(item['createTime'])
+                  ),
+                  DetailItem(
+                    label: LocaleKeys.flow_account.tr,
+                    value: item['account']['label']
+                  ),
+                  DetailItem(
+                    label: LocaleKeys.flow_amount.tr,
+                    value: item['amount'].toStringAsFixed(2)
+                  ),
+                  if (item['needConvert']) ...[
+                    DetailItem(
+                        label: LocaleKeys.account_detailLabelConvert.trParams({'code': item['convertCode']}),
+                        value: item['convertedAmount'].toStringAsFixed(2)
                     ),
-                  )
+                  ],
+                  if (item['categoryName']?.isNotEmpty ?? false) ...[
+                    DetailItem(
+                      label: LocaleKeys.flow_category.tr,
+                      value: item['categoryName']
+                    ),
+                  ],
+                  if (item['type'] != 'ADJUST') ...[
+                    DetailItem(
+                      label: LocaleKeys.flow_tag.tr,
+                      value: item['tagsName']
+                    ),
+                    DetailItem(
+                      label: LocaleKeys.flow_payee.tr,
+                      value: item['payee']?['name']
+                    ),
+                    DetailItem(
+                      label: LocaleKeys.flow_confirm.tr,
+                      value: boolToString(item['confirm'])
+                    ),
+                    DetailItem(
+                      label: LocaleKeys.flow_include.tr,
+                      value: boolToString(item['include'])
+                    ),
+                  ],
+                  DetailItem(
+                    label: LocaleKeys.common_notes.tr,
+                    value: item['notes'],
+                    crossAlign: CrossAxisAlignment.start,
+                  ),
+                  const SizedBox(height: 15),
+                  ..._actionBar(context, controller.item),
                 ],
               )
             );
@@ -69,6 +105,125 @@ class FlowDetailPage extends StatelessWidget {
         }
       }),
     );
+  }
+
+  List<Widget> _actionBar(BuildContext context, Map<String, dynamic> item) {
+    return [
+      SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+          onPressed: () {
+            // fullDialog(context, FlowFormPage(action: 3, currentRow: item));
+          },
+          icon: const Icon(Icons.copy, size: 15),
+          label: Text(LocaleKeys.common_copy.tr),
+        ),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+            onPressed: () {
+              // fullDialog(context, FlowFormPage(action: 4, currentRow: item));
+            },
+            icon: const Icon(Icons.undo, size: 15),
+            label: Text(LocaleKeys.flow_refund.tr)
+        ),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: DialogConfirm(
+            content: LocaleKeys.common_confirmDialogTitle.tr,
+            enable: item['confirm'] != null && !item['confirm'],
+            child: AbsorbPointer(
+              child: ElevatedButton.icon(
+                onPressed: (item['confirm'] != null && !item['confirm']) ? () { } : null,
+                icon: const Icon(Icons.done, size: 15),
+                label: Text(LocaleKeys.flow_confirmBtn.tr),
+              ),
+            ),
+            onConfirm: () {
+              //BlocProvider.of<SimpleActionBloc>(context).add(SimpleActionReloaded(uri: "balance-flows/${item['id']}/confirm"));
+            }
+        ),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+            onPressed: () {
+              // fullDialog(context, FlowFormPage(action: 4, currentRow: item));
+            },
+            icon: const Icon(Icons.edit, size: 15),
+            label: Text(LocaleKeys.common_edit.tr)
+        ),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: DialogConfirm(
+            content: item['confirm'] ? LocaleKeys.flow_deleteConfirm : LocaleKeys.common_deleteDialogTitle.tr,
+            child: AbsorbPointer(
+              child: ElevatedButton.icon(
+                onPressed: () {  },
+                icon: const Icon(Icons.delete, size: 15,),
+                label: Text(LocaleKeys.common_delete.tr),
+              ),
+            ),
+            onConfirm: () {
+              //BlocProvider.of<DetailPageBloc>(context).add(DetailPageDeleted());
+            }
+        ),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+            onPressed: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ListTile(
+                          leading: const Icon(Icons.camera_alt),
+                          title: Text(LocaleKeys.common_camera.tr),
+                          onTap: () async {
+                            final ImagePicker picker = ImagePicker();
+                            final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+                            if (photo != null) {
+                              //BlocProvider.of<FlowImageBloc>(context).add(FlowImageUploaded(id, photo.path));
+                            }
+                            Navigator.pop(context);
+                          },
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.photo_library),
+                          title: Text(LocaleKeys.common_gallery.tr),
+                          onTap: () async {
+                            final ImagePicker picker = ImagePicker();
+                            final XFile? file = await picker.pickImage(source: ImageSource.gallery);
+                            if (file != null) {
+                              //BlocProvider.of<FlowImageBloc>(context).add(FlowImageUploaded(id, file.path));
+                            }
+                            Navigator.pop(context);
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                        ListTile(
+                          leading: const Icon(Icons.cancel),
+                          title: Text(LocaleKeys.common_cancel.tr),
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    );
+                  }
+              );
+            },
+            icon: const Icon(Icons.attachment, size: 15),
+            label: Text(LocaleKeys.flow_addFile.tr)
+        ),
+      ),
+    ];
   }
 
 }

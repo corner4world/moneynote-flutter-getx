@@ -21,7 +21,7 @@ class IndexPage extends StatefulWidget {
 
   const IndexPage({
     super.key,
-    this.initialIndex = 0,
+    this.initialIndex = 1,
   });
 
   @override

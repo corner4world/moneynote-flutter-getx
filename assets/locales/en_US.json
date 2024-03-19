@@ -1,6 +1,7 @@
 {
   "common": {
     "confirmDialogTitle": "Are you sure?",
+    "deleteDialogTitle": "Are you sure to delete this item permanently?",
     "ok": "OK",
     "cancel": "Cancel",
     "yes": "Yes",
@@ -15,6 +16,8 @@
     "notes": "Notes",
     "submit": "Submit",
     "reset": "Reset",
+    "camera": "Camera",
+    "gallery": "Gallery",
     "minTime": "Start Date",
     "maxTime": "End Date"
   },
@@ -82,6 +85,7 @@
   },
   "flow": {
     "title": "Title",
+    "detailTitle": "Balance Flow Detail",
     "createTime": "Create Time",
     "account": "Account",
     "to": "To Account",
@@ -103,7 +107,11 @@
     "type1": "Expense",
     "type2": "Income",
     "type3": "Transfer",
-    "type4": "Adjust Balance"
+    "type4": "Adjust Balance",
+    "refund": "Refund",
+    "confirmBtn": "Confirm",
+    "addFile": "File",
+    "deleteConfirm": "Are you sure? It will also change roll back account balance."
   },
   "theme": {
     "default": "Default",

@@ -1,6 +1,7 @@
 {
   "common": {
     "confirmDialogTitle": "确认此操作吗？",
+    "deleteDialogTitle": "删除之后无法恢复，确定删除此条目吗？",
     "ok": "确认",
     "cancel": "取消",
     "yes": "是",
@@ -15,6 +16,8 @@
     "notes": "备注",
     "submit": "提交",
     "reset": "重置",
+    "camera": "拍照",
+    "gallery": "图片库",
     "minTime": "起始日期",
     "maxTime": "终止日期"
   },
@@ -82,6 +85,7 @@
   },
   "flow": {
     "title": "标题",
+    "detailTitle": "账单详情",
     "createTime": "时间",
     "account": "账户",
     "payee": "交易对象",
@@ -103,7 +107,11 @@
     "type1": "支出",
     "type2": "收入",
     "type3": "转账",
-    "type4": "调整余额"
+    "type4": "调整余额",
+    "refund": "退款",
+    "confirmBtn": "确认",
+    "addFile": "文件",
+    "deleteConfirm": "删除账单会撤回对应账户余额变动且无法恢复，确定删除吗？"
   },
   "theme": {
     "default": "默认",
