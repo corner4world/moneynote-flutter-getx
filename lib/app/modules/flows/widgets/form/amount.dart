@@ -20,6 +20,7 @@ class Amount extends StatelessWidget {
         return Column(
           children: [
             MyFormText(
+              readOnly: controller.action == 2,
               required: true,
               label: "${e['categoryName']} - ${LocaleKeys.flow_amount.tr}",
               value: e['amount'],
@@ -36,6 +37,7 @@ class Amount extends StatelessWidget {
                 children: [
                   Expanded(
                     child: MyFormText(
+                      readOnly: controller.action == 2,
                       required: true,
                       label: "${e['categoryName']} - ${controller.convertCode}",
                       value: e['convertedAmount'],

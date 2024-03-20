@@ -2,9 +2,16 @@ import '../../network/http.dart';
 
 class BaseRepository {
 
-  static Future<List<Map<String, dynamic>>> query1(String prefix, Map<String, dynamic> form) async {
+  static Future<List<Map<String, dynamic>>> query(String prefix, Map<String, dynamic> query) async {
     List<dynamic> data = (await Http.get(prefix, params: {
-      ...form,
+      ...query,
+    }))['data'];
+    return List<Map<String, dynamic>>.from(data);
+  }
+
+  static Future<List<Map<String, dynamic>>> query1(String prefix, Map<String, dynamic> query) async {
+    List<dynamic> data = (await Http.get(prefix, params: {
+      ...query,
       ...{
         'enable': true,
       }

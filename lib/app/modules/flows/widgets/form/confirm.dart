@@ -16,6 +16,7 @@ class Confirm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyFormSwitch(
+      readOnly: controller.action == 2,
       required: true,
       label: LocaleKeys.flow_confirm.tr,
       value: controller.form['confirm'],

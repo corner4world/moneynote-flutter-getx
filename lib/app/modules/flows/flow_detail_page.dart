@@ -54,7 +54,7 @@ class FlowDetailPage extends StatelessWidget {
                   ),
                   DetailItem(
                     label: LocaleKeys.flow_account.tr,
-                    value: item['account']?['label']
+                    value: item['accountName']
                   ),
                   DetailItem(
                     label: LocaleKeys.flow_amount.tr,

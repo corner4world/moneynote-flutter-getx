@@ -39,9 +39,7 @@ class FlowsPage extends StatelessWidget {
               },
               selected: controller.query[AppConst.sortParameter] ?? '',
               onSelected: (value) {
-                Get.find<FlowsController>().queryChanged({
-                  AppConst.sortParameter: value
-                });
+                Get.find<FlowsController>().changeSort(value);
               },
             );
           }),

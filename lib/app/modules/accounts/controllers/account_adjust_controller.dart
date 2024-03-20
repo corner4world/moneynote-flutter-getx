@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:formz/formz.dart';
-import 'package:moneynote/app/modules/flows/controllers/flow_detail_controller.dart';
+import '/app/modules/flows/controllers/flow_detail_controller.dart';
 import '../../../core/utils/message.dart';
 import '/app/modules/accounts/controllers/account_detail_controller.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';

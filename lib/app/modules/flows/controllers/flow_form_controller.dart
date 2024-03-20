@@ -47,14 +47,21 @@ class FlowFormController extends BaseController {
       form['book'] = currentRow['book'];
       form['title'] = currentRow['title'];
       form['account'] = currentRow['account'];
-      categories = currentRow['categories'].map((e) => e['category']).toList();
-      form['categories'] = currentRow['categories'].map((e) => {
-        'category': e['categoryId'],
-        'categoryName': e['categoryName'],
-        'amount': e['amount'],
-        'convertedAmount': e['convertedAmount'],
-      }).toList();
-      form['payee'] = currentRow['payee'];
+      if (type == 'EXPENSE' || type == 'INCOME') {
+        categories = currentRow['categories'].map((e) => e['category']).toList();
+        form['categories'] = currentRow['categories'].map((e) => {
+          'category': e['categoryId'],
+          'categoryName': e['categoryName'],
+          'amount': action != 4 ? e['amount'] : e['amount'] * -1,
+          'convertedAmount': action != 4 ? e['convertedAmount'] : e['convertedAmount'] * -1,
+        }).toList();
+        form['payee'] = currentRow['payee'];
+      }
+      if (type == 'TRANSFER') {
+        form['to'] = currentRow['to'];
+        form['amount'] = currentRow['amount'];
+        form['convertedAmount'] = currentRow['convertedAmount'];
+      }
       form['tags'] = currentRow['tags'].map((e) => e['tag']).toList();
     }
     update();
@@ -66,6 +73,7 @@ class FlowFormController extends BaseController {
         Message.showLoading();
         bool result = false;
         if (action == 2) {
+          print(buildForm());
           result = await BaseRepository.update('balance-flows', currentRow['id'], buildForm());
         } else {
           print(buildForm());
@@ -201,6 +209,9 @@ class FlowFormController extends BaseController {
     }
     if (!(form['tags']?.isEmpty ?? true)) {
       newForm['tags'] = form['tags'].map((e) => e['value']).toList();
+    }
+    if (type == 'TRANSFER') {
+      newForm.remove('categories');
     }
     return newForm;
   }

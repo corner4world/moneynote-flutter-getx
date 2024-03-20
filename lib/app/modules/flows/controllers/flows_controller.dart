@@ -25,7 +25,9 @@ class FlowsController extends BaseController {
   }
 
   void reset() {
-    query = { };
+    query = {
+      AppConst.pageSizeParameter: AppConst.defaultPageSize
+    };
     query['book'] = Get.find<AuthController>().initState['book'];
     update();
   }
@@ -55,7 +57,7 @@ class FlowsController extends BaseController {
   void loadMore() async {
     try {
       query[AppConst.pageParameter] = query[AppConst.pageParameter] + 1;
-      final newItems = await BaseRepository.query1('accounts', buildQuery());
+      final newItems = await BaseRepository.query('balance-flows', buildQuery());
       if (newItems.isNotEmpty) {
         items = List.of(items)..addAll(newItems);
         refreshController.loadComplete();
@@ -73,6 +75,16 @@ class FlowsController extends BaseController {
     query = {
       ...query,
       ...newQuery
+    };
+    reload();
+  }
+
+  void changeSort(value) {
+    query = {
+      ...query,
+      ...{
+        AppConst.sortParameter: value
+      }
     };
     reload();
   }
