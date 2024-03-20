@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '/app/core/components/order_button.dart';
 import '/app/core/values/app_const.dart';
 import '/app/modules/flows/flow_filter_page.dart';
 import '/app/modules/flows/controllers/flows_controller.dart';
 import '/generated/locales.g.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/components/pages/index.dart';
 import '/app/core/utils/utils.dart';
 import 'controllers/flow_detail_controller.dart';
+import 'controllers/flow_form_controller.dart';
 import 'flow_detail_page.dart';
+import 'flow_form_page.dart';
 
 class FlowsPage extends StatelessWidget {
 
@@ -105,6 +107,12 @@ class FlowsPage extends StatelessWidget {
           onTap: () {
             Get.put(FlowDetailController(item['id']));
             Get.to(() => const FlowDetailPage())?.then((value) => Get.delete<FlowDetailController>());
+          },
+          onLongPress: () {
+            Get.put(FlowFormController(item['type'], 3, item));
+            Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+              (value) => Get.delete<FlowFormController>()
+            );
           },
         );
       },

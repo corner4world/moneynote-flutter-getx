@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/utils/utils.dart';
 import '../../common/select/select_controller.dart';
 import '../../common/select/select_option.dart';
 import '/app/core/components/form/my_form_date.dart';
@@ -19,7 +20,10 @@ class AccountAdjustPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AccountAdjustController>(builder: (controller) {
       return MyFormPage(
-        title: Text(LocaleKeys.account_adjustPageTitle.tr),
+        title: Text(LocaleKeys.common_formTitle.trParams({
+          'action': translateAction(controller.action),
+          'name': LocaleKeys.account_adjustPageTitle.tr
+        })),
         actions: [
           IconButton(
             icon: const Icon(Icons.done),
@@ -63,15 +67,17 @@ class AccountAdjustPage extends StatelessWidget {
               controller.update();
             },
           ),
-          MyFormText(
-            required: true,
-            label: LocaleKeys.flow_currentBalance.tr,
-            value: controller.form['balance'],
-            onChange: (value) {
-              Get.find<AccountAdjustController>().balanceChanged(value);
-            },
-            errorText: (controller.balanceFormz.isPure || controller.balanceFormz.isValid)? null : controller.balanceFormz.displayError == NotEmptyNumError.empty ? LocaleKeys.error_empty.tr : LocaleKeys.error_format.tr,
-          ),
+          if (controller.action == 1) ...[
+            MyFormText(
+              required: true,
+              label: LocaleKeys.flow_currentBalance.tr,
+              value: controller.form['balance'],
+              onChange: (value) {
+                Get.find<AccountAdjustController>().balanceChanged(value);
+              },
+              errorText: (controller.balanceFormz.isPure || controller.balanceFormz.isValid)? null : controller.balanceFormz.displayError == NotEmptyNumError.empty ? LocaleKeys.error_empty.tr : LocaleKeys.error_format.tr,
+            ),
+          ],
           MyFormText(
             label: LocaleKeys.common_notes.tr,
             value: controller.form['notes'],

@@ -88,6 +88,7 @@
     "detailTitle": "Balance Flow Detail",
     "createTime": "Create Time",
     "account": "Account",
+    "from": "From Account",
     "to": "To Account",
     "payee": "Payee",
     "category": "Category",

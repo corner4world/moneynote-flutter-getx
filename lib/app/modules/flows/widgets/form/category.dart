@@ -32,6 +32,7 @@ class Category extends StatelessWidget {
           values: controller.categories,
           onSelect: (values) {
             Get.find<FlowFormController>().changeCategory(values);
+            Get.back();
           },
         ));
       },

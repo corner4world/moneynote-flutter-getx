@@ -74,8 +74,6 @@ class LocaleKeys {
       'account_detailLabelCanTransferFrom';
   static const account_detailLabelNo = 'account_detailLabelNo';
   static const account_adjustPageTitle = 'account_adjustPageTitle';
-  static const account_new = 'account_new';
-  static const account_edit = 'account_edit';
   static const my_userName = 'my_userName';
   static const my_currentBook = 'my_currentBook';
   static const my_currentTheme = 'my_currentTheme';
@@ -92,6 +90,7 @@ class LocaleKeys {
   static const flow_detailTitle = 'flow_detailTitle';
   static const flow_createTime = 'flow_createTime';
   static const flow_account = 'flow_account';
+  static const flow_from = 'flow_from';
   static const flow_to = 'flow_to';
   static const flow_payee = 'flow_payee';
   static const flow_category = 'flow_category';
@@ -192,8 +191,6 @@ class Locales {
     'account_detailLabelCanTransferFrom': 'Can Transfer Out',
     'account_detailLabelNo': 'No',
     'account_adjustPageTitle': 'Adjust Account Balance',
-    'account_new': 'New Account',
-    'account_edit': 'Edit Account',
     'my_userName': 'User Name: ',
     'my_currentBook': 'Current Book: ',
     'my_currentTheme': 'Current Theme: ',
@@ -210,6 +207,7 @@ class Locales {
     'flow_detailTitle': 'Balance Flow Detail',
     'flow_createTime': 'Create Time',
     'flow_account': 'Account',
+    'flow_from': 'From Account',
     'flow_to': 'To Account',
     'flow_payee': 'Payee',
     'flow_category': 'Category',
@@ -309,8 +307,6 @@ class Locales {
     'account_detailLabelCanTransferFrom': '是否可转出',
     'account_detailLabelNo': '卡号',
     'account_adjustPageTitle': '调整账户余额',
-    'account_new': '新增账户',
-    'account_edit': '编辑账户',
     'my_userName': '用户名: ',
     'my_currentBook': '当前账本: ',
     'my_currentTheme': '当前主题: ',
@@ -331,6 +327,7 @@ class Locales {
     'flow_category': '分类',
     'flow_tag': '标签',
     'flow_amount': '金额',
+    'flow_from': '转出账户',
     'flow_to': '转入账户',
     'flow_confirm': '是否确认',
     'flow_include': '是否统计',

@@ -112,6 +112,16 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
                       } : null,
                       label: Text(LocaleKeys.common_submit.tr)
                     ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.refresh),
+                      onPressed: () {
+                        Get.find<FlowFormController>().reset();
+                      },
+                      label: Text(LocaleKeys.common_reset.tr)
+                    ),
                   )
                 ],
               ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:moneynote/app/modules/flows/controllers/flow_form_controller.dart';
-import 'package:moneynote/app/modules/flows/flow_form_page.dart';
+import '/app/modules/flows/controllers/flow_form_controller.dart';
+import '/app/modules/flows/flow_form_page.dart';
+import '../accounts/controllers/account_adjust_controller.dart';
+import '../accounts/ui/account_adjust_page.dart';
 import '/app/core/utils/utils.dart';
 import '../../core/components/detail_item.dart';
 import '/app/core/components/dialog_confirm.dart';
-import '/app/modules/login/controllers/auth_controller.dart';
 import '/generated/locales.g.dart';
 import '/app/core/base/enums.dart';
 import '/app/core/components/pages/index.dart';
@@ -108,57 +109,69 @@ class FlowDetailPage extends StatelessWidget {
 
   List<Widget> _actionBar(BuildContext context, Map<String, dynamic> item) {
     return [
-      SizedBox(
-        width: double.infinity,
-        child: ElevatedButton.icon(
-          onPressed: () {
-            Get.put(FlowFormController(item['type'], 3, item));
-            Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
-              (value) => Get.delete<FlowFormController>()
-            );
-          },
-          icon: const Icon(Icons.copy, size: 15),
-          label: Text(LocaleKeys.common_copy.tr),
-        ),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: ElevatedButton.icon(
-          onPressed: () {
-            Get.put(FlowFormController(item['type'], 4, item));
-            Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
-              (value) => Get.delete<FlowFormController>()
-            );
-          },
-          icon: const Icon(Icons.undo, size: 15),
-          label: Text(LocaleKeys.flow_refund.tr)
-        ),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: DialogConfirm(
-            content: LocaleKeys.common_confirmDialogTitle.tr,
-            enable: item['confirm'] != null && !item['confirm'],
-            child: AbsorbPointer(
-              child: ElevatedButton.icon(
-                onPressed: (item['confirm'] != null && !item['confirm']) ? () { } : null,
-                icon: const Icon(Icons.done, size: 15),
-                label: Text(LocaleKeys.flow_confirmBtn.tr),
-              ),
-            ),
-            onConfirm: () {
-              //BlocProvider.of<SimpleActionBloc>(context).add(SimpleActionReloaded(uri: "balance-flows/${item['id']}/confirm"));
-            }
-        ),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: ElevatedButton.icon(
+      if (item['type'] != 'ADJUST') ...[
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton.icon(
             onPressed: () {
-              // fullDialog(context, FlowFormPage(action: 4, currentRow: item));
+              Get.put(FlowFormController(item['type'], 3, item));
+              Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+                (value) => Get.delete<FlowFormController>()
+              );
             },
-            icon: const Icon(Icons.edit, size: 15),
-            label: Text(LocaleKeys.common_edit.tr)
+            icon: const Icon(Icons.copy, size: 15),
+            label: Text(LocaleKeys.common_copy.tr),
+          ),
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton.icon(
+            onPressed: () {
+              Get.put(FlowFormController(item['type'], 4, item));
+              Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+                      (value) => Get.delete<FlowFormController>()
+              );
+            },
+            icon: const Icon(Icons.undo, size: 15),
+            label: Text(LocaleKeys.flow_refund.tr)
+          ),
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: DialogConfirm(
+              content: LocaleKeys.common_confirmDialogTitle.tr,
+              enable: item['confirm'] != null && !item['confirm'],
+              child: AbsorbPointer(
+                child: ElevatedButton.icon(
+                  onPressed: (item['confirm'] != null && !item['confirm']) ? () { } : null,
+                  icon: const Icon(Icons.done, size: 15),
+                  label: Text(LocaleKeys.flow_confirmBtn.tr),
+                ),
+              ),
+              onConfirm: () {
+                //BlocProvider.of<SimpleActionBloc>(context).add(SimpleActionReloaded(uri: "balance-flows/${item['id']}/confirm"));
+              }
+          ),
+        ),
+      ],
+      SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+          onPressed: () {
+            if (item['type'] == 'ADJUST') {
+              Get.put(AccountAdjustController(2, item));
+              Get.to(() => const AccountAdjustPage(), fullscreenDialog: true)?.then(
+                (value) => Get.delete<AccountAdjustController>()
+              );
+            } else {
+              Get.put(FlowFormController(item['type'], 2, item));
+              Get.to(() => const FlowFormPage(), fullscreenDialog: true)?.then(
+                (value) => Get.delete<FlowFormController>()
+              );
+            }
+          },
+          icon: const Icon(Icons.edit, size: 15),
+          label: Text(LocaleKeys.common_edit.tr)
         ),
       ),
       SizedBox(

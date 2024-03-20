@@ -20,7 +20,6 @@ class AccountFormPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AccountFormController>(builder: (controller) {
       return MyFormPage(
-        // title: Text(controller.action == 1 ? LocaleKeys.account_new.tr : LocaleKeys.account_edit.tr),
         title: Text(LocaleKeys.common_formTitle.trParams({
           'action': translateAction(controller.action),
           'name': LocaleKeys.menu_account.tr

@@ -19,7 +19,7 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     return MySelect(
       required: controller.type == 'TRANSFER',
-      label: LocaleKeys.flow_account.tr,
+      label: controller.type == 'TRANSFER'? LocaleKeys.flow_from.tr : LocaleKeys.flow_account.tr,
       value: controller.form['account'],
       onFocus: () {
         Map<String, dynamic> query = { };

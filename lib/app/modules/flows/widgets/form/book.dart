@@ -19,6 +19,7 @@ class Book extends StatelessWidget {
   Widget build(BuildContext context) {
     return MySelect(
       required: true,
+      readOnly: controller.action != 1,
       label: LocaleKeys.book_whichBook.tr,
       value: controller.form['book'],
       onFocus: () {
@@ -27,8 +28,7 @@ class Book extends StatelessWidget {
           title: LocaleKeys.book_whichBook.tr,
           value: controller.form['book'],
           onSelect: (value) {
-            controller.form['book'] = value;
-            controller.update();
+            Get.find<FlowFormController>().changeBook(value);
             Get.back();
           },
         ));

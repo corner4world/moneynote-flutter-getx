@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:formz/formz.dart';
+import 'package:moneynote/app/modules/flows/controllers/flow_detail_controller.dart';
 import '../../../core/utils/message.dart';
 import '/app/modules/accounts/controllers/account_detail_controller.dart';
 import '/app/modules/accounts/controllers/accounts_controller.dart';
@@ -23,8 +24,17 @@ class AccountAdjustController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    form['createTime'] = action == 1 ? DateTime.now().millisecondsSinceEpoch : currentRow['createTime'];
-    form['book'] = Get.find<AuthController>().initState['book'];
+    if (action == 1) {
+      form['createTime'] = DateTime.now().millisecondsSinceEpoch;
+      form['book'] = Get.find<AuthController>().initState['book'];
+    } else {
+      valid = true;
+      form['book'] = currentRow['book'];
+      form['title'] = currentRow['title'];
+      form['createTime'] = currentRow['createTime'];
+      form['notes'] = currentRow['notes'];
+    }
+
   }
 
   void balanceChanged(String value) {
@@ -53,9 +63,13 @@ class AccountAdjustController extends BaseController {
         }
         if (result) {
           Get.back();
-          // 更新成功要刷新列表页和详情页
-          Get.find<AccountsController>().reload();
-          Get.find<AccountDetailController>().load();
+          if (action == 1) {
+            // 更新成功要刷新列表页和详情页
+            Get.find<AccountsController>().reload();
+            Get.find<AccountDetailController>().load();
+          } else {
+            Get.find<FlowDetailController>().load();
+          }
         }
       } catch (_) {
         _.printError();
