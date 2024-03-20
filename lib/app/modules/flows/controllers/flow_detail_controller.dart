@@ -46,4 +46,16 @@ class FlowDetailController extends BaseController {
     }
   }
 
+  void confirm() async {
+    try {
+      Message.showLoading();
+      final result = await BaseRepository.action('balance-flows/${item['id']}/confirm');
+      if (result) {
+        Get.find<FlowDetailController>().load();
+      }
+    } catch (_) {
+      _.printError();
+    }
+  }
+
 }

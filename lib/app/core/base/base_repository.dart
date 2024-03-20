@@ -44,6 +44,8 @@ class BaseRepository {
     return (await Http.put('$prefix/$id', data: form))['success'];
   }
 
-
+  static Future<bool> action(String uri) async {
+    return (await Http.patch(uri))['success'];
+  }
 
 }

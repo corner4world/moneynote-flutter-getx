@@ -58,9 +58,14 @@ class FlowFormController extends BaseController {
         form['payee'] = currentRow['payee'];
       }
       if (type == 'TRANSFER') {
-        form['to'] = currentRow['to'];
         form['amount'] = currentRow['amount'];
         form['convertedAmount'] = currentRow['convertedAmount'];
+        if (action == 4) {
+          form['account'] = currentRow['to'];
+          form['to'] = currentRow['account'];
+        } else {
+          form['to'] = currentRow['to'];
+        }
       }
       form['tags'] = currentRow['tags'].map((e) => e['tag']).toList();
     }

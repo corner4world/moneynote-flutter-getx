@@ -149,7 +149,7 @@ class FlowDetailPage extends StatelessWidget {
                 ),
               ),
               onConfirm: () {
-                //BlocProvider.of<SimpleActionBloc>(context).add(SimpleActionReloaded(uri: "balance-flows/${item['id']}/confirm"));
+                Get.find<FlowDetailController>().confirm();
               }
           ),
         ),
