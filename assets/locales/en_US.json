@@ -96,6 +96,7 @@
     "amount": "Amount",
     "confirm": "Confirm",
     "include": "Include",
+    "file": "File",
     "hasFile": "File",
     "currentBalance": "Current Balance",
     "listPageTitle": "Balance Flow",
@@ -112,6 +113,9 @@
     "refund": "Refund",
     "confirmBtn": "Confirm",
     "addFile": "File",
+    "pdfError": "The PDF file does not support previewing. Please copy the address and open it using a web browser.",
+    "filePreviewTitle": "Balance Flow File",
+    "fileCopy": "Copy File Address",
     "deleteConfirm": "Are you sure? It will also change roll back account balance."
   },
   "theme": {

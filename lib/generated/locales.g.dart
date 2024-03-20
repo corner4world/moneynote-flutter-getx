@@ -98,6 +98,7 @@ class LocaleKeys {
   static const flow_amount = 'flow_amount';
   static const flow_confirm = 'flow_confirm';
   static const flow_include = 'flow_include';
+  static const flow_file = 'flow_file';
   static const flow_hasFile = 'flow_hasFile';
   static const flow_currentBalance = 'flow_currentBalance';
   static const flow_listPageTitle = 'flow_listPageTitle';
@@ -114,6 +115,9 @@ class LocaleKeys {
   static const flow_refund = 'flow_refund';
   static const flow_confirmBtn = 'flow_confirmBtn';
   static const flow_addFile = 'flow_addFile';
+  static const flow_pdfError = 'flow_pdfError';
+  static const flow_filePreviewTitle = 'flow_filePreviewTitle';
+  static const flow_fileCopy = 'flow_fileCopy';
   static const flow_deleteConfirm = 'flow_deleteConfirm';
   static const theme_default = 'theme_default';
   static const theme_purple = 'theme_purple';
@@ -215,6 +219,7 @@ class Locales {
     'flow_amount': 'Amount',
     'flow_confirm': 'Confirm',
     'flow_include': 'Include',
+    'flow_file': 'File',
     'flow_hasFile': 'File',
     'flow_currentBalance': 'Current Balance',
     'flow_listPageTitle': 'Balance Flow',
@@ -231,6 +236,10 @@ class Locales {
     'flow_refund': 'Refund',
     'flow_confirmBtn': 'Confirm',
     'flow_addFile': 'File',
+    'flow_pdfError':
+        'The PDF file does not support previewing. Please copy the address and open it using a web browser.',
+    'flow_filePreviewTitle': 'Balance Flow File',
+    'flow_fileCopy': 'Copy File Address',
     'flow_deleteConfirm':
         'Are you sure? It will also change roll back account balance.',
     'theme_default': 'Default',
@@ -331,6 +340,7 @@ class Locales {
     'flow_to': '转入账户',
     'flow_confirm': '是否确认',
     'flow_include': '是否统计',
+    'flow_file': '文件',
     'flow_hasFile': '文件',
     'flow_currentBalance': '当前余额',
     'flow_listPageTitle': '账单列表',
@@ -347,6 +357,9 @@ class Locales {
     'flow_refund': '退款',
     'flow_confirmBtn': '确认',
     'flow_addFile': '文件',
+    'flow_pdfError': 'PDF不支持预览，复制地址之后，使用浏览器打开。',
+    'flow_filePreviewTitle': '账单文件',
+    'flow_fileCopy': '复制地址',
     'flow_deleteConfirm': '删除账单会撤回对应账户余额变动且无法恢复，确定删除吗？',
     'theme_default': '默认',
     'theme_purple': '紫色',

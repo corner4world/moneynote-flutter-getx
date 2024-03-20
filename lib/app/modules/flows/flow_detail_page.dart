@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moneynote/app/modules/flows/widgets/flow_file_list.dart';
 import '/app/modules/flows/controllers/flow_form_controller.dart';
 import '/app/modules/flows/flow_form_page.dart';
 import '../accounts/controllers/account_adjust_controller.dart';
@@ -95,6 +96,7 @@ class FlowDetailPage extends StatelessWidget {
                     value: item['notes'],
                     crossAlign: CrossAxisAlignment.start,
                   ),
+                  FlowFileList(controller: controller),
                   const SizedBox(height: 15),
                   ..._actionBar(context, controller.item),
                 ],
@@ -207,9 +209,9 @@ class FlowDetailPage extends StatelessWidget {
                             final ImagePicker picker = ImagePicker();
                             final XFile? photo = await picker.pickImage(source: ImageSource.camera);
                             if (photo != null) {
-                              //BlocProvider.of<FlowImageBloc>(context).add(FlowImageUploaded(id, photo.path));
+                              Get.find<FlowDetailController>().uploadFile(photo.path);
                             }
-                            Navigator.pop(context);
+                            Get.back();
                           },
                         ),
                         ListTile(
@@ -219,9 +221,9 @@ class FlowDetailPage extends StatelessWidget {
                             final ImagePicker picker = ImagePicker();
                             final XFile? file = await picker.pickImage(source: ImageSource.gallery);
                             if (file != null) {
-                              //BlocProvider.of<FlowImageBloc>(context).add(FlowImageUploaded(id, file.path));
+                              Get.find<FlowDetailController>().uploadFile(file.path);
                             }
-                            Navigator.pop(context);
+                            Get.back();
                           },
                         ),
                         const SizedBox(height: 10),

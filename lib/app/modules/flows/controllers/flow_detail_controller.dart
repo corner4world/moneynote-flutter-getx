@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../flow_repository.dart';
 import '/app/core/utils/message.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/core/base/enums.dart';
@@ -18,6 +19,7 @@ class FlowDetailController extends BaseController {
   void onInit() {
     super.onInit();
     load();
+    loadFiles();
   }
 
   void load() async {
@@ -56,6 +58,50 @@ class FlowDetailController extends BaseController {
     } catch (_) {
       _.printError();
     }
+  }
+
+  // 文件
+  LoadDataStatus fileStatus = LoadDataStatus.initial;
+  List<Map<String, dynamic>> fileItems = [];
+  LoadDataStatus deleteFileStatus = LoadDataStatus.initial;
+  LoadDataStatus uploadFileStatus = LoadDataStatus.initial;
+
+  void loadFiles() async {
+    try {
+      fileStatus = LoadDataStatus.progress;
+      update();
+      fileItems = await FlowRepository.getFiles(id);
+      status = LoadDataStatus.success;
+      update();
+    } catch (_) {
+      status = LoadDataStatus.failure;
+      update();
+    }
+  }
+
+  void deleteFile(fileId) async {
+    try {
+      Message.showLoading();
+      final result = await BaseRepository.delete('flow-files', fileId);
+      if (result) {
+        Get.find<FlowDetailController>().loadFiles();
+      }
+    } catch (_) {
+      _.printError();
+    }
+  }
+
+  void uploadFile(filePath) async {
+    try {
+      Message.showLoading();
+      final result = await FlowRepository.uploadFile(id, filePath);
+      if (result) {
+        Get.find<FlowDetailController>().loadFiles();
+      }
+    } catch (_) {
+      _.printError();
+    }
+    Message.disLoading();
   }
 
 }

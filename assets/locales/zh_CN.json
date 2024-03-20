@@ -96,6 +96,7 @@
     "to": "转入账户",
     "confirm": "是否确认",
     "include": "是否统计",
+    "file": "文件",
     "hasFile": "文件",
     "currentBalance": "当前余额",
     "listPageTitle": "账单列表",
@@ -112,6 +113,9 @@
     "refund": "退款",
     "confirmBtn": "确认",
     "addFile": "文件",
+    "pdfError": "PDF不支持预览，复制地址之后，使用浏览器打开。",
+    "filePreviewTitle": "账单文件",
+    "fileCopy": "复制地址",
     "deleteConfirm": "删除账单会撤回对应账户余额变动且无法恢复，确定删除吗？"
   },
   "theme": {
