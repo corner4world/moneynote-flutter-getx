@@ -36,6 +36,7 @@ class _FlowFormPageState extends State<FlowFormPage> with TickerProviderStateMix
     if (action == 1) {
       return TabBar(
         controller: tabController,
+        labelPadding: const EdgeInsets.all(0),
         tabs: [
           Tab(text: LocaleKeys.flow_type1.tr),
           Tab(text: LocaleKeys.flow_type2.tr),
