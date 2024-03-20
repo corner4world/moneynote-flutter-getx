@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'dart:convert';
+import '../../../core/utils/utils.dart';
 import '../../../network/http.dart';
 import '/app/core/base/base_repository.dart';
 import '/app/modules/flows/controllers/flow_detail_controller.dart';
@@ -27,7 +28,6 @@ class FlowFormController extends BaseController {
   }
 
   void reset() {
-    valid = true;
     form = { };
     // 必须加上，否则form['categories'].firstWhere报错
     form['categories'] = [];
@@ -69,6 +69,7 @@ class FlowFormController extends BaseController {
       }
       form['tags'] = currentRow['tags'].map((e) => e['tag']).toList();
     }
+    valid = _checkValid();
     update();
   }
 
@@ -131,6 +132,39 @@ class FlowFormController extends BaseController {
       }
     }
   }
+  bool _checkValid() {
+    if (type != 'TRANSFER') {
+      if (categories.isEmpty) {
+        return false;
+      }
+      for (var categoryAmount in form['categories']) {
+        if (!validAmount(categoryAmount['amount'].toString())) {
+          return false;
+        }
+        if (needConvert) {
+          if (!validAmount(categoryAmount['convertedAmount'].toString())) {
+            return false;
+          }
+        }
+      }
+    } else {
+      if (form['account'] == null) {
+        return false;
+      }
+      if (form['to'] == null) {
+        return false;
+      }
+      if (!validAmount(form['amount'].toString())) {
+        return false;
+      }
+      if (needConvert) {
+        if (!validAmount(form['convertedAmount'].toString())) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 
   void changeBook(value) {
     form['book'] = value;
@@ -138,6 +172,7 @@ class FlowFormController extends BaseController {
     _loadCategoryByBook(value);
     form['payee'] = null;
     form['tags'] = null;
+    valid = _checkValid();
     update();
   }
 
@@ -155,6 +190,7 @@ class FlowFormController extends BaseController {
     _loadCategoryByBook(form['book']);
     form['payee'] = null;
     form['tags'] = null;
+    valid = _checkValid();
     update();
   }
 
@@ -171,6 +207,11 @@ class FlowFormController extends BaseController {
         };
       });
     }));
+    update();
+  }
+
+  void checkValid() {
+    valid = _checkValid();
     update();
   }
 

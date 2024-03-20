@@ -39,7 +39,7 @@ class Account extends StatelessWidget {
           value: controller.form['account'],
           onSelect: (value) {
             controller.form['account'] = value;
-            controller.update();
+            controller.checkValid();
             Get.back();
           },
         ));

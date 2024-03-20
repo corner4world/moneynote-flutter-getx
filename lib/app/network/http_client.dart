@@ -24,8 +24,8 @@ class HttpClient {
       headers: {
         'Accept-Language': getx.Get.locale.toString().replaceAll("_", "-")
       },
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 60),
+      receiveTimeout: const Duration(seconds: 120),
     );
     _dio = Dio(baseOptions);
     _dio.interceptors.add(TokenInterceptor());

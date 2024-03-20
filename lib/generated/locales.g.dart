@@ -31,6 +31,8 @@ class LocaleKeys {
   static const common_reset = 'common_reset';
   static const common_camera = 'common_camera';
   static const common_gallery = 'common_gallery';
+  static const common_loading = 'common_loading';
+  static const common_uploading = 'common_uploading';
   static const common_minTime = 'common_minTime';
   static const common_maxTime = 'common_maxTime';
   static const menu_account = 'menu_account';
@@ -157,6 +159,8 @@ class Locales {
     'common_reset': 'Reset',
     'common_camera': 'Camera',
     'common_gallery': 'Gallery',
+    'common_loading': 'loading...',
+    'common_uploading': 'uploading...',
     'common_minTime': 'Start Date',
     'common_maxTime': 'End Date',
     'menu_account': 'Account',
@@ -278,6 +282,8 @@ class Locales {
     'common_reset': '重置',
     'common_camera': '拍照',
     'common_gallery': '图片库',
+    'common_loading': '加载中...',
+    'common_uploading': '上传中...',
     'common_minTime': '起始日期',
     'common_maxTime': '终止日期',
     'menu_account': '账户',

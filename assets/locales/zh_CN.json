@@ -20,6 +20,8 @@
     "reset": "重置",
     "camera": "拍照",
     "gallery": "图片库",
+    "loading": "加载中...",
+    "uploading": "上传中...",
     "minTime": "起始日期",
     "maxTime": "终止日期"
   },

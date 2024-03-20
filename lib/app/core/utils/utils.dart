@@ -132,3 +132,11 @@ void reloadState() {
     Get.find<AccountOverviewController>().load();
   }
 }
+
+bool validAmount(String? value) {
+  if (value?.isEmpty ?? true) {
+    return false;
+  }
+  RegExp regex = RegExp(r'(^-?\d{1,9}(\.\d{0,2})?$)');
+  return regex.hasMatch(value!);
+}

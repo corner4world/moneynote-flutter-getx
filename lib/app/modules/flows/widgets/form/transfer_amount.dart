@@ -24,7 +24,7 @@ class TransferAmount extends StatelessWidget {
           value: controller.form['amount'],
           onChange: (value) {
             controller.form['amount'] = value;
-            controller.update();
+            controller.checkValid();
           },
         ),
         if (controller.needConvert) ...[
@@ -35,7 +35,7 @@ class TransferAmount extends StatelessWidget {
             value: controller.form['convertedAmount'],
             onChange: (value) {
               controller.form['convertedAmount'] = value;
-              controller.update();
+              controller.checkValid();
             },
           )
         ]

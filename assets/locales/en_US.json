@@ -20,6 +20,8 @@
     "reset": "Reset",
     "camera": "Camera",
     "gallery": "Gallery",
+    "loading": "loading...",
+    "uploading": "uploading...",
     "minTime": "Start Date",
     "maxTime": "End Date"
   },

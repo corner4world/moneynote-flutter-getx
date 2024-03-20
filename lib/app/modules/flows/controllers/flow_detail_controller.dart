@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:moneynote/generated/locales.g.dart';
 import '../flow_repository.dart';
 import '/app/core/utils/message.dart';
 import '/app/core/base/base_repository.dart';
@@ -93,7 +94,7 @@ class FlowDetailController extends BaseController {
 
   void uploadFile(filePath) async {
     try {
-      Message.showLoading();
+      Message.showLoading(msg: LocaleKeys.common_uploading.tr);
       final result = await FlowRepository.uploadFile(id, filePath);
       if (result) {
         Get.find<FlowDetailController>().loadFiles();

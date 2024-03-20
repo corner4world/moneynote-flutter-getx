@@ -26,8 +26,7 @@ class Amount extends StatelessWidget {
               value: e['amount'],
               onChange: (value) {
                 e['amount'] = value;
-                controller.update();
-                //context.read<FlowFormBloc>().add(CategoryAmountChanged(e['categoryId'], value));
+                controller.checkValid();
               },
             ),
             if (controller.needConvert) ...[
@@ -43,8 +42,7 @@ class Amount extends StatelessWidget {
                       value: e['convertedAmount'],
                       onChange: (value) {
                         e['convertedAmount'] = value;
-                        controller.update();
-                        // context.read<FlowFormBloc>().add(CategoryConvertedAmountChanged(e['categoryId'], value));
+                        controller.checkValid();
                       },
                     ),
                   ),
