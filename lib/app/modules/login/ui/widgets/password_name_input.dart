@@ -12,7 +12,6 @@ class PasswordInput extends StatelessWidget {
     return GetBuilder<LoginController>(builder: (controller) {
       return TextField(
         onChanged: (value) { Get.find<LoginController>().passwordChanged(value); },
-        obscureText: true,
         decoration: InputDecoration(
           hintText: LocaleKeys.user_passwordPlaceholder.tr,
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),

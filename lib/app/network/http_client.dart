@@ -86,11 +86,18 @@ class ExceptionInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError e, handler) {
-    String errorMsg = e.response?.data['message'] ?? LocaleKeys.common_netError.tr;
-    print(e);
+  void onError(DioException err, handler) {
+    String errorMsg = '';
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx and is also not 304.
+    if (err.response != null) {
+      errorMsg = err.response?.data['message'] ?? LocaleKeys.common_netError.tr;
+    } else {
+      // Something happened in setting up or sending the request that triggered an Error
+      errorMsg = '${err.type} - ${err.message}';
+    }
     Message.error(errorMsg);
-    super.onError(e, handler);
+    super.onError(err, handler);
   }
 
 }
