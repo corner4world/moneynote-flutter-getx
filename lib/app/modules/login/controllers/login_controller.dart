@@ -24,6 +24,7 @@ class LoginController extends BaseController {
     super.onInit();
     if (AppValues.apiUrl.isNotEmpty) {
       apiController.value = apiController.value.copyWith(text: AppValues.apiUrl);
+      apiFormz = NotEmptyFormz.dirty(value: AppValues.apiUrl);
     }
   }
 

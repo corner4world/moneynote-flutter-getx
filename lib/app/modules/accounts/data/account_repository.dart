@@ -11,7 +11,7 @@ class AccountRepository {
   }
 
   static Future<List<num>> balanceView() async {
-    dynamic data = (await Http.get('/accounts/overview'))['data'];
+    dynamic data = (await Http.get('accounts/overview'))['data'];
     return List<num>.from(data);
   }
 
