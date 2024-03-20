@@ -54,6 +54,7 @@ class ChartsController extends BaseController {
       status = LoadDataStatus.success;
       update();
     } catch (_) {
+      _.printError();
       status = LoadDataStatus.failure;
       update();
     }

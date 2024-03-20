@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:moneynote/app/core/utils/utils.dart';
+import '/app/core/utils/utils.dart';
 import '/app/modules/login/controllers/auth_controller.dart';
 import '../data/login_repository.dart';
 import '/app/core/commons/form/not_empty_formz.dart';
@@ -14,7 +14,7 @@ class LoginController extends BaseController {
   FormzSubmissionStatus submissionStatus = FormzSubmissionStatus.initial;
   NotEmptyFormz usernameFormz = const NotEmptyFormz.pure();
   NotEmptyFormz passwordFormz = const NotEmptyFormz.pure();
-  NotEmptyFormz apiFormz = NotEmptyFormz.dirty(value: AppValues.apiUrl);
+  NotEmptyFormz apiFormz = const NotEmptyFormz.pure();
   TextEditingController apiController = TextEditingController();
 
   AuthController authController = Get.find<AuthController>();
@@ -22,7 +22,9 @@ class LoginController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    apiController.value = apiController.value.copyWith(text: AppValues.apiUrl);
+    if (AppValues.apiUrl.isNotEmpty) {
+      apiController.value = apiController.value.copyWith(text: AppValues.apiUrl);
+    }
   }
 
   void usernameChanged(String username) {

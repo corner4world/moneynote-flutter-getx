@@ -17,10 +17,9 @@ class HttpClient {
 
   late Dio _dio;
   init() {
-
     BaseOptions baseOptions = BaseOptions(
       // baseUrl: 'http://192.168.2.4:9092/api/v1/',
-      baseUrl: '${AppValues.apiUrl}/api/v1/',
+      // baseUrl: '${AppValues.apiUrl}/api/v1/',
       contentType: 'application/json',
       headers: {
         'Accept-Language': getx.Get.locale.toString().replaceAll("_", "-")
