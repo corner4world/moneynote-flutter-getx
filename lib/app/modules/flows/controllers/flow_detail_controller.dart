@@ -99,6 +99,7 @@ class FlowDetailController extends BaseController {
         Get.find<FlowDetailController>().loadFiles();
       }
     } catch (_) {
+      Message.error(_.toString());
       _.printError();
     }
     Message.disLoading();
